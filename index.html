@@ -1,0 +1,3105 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Kieran Schofield — UK-based VFX artist specialising in compositing, CG and visual effects." name="description"/>
+<title>Kieran Schofield VFX</title>
+<style>
+:root {
+  color-scheme: dark;
+  --site-primary: #6aa9ff;
+  --site-secondary: #16191c;
+  --site-background: #060608;
+  --site-on-primary: #12181f;
+  --site-on-secondary: #f2f5fa;
+  --site-on-background: #f2f5f8;
+  --site-font-body: Inter, "Helvetica Neue", Arial, sans-serif;
+  --site-font-heading: "Helvetica Neue", Arial, sans-serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--site-font-body); background: light-dark(#f7f8fa, var(--site-background)); color: light-dark(#15181c, var(--site-on-background)); line-height: 1.55; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+#site-root { background-color: light-dark(#f7f8fa, var(--site-background)); color: light-dark(#15181c, var(--site-on-background)); min-height: 100vh; border-radius: 0; overflow: hidden; }
+.wrap { width: min(1160px, calc(100% - 64px)); margin: 0 auto; }
+.topbar { border-bottom: 1px solid light-dark(#d9dde3, #272a2e); }
+.nav { min-height: calc(78px * var(--site-spacing-scale)); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 13px; letter-spacing: .11em; font-size: 11px; text-transform: uppercase; font-weight: 700; }
+.brand small { display:block; margin-top:2px; color:light-dark(#71777f,#a2a8b0); font-size:9px; font-weight:500; letter-spacing:.2em; }
+.navlinks { display:flex; align-items:center; gap:18px; color:light-dark(#5a6067,#b1b7bf); }
+.navlinks a:not(.contact-link) { position:relative; display:grid; place-items:center; width:38px; height:38px; border-radius:50%; color:light-dark(#8a919a,#aeb7c2); }
+.nav-icon { display:block; width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.55; stroke-linecap:round; stroke-linejoin:round; }
+.navlinks a:not(.contact-link)::after { content:attr(data-label); position:absolute; z-index:20; top:calc(100% + 9px); left:50%; padding:7px 10px; border:1px solid light-dark(#d7dce3,#31363d); border-radius:4px; background:light-dark(#fff,#11151a); color:light-dark(#242a31,#e1e9f2); font-size:9px; font-weight:600; letter-spacing:.1em; line-height:1.2; text-transform:uppercase; white-space:nowrap; opacity:0; pointer-events:none; transform:translate(-50%,-4px); transition:opacity .16s ease, transform .16s ease; }
+.navlinks a:not(.contact-link):hover,
+.navlinks a:not(.contact-link):focus-visible,
+.navlinks a:not(.contact-link)[aria-current="page"] { color:var(--site-primary); }
+.navlinks a:not(.contact-link):hover::after,
+.navlinks a:not(.contact-link):focus-visible::after { opacity:1; transform:translate(-50%,0); }
+.navlinks a:not(.contact-link):focus-visible { outline:2px solid var(--site-primary); outline-offset:2px; }
+.navlinks a:hover, .text-link:hover { color: var(--site-primary); }
+.navlinks .contact-link { color:light-dark(#15181c,#f4f7fb); border:1px solid light-dark(#c3c9d1,#454c55); padding:9px 14px; border-radius:calc(999px * var(--site-radius-scale)); }
+.hero { padding: calc(80px * var(--site-spacing-scale)) 0 calc(68px * var(--site-spacing-scale)); display:grid; grid-template-columns: .94fr 1.06fr; gap:calc(54px * var(--site-spacing-scale)); align-items:center; }
+.kicker { font-size:10px; font-weight:700; letter-spacing:.23em; text-transform:uppercase; color:var(--site-primary); display:flex; align-items:center; gap:11px; }
+.kicker:before { content:""; width:27px; height:1px; background:var(--site-primary); }
+h1,h2,h3,p { margin-top:0; }
+h1 { font-family: var(--site-font-heading); font-weight:500; letter-spacing:-.06em; line-height:.97; font-size:calc(clamp(46px,5.7vw,77px) * var(--site-heading-scale)); margin:24px 0 22px; }
+h1 span { display:block; color:light-dark(#71777f,#888f98); font-weight:400; }
+.hero p { max-width:430px; color:light-dark(#5d6269,#b0b6bd); font-size:15px; line-height:1.8; }
+.actions { display:flex; align-items:center; gap:21px; margin-top:28px; flex-wrap:wrap; }
+.primary-button { display:inline-flex; align-items:center; gap:11px; padding:calc(13px * var(--site-spacing-scale)) calc(17px * var(--site-spacing-scale)); border-radius:calc(3px * var(--site-radius-scale)); background:var(--site-primary); color:var(--site-on-primary); font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; transition:transform .2s, background .2s; }
+.primary-button:hover { transform:translateY(-2px); background:#c0dbff; }
+.text-link { display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:.1em; font-weight:700; text-transform:uppercase; }
+.arrow { font-size:16px; }
+.reel-card { position:relative; min-height:330px; background:#111417; border:1px solid light-dark(#d1d7de,#2c323a); padding:7px; box-shadow:0 30px 75px rgba(0,0,0,.20); }
+.reel-visual { display:block; position:relative; min-height:315px; height:100%; overflow:hidden; background:#08080b; }
+.reel-visual img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(.92) contrast(1.03); }
+.reel-visual:after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(8,11,15,.18),rgba(8,12,17,.05) 52%,rgba(8,11,15,.5)),linear-gradient(0deg,rgba(6,8,11,.76),transparent 45%); pointer-events:none; }
+.play { position:absolute; z-index:2; left:50%; top:45%; transform:translate(-50%,-50%); width:58px; height:58px; display:grid; place-items:center; border-radius:50%; color:#fff; background:rgba(12,15,18,.52); border:1px solid rgba(255,255,255,.76); backdrop-filter:blur(5px); font-size:19px; padding-left:3px; transition:background .2s, transform .2s; }
+.reel-visual:hover .play { background:var(--site-primary); color:#12181f; transform:translate(-50%,-50%) scale(1.06); }
+.reel-caption { position:absolute; z-index:2; left:24px; right:24px; bottom:19px; display:flex; justify-content:space-between; align-items:end; gap:15px; }
+.reel-caption strong { display:block; font-size:16px; font-weight:600; letter-spacing:-.02em; }
+.reel-caption span { display:block; color:#bdc3cb; text-transform:uppercase; font-size:9px; letter-spacing:.18em; margin-bottom:5px; }
+.reel-caption .year { font-size:10px; letter-spacing:.15em; border:1px solid rgba(255,255,255,.36); border-radius:calc(999px * var(--site-radius-scale)); padding:6px 10px; white-space:nowrap; }
+.rule { height:1px; background:light-dark(#dbdfe4,#262a2f); }
+.section { padding:calc(78px * var(--site-spacing-scale)) 0; }
+.section-head { display:flex; align-items:end; justify-content:space-between; gap:30px; margin-bottom:29px; }
+.section-eyebrow { color:light-dark(#71777f,#8b939d); font-size:10px; text-transform:uppercase; letter-spacing:.19em; font-weight:700; margin-bottom:9px; }
+h2 { font-family:var(--site-font-heading); font-size:calc(clamp(32px,4vw,46px) * var(--site-heading-scale)); letter-spacing:-.05em; line-height:1.08; font-weight:500; margin-bottom:0; }
+.section-copy { color:light-dark(#656a71,#a4aab2); font-size:13px; max-width:360px; margin:0 0 3px; }
+.filters { display:flex; gap:7px; flex-wrap:wrap; margin:0 0 24px; }
+.filter { border:1px solid light-dark(#d7dce3,#31363d); border-radius:calc(999px * var(--site-radius-scale)); background:transparent; padding:7px 13px; font-size:10px; text-transform:uppercase; letter-spacing:.1em; color:light-dark(#61676e,#b6bdc7); cursor:pointer; transition:.2s; }
+.filter:hover, .filter[aria-pressed="true"] { background:var(--site-primary); color:var(--site-on-primary); border-color:var(--site-primary); }
+.project-grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:calc(28px * var(--site-spacing-scale)) calc(20px * var(--site-spacing-scale)); align-items:start; }
+.project { min-width:0; grid-column:span 4; }
+.project.wide { grid-column:span 7; }
+.project.tall-feature { grid-column:span 5; }
+.project-image { width:100%; display:block; object-fit:cover; background:#181b20; border:1px solid light-dark(#d7dce3,#2b3037); transition:filter .25s, transform .25s; }
+.project-image.landscape { aspect-ratio: 1.55; }
+.project-image.portraitish { aspect-ratio: 1.2; }
+.project:hover .project-image { filter:brightness(1.08); transform:translateY(-2px); }
+.image-frame { position:relative; overflow:hidden; background:#15181b; }
+.image-frame:after { content:""; position:absolute; inset:0; border:1px solid rgba(255,255,255,.04); pointer-events:none; }
+.project-meta { padding:12px 1px 0; display:flex; align-items:start; justify-content:space-between; gap:12px; }
+.project-meta h3 { font-size:14px; font-weight:600; letter-spacing:-.02em; margin:0 0 4px; }
+.project-meta p { font-size:10px; text-transform:uppercase; color:light-dark(#7b828b,#929aa5); letter-spacing:.1em; margin:0; }
+.project-index { color:light-dark(#959ca5,#686f78); font-size:10px; font-variant-numeric:tabular-nums; padding-top:3px; }
+.project[hidden] { display:none; }
+.professional { background:light-dark(#edf0f4,#0c0f14); }
+.professional-list { margin-top:28px; border-top:1px solid light-dark(#d3d8df,#292e34); }
+.prof-row:hover h3 { color:var(--site-primary); }
+.prof-row { display:grid; grid-template-columns:1.15fr 1fr auto; gap:24px; align-items:center; padding:22px 0; border-bottom:1px solid light-dark(#d3d8df,#292e34); }
+.prof-row h3 { margin:0 0 3px; font-size:15px; font-weight:600; letter-spacing:-.02em; }
+.prof-row p { color:light-dark(#71777f,#a0a6af); margin:0; font-size:11px; }
+.credit { color:light-dark(#60666d,#b8bec6); font-size:12px; }
+.prof-row .text-link { white-space:nowrap; font-size:10px; }
+.contact { padding:56px 0; border-top:1px solid light-dark(#dbdfe4,#262a2f); }
+.contact-inner { display:flex; justify-content:space-between; align-items:center; gap:24px; }
+.contact h2 { max-width:570px; }
+.footer { padding:25px 0 29px; border-top:1px solid light-dark(#dbdfe4,#262a2f); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; color:light-dark(#7d838c,#7b828c); font-size:10px; letter-spacing:.04em; text-align:center; }
+@media (max-width:850px) {
+  .wrap { width:calc(100% - 40px); }
+  .nav { min-height:70px; } .navlinks { gap:13px; } .navlinks a:not(.contact-link) { display:none; }
+  .hero { grid-template-columns:1fr; gap:36px; padding:58px 0 50px; }
+  .reel-card { min-height:300px; } .reel-visual { min-height:286px; }
+  .section { padding:58px 0; }
+  .prof-row { grid-template-columns:1fr 1fr; } .prof-row .text-link { grid-column:1 / -1; }
+}
+@media (max-width:620px) {
+  .wrap { width:calc(100% - 30px); }
+  .brand { font-size:10px; }
+  .navlinks .contact-link { padding:7px 10px; }
+  .hero { padding-top:44px; } h1 { font-size:51px; }
+  .section-head { display:block; } .section-copy { margin-top:15px; }
+  .project-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px 12px; }
+  .project, .project.wide, .project.tall-feature { grid-column:span 1; }
+  .project.wide .project-image, .project.tall-feature .project-image { aspect-ratio:1.2; }
+  .project-meta h3 { font-size:12px; } .project-meta p { font-size:9px; }
+  .prof-row { grid-template-columns:1fr; gap:5px; } .prof-row .text-link { grid-column:auto; margin-top:6px; }
+  .contact-inner { display:block; } .contact-inner .primary-button { margin-top:22px; }
+  .footer { flex-direction:column; } .reel-caption { left:14px; right:14px; } .reel-caption strong { font-size:14px; }
+}
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*:before,*:after { transition:none !important; } }
+
+
+/* Portfolio structure update */
+.hero { align-items: center; }
+.reel-card { min-height: 0; padding: 7px; }
+.reel-visual { min-height: 0; height: auto; aspect-ratio: 16 / 9; }
+.reel-embed { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 0; background: #08080b; }
+.reel-footer { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 14px 8px 7px; }
+.reel-name { color: light-dark(#686f78,#b6bec9); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
+.reel-footer .text-link { color: light-dark(#242a31,#d9e8fb); font-size: 10px; }
+.professional .section-head { margin-bottom: 23px; }
+.professional .section-head h2 { font-size: calc(clamp(36px,4.5vw,54px) * var(--site-heading-scale)); }
+.professional-filters { margin-bottom: 0; }
+#university > .filters { justify-content: center; }
+.professional-list { margin-top: 18px; }
+.collection-title { font-family: var(--site-font-heading); font-size: calc(clamp(22px,2.5vw,29px) * var(--site-heading-scale)); line-height: 1.15; font-weight: 500; letter-spacing: -.04em; margin: 0 0 18px; }
+#work > .section-head { margin-bottom: 40px; }
+#work > .section-head h2 { font-size: calc(clamp(36px,4.5vw,54px) * var(--site-heading-scale)); }
+#work > .collection-title { margin-top: 0; }
+#work > .filters { margin-bottom: 27px; }
+.project-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px 20px; align-items: start; }
+.project { grid-column: auto; }
+.image-frame { aspect-ratio: 16 / 9; min-height: 0; }
+.project-placeholder { width: 100%; height: 100%; aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: #13161b; border: 1px solid light-dark(#d7dce3,#2b3138); }
+.project-placeholder:before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 25% 22%, rgba(162,202,255,.18), transparent 34%), radial-gradient(ellipse at 80% 80%, rgba(95,124,162,.12), transparent 38%), linear-gradient(135deg, #14191f, #0a0c0f 70%); }
+.project-placeholder:after { content: ""; position: absolute; width: 38%; aspect-ratio: 1; border: 1px solid rgba(162,202,255,.23); transform: rotate(45deg); }
+.project:nth-of-type(3n + 2) .project-placeholder:after { width: 25%; border-radius: 50%; transform: none; }
+.project:nth-of-type(3n) .project-placeholder:after { width: 46%; aspect-ratio: 1.7; transform: rotate(-19deg); }
+.placeholder-label { position: absolute; z-index: 1; bottom: 13px; left: 14px; color: #909ba9; font-size: 8px; line-height: 1.4; letter-spacing: .16em; text-transform: uppercase; }
+.archive-collection { border-top: 1px solid light-dark(#dbdfe4,#262a2f); margin-top: 58px; padding-top: 42px; }
+.archive-year-mark { z-index: 1; position: relative; font-size: clamp(38px,6vw,68px); font-weight: 400; color: rgba(217,232,251,.88); letter-spacing: -.08em; }
+.archive-placeholder:before { background: radial-gradient(ellipse at 50% 50%, rgba(162,202,255,.20), transparent 45%), linear-gradient(145deg, #14191f, #0a0c0f 75%); }
+.project-meta { min-height: 54px; }
+.project[hidden] { display: none !important; }
+@media (max-width:850px) {
+  .reel-footer { align-items: flex-start; flex-direction: column; gap: 9px; }
+  .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:620px) {
+  .project-grid { grid-template-columns: 1fr; gap: 24px; }
+  .project, .project.wide, .project.tall-feature { grid-column: auto; }
+  .project-meta h3 { font-size: 13px; }
+  .project-meta p { font-size: 9px; }
+  .prof-row { grid-template-columns: 1fr; gap: 8px; }
+  .prof-row .text-link { grid-column: auto; }
+  .reel-name { font-size: 9px; }
+}
+
+/* Full-bleed showreel hero */
+.kicker:before { content: none; display: none; }
+.hero.hero-fullbleed {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: clamp(620px, calc(100vh - 78px), 820px);
+  padding: 0;
+  overflow: hidden;
+  background: #08080b;
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #08080b;
+}
+.hero-video iframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border: 0;
+  pointer-events: none;
+  background: #08080b;
+}
+.hero-video:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(90deg, rgba(7,9,12,.88) 0%, rgba(7,9,12,.58) 48%, rgba(7,9,12,.2) 100%), linear-gradient(0deg, rgba(7,9,12,.58), transparent 42%);
+  pointer-events: none;
+}
+.hero-content {
+  --hero-title-size: calc(clamp(38px, 6vw, 76px) * var(--site-heading-scale));
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: min(1160px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: clamp(84px, 10vh, 126px) 0;
+  text-align: center;
+}
+.hero-content .kicker { justify-content: center; margin: 0 0 7px; }
+.hero-content h1 { max-width: 100%; margin: 0; font-size: var(--hero-title-size); font-weight: 500; letter-spacing: -.06em; line-height: 1; white-space: nowrap; }
+.hero-content h1 span { color: #b6bec8; font-weight: 500; }
+.hero-content p { max-width: 600px; margin: 12px 0 0; color: #d9dfe6; font-size: 16px; }
+.hero-content .text-link { margin-top: 14px; }
+
+/* About page: personal details, history and education only */
+#site-root [hidden] { display: none !important; }
+.about-page { padding-top: clamp(54px, 7vw, 94px); padding-bottom: 54px; }
+.about-intro { max-width: 800px; padding-bottom: clamp(42px, 6vw, 76px); }
+.about-intro h1 { margin: 10px 0 26px; font-size: calc(clamp(54px, 7vw, 86px) * var(--site-heading-scale)); }
+.about-intro p { max-width: 730px; color: light-dark(#5d6269, #b0b6bd); font-size: 16px; line-height: 1.8; }
+.about-intro .about-lead { color: light-dark(#252a30, #eff3f8); font-size: clamp(19px, 2.4vw, 26px); line-height: 1.5; letter-spacing: -.025em; }
+.about-contact-line a { color: var(--site-primary); border-bottom: 1px solid currentColor; }
+.about-section { border-top: 1px solid light-dark(#dbdfe4, #262a2f); padding: clamp(38px, 5vw, 64px) 0; }
+.about-section-header { margin-bottom: 28px; }
+.about-section-header h2 { max-width: 760px; }
+.focus-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 42px; }
+.focus-item { display: flex; gap: 17px; align-items: flex-start; border-top: 1px solid light-dark(#dbdfe4, #262a2f); padding: 19px 0 21px; }
+.focus-number { color: var(--site-primary); font-size: 10px; letter-spacing: .12em; padding-top: 3px; }
+.focus-item h3 { margin: 0 0 7px; font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
+.focus-item p { margin: 0; color: light-dark(#7d838c, #929aa5); font-size: 12px; }
+.history-list, .education-list { border-bottom: 1px solid light-dark(#dbdfe4, #262a2f); }
+.history-item { display: grid; grid-template-columns: minmax(220px, .82fr) minmax(0, 1.18fr); gap: clamp(24px, 4vw, 58px); padding: 25px 0 28px; border-top: 1px solid light-dark(#dbdfe4, #262a2f); }
+.history-heading h3, .education-item h3 { margin: 0 0 7px; font-size: 16px; font-weight: 600; letter-spacing: -.025em; }
+.history-employer { color: light-dark(#5d6269, #bbc1c9); font-size: 13px; margin-bottom: 6px; }
+.history-dates, .education-dates { color: light-dark(#838992, #8b939d); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+.history-item > p, .history-item > div:nth-child(2) p { color: light-dark(#656a71, #a4aab2); font-size: 13px; line-height: 1.8; margin: 0 0 10px; }
+.history-item > div:nth-child(2) p:last-child { margin-bottom: 0; }
+.education-item { display: grid; grid-template-columns: minmax(140px, .4fr) minmax(0, 1.6fr); gap: 32px; padding: 24px 0 27px; border-top: 1px solid light-dark(#dbdfe4, #262a2f); }
+.education-item h3 { margin-bottom: 7px; }
+.education-qualification { color: light-dark(#5d6269, #bbc1c9); font-size: 13px; line-height: 1.7; margin: 0 0 5px; }
+.education-grade { color: light-dark(#838992, #a4aab2); font-size: 12px; margin: 0 0 13px; }
+.archive-link { color: var(--site-primary); font-size: 10px; letter-spacing: .06em; text-transform: none; }
+@media (max-width: 850px) {
+  .hero.hero-fullbleed { min-height: clamp(600px, calc(100vh - 70px), 760px); }
+  .hero-content { width: calc(100% - 40px); }
+  .focus-grid { column-gap: 26px; }
+  .history-item { grid-template-columns: minmax(170px, .72fr) minmax(0, 1.28fr); gap: 24px; }
+  .education-item { gap: 24px; }
+}
+@media (max-width: 620px) {
+  .hero.hero-fullbleed { min-height: 690px; }
+  .hero-content { width: calc(100% - 30px); padding: 72px 0; }
+  .hero-content { --hero-title-size: calc(clamp(26px, 7.8vw, 40px) * var(--site-heading-scale)); }
+  .hero-content p { font-size: 14px; }
+  .focus-grid { grid-template-columns: 1fr; }
+  .history-item, .education-item { grid-template-columns: 1fr; gap: 11px; }
+  .about-intro p { font-size: 14px; }
+  .about-intro .about-lead { font-size: 21px; }
+}
+
+
+
+/* Timeline and branching focus bubbles */
+.about-page {
+  padding-top: clamp(54px, 7vw, 94px);
+  padding-bottom: 58px;
+}
+.about-intro {
+  max-width: 800px;
+  padding-bottom: clamp(38px, 5vw, 66px);
+}
+.about-network-section {
+  border-top: 1px solid #262a2f;
+  padding: clamp(40px, 5vw, 66px) 0;
+}
+.skills-heading {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.skills-heading h2 {
+  margin: 0;
+  font-size: clamp(26px, 3.2vw, 38px);
+}
+.about-network-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+.about-network-heading h2 {
+  max-width: 700px;
+}
+.about-network-heading p {
+  max-width: 330px;
+  color: light-dark(#656a71, #a4aab2);
+  font-size: 12px;
+  line-height: 1.75;
+  margin: 0 0 3px;
+}
+.skills-pipeline-map {
+  padding: 0;
+  border-radius: 12px;
+}
+.skills-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-rows: 38px 104px auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.skills-discipline {
+  --discipline-accent: #6aa9ff;
+  --discipline-soft: rgba(106,169,255,.07);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  color: var(--discipline-accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 1;
+  text-transform: uppercase;
+  background: var(--discipline-soft);
+  border-bottom: 1px solid color-mix(in srgb, var(--discipline-accent) 28%, transparent);
+}
+.skills-discipline-icon {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.skills-discipline-3d {
+  grid-column: 1 / span 3;
+  grid-row: 1;
+}
+.skills-discipline-fx {
+  --discipline-accent: #a695dc;
+  --discipline-soft: rgba(166,149,220,.065);
+  grid-column: 4;
+  grid-row: 1;
+}
+.skills-discipline-comp {
+  --discipline-accent: #70c4c6;
+  --discipline-soft: rgba(112,196,198,.055);
+  grid-column: 5 / span 4;
+  grid-row: 1;
+  padding-left: 12px;
+  border-left: 1px solid rgba(112,196,198,.2);
+}
+.skills-track::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 65px;
+  left: calc(100% / 14);
+  right: calc(100% / 14);
+  height: 1px;
+  background: #3a4552;
+}
+.skills-stage-item {
+  --stage-accent: #6aa9ff;
+  --stage-soft: rgba(106,169,255,.08);
+  --stage-soft-border: rgba(106,169,255,.34);
+  display: contents;
+}
+.skills-stage-item[data-discipline="fx"] {
+  --stage-accent: #a695dc;
+  --stage-soft: rgba(166,149,220,.08);
+  --stage-soft-border: rgba(166,149,220,.34);
+}
+.skills-stage-item[data-discipline="compositing"] {
+  --stage-accent: #70c4c6;
+  --stage-soft: rgba(112,196,198,.075);
+  --stage-soft-border: rgba(112,196,198,.34);
+}
+.skills-stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  min-height: 100px;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 8px 10px;
+  border: 0;
+  border-radius: 0 0 9px 9px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color .18s ease;
+}
+.skills-stage-item[data-stage-column="1"] > .skills-stage { grid-column: 1; grid-row: 2; }
+.skills-stage-item[data-stage-column="2"] > .skills-stage { grid-column: 2; grid-row: 2; }
+.skills-stage-item[data-stage-column="3"] > .skills-stage { grid-column: 3; grid-row: 2; }
+.skills-stage-item[data-stage-column="4"] > .skills-stage { grid-column: 4; grid-row: 2; }
+.skills-stage-item[data-stage-column="5"] > .skills-stage { grid-column: 5; grid-row: 2; }
+.skills-stage-item[data-stage-column="6"] > .skills-stage { grid-column: 6; grid-row: 2; }
+.skills-stage-item[data-stage-column="7"] > .skills-stage { grid-column: 7; grid-row: 2; }
+.skills-stage-item[data-stage-column="8"] > .skills-stage { grid-column: 8; grid-row: 2; }
+.skills-stage:hover { background: var(--stage-soft); }
+.skills-stage:focus-visible {
+  z-index: 2;
+  outline: 2px solid var(--stage-accent);
+  outline-offset: -2px;
+}
+.skills-stage-dot-wrap {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--stage-soft-border);
+  border-radius: 50%;
+  background: #0b0d12;
+  transition: border-color .2s, background-color .2s, box-shadow .2s, transform .2s;
+}
+.skills-stage-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--stage-accent);
+  opacity: .48;
+  transition: background-color .2s, transform .2s;
+}
+.skills-stage[aria-expanded="true"] .skills-stage-dot-wrap {
+  transform: scale(1.05);
+  border-color: var(--stage-accent);
+  background: var(--stage-soft);
+  box-shadow: 0 0 0 4px var(--stage-soft);
+}
+.skills-stage[aria-expanded="true"] .skills-stage-dot {
+  transform: scale(1.1);
+  opacity: 1;
+}
+.skills-stage:hover .skills-stage-dot-wrap { border-color: var(--stage-accent); }
+.skills-stage:hover .skills-stage-dot { opacity: .8; }
+.skills-stage-label {
+  margin-top: 12px;
+  color: #c4cfdd;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.skills-stage[aria-expanded="true"] .skills-stage-label { color: var(--stage-accent); }
+.skills-detail {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  padding-top: 14px;
+}
+.skills-detail[hidden] { display: none; }
+.skills-widget-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  justify-content: center;
+  gap: 10px;
+}
+.skills-widget {
+  min-width: 0;
+  padding: 13px 15px 14px;
+  border: 1px solid var(--stage-soft-border);
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--stage-soft), rgba(15,18,23,.95) 48%);
+  box-shadow: inset 0 1px rgba(255,255,255,.025);
+  animation: skills-widget-in .2s ease both;
+}
+.skills-widget:nth-child(2) { animation-delay: .035s; }
+.skills-widget:nth-child(3) { animation-delay: .07s; }
+.skills-widget header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+.skills-software-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--stage-soft-border);
+  border-radius: 8px;
+  background: var(--stage-soft);
+  color: var(--stage-accent);
+  box-shadow: inset 0 1px rgba(255,255,255,.04);
+}
+.skills-software-icon img {
+  display: block;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+.skills-software-icon--wordmark img {
+  width: 28px;
+  height: 10px;
+}
+.skills-software-icon--brand-wordmark {
+  width: 52px;
+}
+.skills-software-icon--brand-wordmark img {
+  width: 44px;
+  height: auto;
+  max-height: 18px;
+}
+.skills-software-icon--silhouette {
+  width: 66px;
+}
+.skills-software-icon--silhouette img {
+  width: 58px;
+  height: auto;
+  max-height: 18px;
+}
+.skills-software-logos {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 3px;
+}
+.skills-software-logos .skills-software-icon {
+  width: 27px;
+  height: 27px;
+  border-radius: 7px;
+}
+.skills-software-logos .skills-software-icon img {
+  width: 17px;
+  height: 17px;
+}
+.skills-software-logos .skills-software-icon--renderer-wordmark {
+  width: 46px;
+}
+.skills-software-logos .skills-software-icon--renderer-wordmark img {
+  width: 39px;
+  height: auto;
+  max-height: 14px;
+}
+.skills-widget h3 {
+  margin: 0;
+  color: #e4ebf4;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.skills-widget ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.skills-widget li {
+  position: relative;
+  padding-left: 12px;
+  color: #a7b2c0;
+  font-size: 11px;
+  line-height: 1.45;
+}
+.skills-widget li::before {
+  content: "";
+  position: absolute;
+  top: .55em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--stage-accent, #6aa9ff);
+}
+@keyframes skills-widget-in {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 1120px) {
+  .skills-heading { margin-bottom: 22px; }
+  .skills-track {
+    display: block;
+    padding-left: 0;
+  }
+  .skills-track::before {
+    top: 88px;
+    bottom: 20px;
+    left: 12px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: #3a4552;
+  }
+  .skills-discipline {
+    margin: 12px 0 5px;
+    padding: 8px 10px;
+    border: 0;
+    border-bottom: 1px solid rgba(106,169,255,.2);
+    background: linear-gradient(90deg, var(--discipline-soft), transparent);
+  }
+  .skills-stage-item { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .skills-stage {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    min-height: 64px;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 10px 10px 0;
+    text-align: left;
+  }
+  .skills-stage-item[data-stage-column] > .skills-stage { grid-column: auto; grid-row: auto; }
+  .skills-discipline-3d,
+  .skills-discipline-fx,
+  .skills-discipline-comp { grid-column: auto; grid-row: auto; }
+  .skills-stage-dot-wrap { grid-column: 1; grid-row: 1; }
+  .skills-stage-label {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .skills-detail {
+    grid-column: 1;
+    grid-row: auto;
+    padding: 0 0 12px 35px;
+  }
+  .skills-widget-grid { grid-template-columns: minmax(0, 1fr); gap: 9px; }
+  .skills-widget { padding: 14px 15px; }
+  .skills-widget h3 { font-size: 14px; }
+  .skills-widget li { font-size: 13px; line-height: 1.5; }
+  .skills-discipline { font-size: 11px; }
+  .skills-discipline-icon { width: 17px; height: 17px; }
+}
+.timeline-network-section {
+  border-top: 1px solid light-dark(#dbdfe4, #262a2f);
+  padding: clamp(40px, 5vw, 66px) 0 44px;
+}
+.timeline-network {
+  position: relative;
+  margin-top: 37px;
+  padding-bottom: 2px;
+}
+.timeline-network::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 22px;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, rgba(162,202,255, .82), light-dark(#d0d7e0, #333941) 78%, transparent);
+}
+.timeline-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 58px minmax(0, 1fr);
+  align-items: start;
+  margin-bottom: 25px;
+}
+.timeline-card {
+  position: relative;
+  grid-column: 1;
+  min-width: 0;
+  padding: 23px 23px 21px;
+  border: 1px solid light-dark(#d9dfe6, #30363d);
+  border-radius: 18px;
+  background: light-dark(#fff, #0b0d10);
+  box-shadow: 0 14px 36px rgba(0,0,0, .06);
+}
+.timeline-entry.is-right .timeline-card {
+  grid-column: 3;
+}
+.timeline-entry.is-left .timeline-card::after,
+.timeline-entry.is-right .timeline-card::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  width: 29px;
+  height: 1px;
+  background: light-dark(#d0d7e0, #333941);
+}
+.timeline-entry.is-left .timeline-card::after {
+  right: -29px;
+}
+.timeline-entry.is-right .timeline-card::after {
+  left: -29px;
+}
+.timeline-marker {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  position: relative;
+  z-index: 2;
+  margin-top: 24px;
+  width: 13px;
+  height: 13px;
+  border: 3px solid light-dark(#f7f8fa, #0c0c10);
+  border-radius: 50%;
+  background: var(--site-primary);
+  box-shadow: 0 0 0 1px rgba(162,202,255, .8), 0 0 0 6px rgba(162,202,255, .09);
+}
+.timeline-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 11px;
+}
+.timeline-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--site-primary);
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.timeline-kind::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--site-primary);
+}
+.timeline-date {
+  color: light-dark(#7a828d, #909aa7);
+  font-size: 9px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-align: right;
+}
+.timeline-card h3 {
+  font-size: 16px;
+  line-height: 1.35;
+  letter-spacing: -.025em;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+.timeline-organisation {
+  color: light-dark(#595f68, #bbc1c9);
+  font-size: 12px;
+  line-height: 1.55;
+  margin-bottom: 13px;
+}
+.timeline-card p {
+  color: light-dark(#656a71, #a4aab2);
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0 0 9px;
+}
+.timeline-card p:last-of-type {
+  margin-bottom: 0;
+}
+.timeline-branches {
+  position: relative;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed light-dark(#d0d7e0, #333941);
+}
+.timeline-branches::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -15px;
+  height: 15px;
+  width: 12px;
+  border-left: 1px solid light-dark(#d0d7e0, #333941);
+  border-bottom: 1px solid light-dark(#d0d7e0, #333941);
+  border-bottom-left-radius: 7px;
+}
+.branch-label {
+  color: light-dark(#89919c, #848e9a);
+  font-size: 8px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin-bottom: 9px;
+}
+.branch-bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.branch-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid light-dark(#d6dee8, #333941);
+  border-radius: 999px;
+  padding: 6px 10px;
+  color: light-dark(#586270, #bcc7d6);
+  background: light-dark(#f6f9fc, #111316);
+  font-size: 9px;
+  line-height: 1.25;
+  white-space: normal;
+}
+.branch-bubble::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--site-primary);
+}
+.timeline-archive-link {
+  display: inline-flex;
+  margin-top: 13px;
+  color: var(--site-primary);
+  font-size: 10px;
+  line-height: 1.55;
+  border-bottom: 1px solid currentColor;
+}
+.timeline-archive-link:hover {
+  color: light-dark(#5584c1, #d0e4ff);
+}
+@media (max-width: 850px) {
+  .about-network-heading { display: block; }
+  .about-network-heading p { margin-top: 14px; }
+  .timeline-entry { grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); }
+  .timeline-card { padding: 19px; }
+  .timeline-card-topline { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .timeline-date { text-align: left; }
+}
+@media (max-width: 620px) {
+  .timeline-network { margin-top: 28px; padding-left: 26px; }
+  .timeline-network::before { left: 34px; transform: none; }
+  .timeline-entry,
+  .timeline-entry.is-right,
+  .timeline-entry.is-left {
+    grid-template-columns: 17px minmax(0, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .timeline-card,
+  .timeline-entry.is-right .timeline-card,
+  .timeline-entry.is-left .timeline-card {
+    grid-column: 2;
+    padding: 18px 16px 17px;
+  }
+  .timeline-marker {
+    grid-column: 1;
+    margin-top: 22px;
+    width: 12px;
+    height: 12px;
+  }
+  .timeline-entry.is-left .timeline-card::after,
+  .timeline-entry.is-right .timeline-card::after {
+    left: -11px;
+    right: auto;
+    width: 11px;
+  }
+  .timeline-card h3 { font-size: 15px; }
+  .timeline-branches { margin-top: 15px; }
+}
+/* Refinements: tighter spacing, larger readable text, and a stable navigation bar. */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: light-dark(rgba(247,248,250, .94), rgba(12,12,16, .94));
+  backdrop-filter: blur(14px);
+}
+html { scroll-padding-top: 86px; }
+#showreel, #professional, #work, #about, #contact, #university { scroll-margin-top: 86px; }
+.about-page {
+  padding-top: clamp(34px, 4vw, 54px);
+  padding-bottom: 30px;
+}
+.about-intro {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: clamp(24px, 3vw, 38px);
+  text-align: center;
+}
+.about-intro h1 {
+  margin: 8px 0 16px;
+  font-size: calc(clamp(44px, 5.8vw, 70px) * var(--site-heading-scale));
+}
+.about-intro p {
+  font-size: 15px;
+  line-height: 1.65;
+}
+.about-intro .about-lead {
+  font-size: clamp(19px, 2vw, 23px);
+}
+#about .about-intro p { margin-right: auto; margin-left: auto; }
+.about-network-section,
+.timeline-network-section {
+  padding-top: clamp(28px, 3.6vw, 44px);
+  padding-bottom: clamp(28px, 3.6vw, 44px);
+}
+.about-network-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.about-network-heading h2 { max-width: none; }
+.about-network-heading p { max-width: 680px; margin: 0 auto; font-size: 13px; line-height: 1.6; }
+.social-icon-link .social-icon-linkedin { stroke-width:2; }
+.social-icon-link .social-icon-vimeo { stroke-width:1.85; }
+@media (prefers-reduced-motion: reduce) {
+  .skills-stage,
+  .skills-stage-dot,
+  .skills-stage-dot-wrap { transition:none; }
+  .skills-widget { animation:none; }
+}
+.timeline-network-section { padding-bottom: 28px; }
+.timeline-filter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin: 20px 0 0;
+}
+.timeline-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 7px 11px;
+  border: 1px solid light-dark(#d7dce3, #31363d);
+  border-radius: 999px;
+  background: transparent;
+  color: light-dark(#61676e, #b6bdc7);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .2s;
+}
+.timeline-filter:hover,
+.timeline-filter[aria-pressed="true"] {
+  border-color: var(--site-primary);
+  background: var(--site-primary);
+  color: var(--site-on-primary);
+}
+.timeline-filter-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.timeline-lane-headings {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr);
+  gap: 0;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+.timeline-lane-headings span:not(:nth-child(2)) {
+  border-bottom: 1px solid light-dark(#d0d7e0, #333941);
+  padding: 0 0 9px;
+  color: light-dark(#7a828d, #909aa7);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.timeline-lane-headings span:last-child { text-align: left; }
+.timeline-network {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+.timeline-network::before {
+  top: 0;
+  bottom: 10px;
+}
+.timeline-point {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr);
+  align-items: stretch;
+  margin-bottom: 15px;
+}
+.timeline-card {
+  min-width: 0;
+  padding: 17px 17px 15px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0, .045);
+}
+.timeline-card--education { grid-column: 1; }
+.timeline-card--work { grid-column: 3; }
+.timeline-card--education::after,
+.timeline-card--work::after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  width: 17px;
+  height: 1px;
+  background: light-dark(#d0d7e0, #333941);
+}
+.timeline-card--education::after { right: -17px; }
+.timeline-card--work::after { left: -17px; }
+.timeline-marker {
+  position: absolute;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  z-index: 2;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  border-width: 2px;
+}
+.timeline-card-topline { align-items: flex-start; gap: 5px 9px; margin-bottom: 9px; }
+.timeline-kind { font-size: 10px; letter-spacing: .12em; }
+.timeline-date { font-size: 10px; letter-spacing: .04em; text-align: left; }
+.timeline-card h3 { font-size: 18px; line-height: 1.3; margin-bottom: 5px; }
+.timeline-organisation { font-size: 14px; line-height: 1.45; margin-bottom: 8px; }
+.timeline-card p { font-size: 13px; line-height: 1.55; margin-bottom: 7px; }
+.timeline-branches { margin-top: 12px; padding-top: 10px; }
+.timeline-branches::before { top: -11px; height: 11px; }
+.branch-label { font-size: 9px; margin-bottom: 7px; letter-spacing: .13em; }
+.branch-bubbles { gap: 5px; }
+.branch-bubble { padding: 5px 8px; font-size: 11px; line-height: 1.25; }
+.timeline-archive-link { margin-top: 10px; font-size: 12px; }
+@media (max-width: 850px) {
+  .timeline-lane-headings,
+  .timeline-point { grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1fr); }
+  .timeline-card { padding: 14px 13px 13px; }
+  .timeline-card-topline { flex-direction: column; }
+  .timeline-date { text-align: left; }
+  .timeline-card h3 { font-size: 16px; }
+  .timeline-organisation { font-size: 13px; }
+  .timeline-card p { font-size: 13px; }
+  .branch-bubble { font-size: 11px; padding: 5px 7px; }
+}
+@media (max-width: 680px) {
+  .topbar .nav { gap: 8px; }
+  .navlinks { gap: 12px; }
+  .timeline-lane-headings { display: none; }
+  .timeline-filter-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .timeline-filter { gap: 5px; min-width: 0; padding: 7px 5px; font-size: 9px; letter-spacing: .04em; }
+  .timeline-filter-icon { width: 15px; height: 15px; flex: 0 0 auto; }
+  .timeline-network { margin-top: 22px; padding-left: 24px; }
+  .timeline-network::before { left: 7px; transform: none; }
+  .timeline-point {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 17px;
+  }
+  .timeline-card,
+  .timeline-card--education,
+  .timeline-card--work {
+    width: 100%;
+    grid-column: auto;
+    padding: 15px 14px 14px;
+  }
+  .timeline-marker {
+    left: -23px;
+    top: 22px;
+    transform: none;
+  }
+  .timeline-card--education::after,
+  .timeline-card--work::after {
+    left: -17px;
+    right: auto;
+    width: 17px;
+    top: 25px;
+  }
+  .timeline-card h3 { font-size: 18px; }
+  .timeline-organisation { font-size: 14px; }
+  .timeline-card p { font-size: 14px; }
+  .branch-bubble { font-size: 12px; }
+  .about-network-section,
+  .timeline-network-section { padding-top: 28px; padding-bottom: 28px; }
+}
+
+
+
+/* Click-to-expand project viewer */
+.project[role="button"] { cursor: pointer; outline: none; }
+.project[role="button"] .image-frame { isolation: isolate; }
+.project[role="button"] .image-frame::before {
+  content: "VIEW PROJECT ↗"; position: absolute; z-index: 3; right: 12px; bottom: 12px;
+  padding: 8px 10px; border: 1px solid rgba(255,255,255,.28); border-radius: 3px;
+  color: #f3f8ff; background: rgba(10,12,15,.78); backdrop-filter: blur(8px);
+  font-size: 9px; letter-spacing: .12em; opacity: 0; transform: translateY(4px);
+  transition: opacity .22s ease, transform .22s ease; pointer-events: none;
+}
+.project[role="button"]:hover .image-frame::before,
+.project[role="button"]:focus-visible .image-frame::before { opacity: 1; transform: translateY(0); }
+.project[role="button"]:focus-visible .image-frame { outline: 2px solid var(--site-primary); outline-offset: 4px; }
+#project-viewer[hidden] { display: none !important; }
+#project-viewer {
+  position: fixed; inset: 0; z-index: 99999; display: grid; place-items: center;
+  padding: clamp(10px, 2.2vw, 30px); color: #eef2f8; color-scheme: dark;
+}
+.project-viewer-backdrop { position: absolute; inset: 0; background: rgba(5,7,9,.84); backdrop-filter: blur(12px); }
+.project-viewer-panel {
+  position: relative; z-index: 1; width: min(1420px, 100%); height: min(900px, calc(100dvh - 44px));
+  display: flex; flex-direction: column; overflow: hidden; border: 1px solid #31373f; border-radius: 12px;
+  background: #101215; box-shadow: 0 28px 100px rgba(0,0,0,.55); animation: project-viewer-in .22s ease both;
+}
+@keyframes project-viewer-in { from { opacity: 0; transform: translateY(8px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.project-viewer-toolbar {
+  min-height: 62px; flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  padding: 12px 17px 12px 22px; border-bottom: 1px solid #272b31; background: #121518;
+}
+.project-viewer-kicker { display: block; color: #a1bbde; font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.project-viewer-toolbar-title { color: #7b838d; font-size: 10px; margin-top: 4px; }
+.project-viewer-controls { display: flex; align-items: center; gap: 7px; }
+.project-viewer-icon-button {
+  min-width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  border: 1px solid #343a42; border-radius: 5px; background: #161a1f; color: #eef2f8; cursor: pointer;
+  font: inherit; font-size: 11px; transition: background .18s ease, border-color .18s ease;
+}
+.project-viewer-icon-button:hover:not(:disabled) { background: #222831; border-color: #617590; }
+.project-viewer-icon-button:focus-visible { outline: 2px solid #a6c8f4; outline-offset: 2px; }
+.project-viewer-icon-button:disabled { opacity: .35; cursor: not-allowed; }
+.project-viewer-close { width: 38px; font-size: 19px; }
+.project-viewer-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(330px, .78fr); min-height: 0; flex: 1; }
+.project-viewer-gallery { min-width: 0; min-height: 0; display: flex; flex-direction: column; background: #080a0c; border-right: 1px solid #272b31; }
+.project-viewer-stage { position: relative; display: grid; place-items: center; min-height: 0; flex: 1; overflow: hidden; background: #07090b; }
+.project-viewer-stage img, .project-viewer-stage video, .project-viewer-stage iframe {
+  display: block; width: 100%; height: 100%; max-height: 100%; object-fit: contain; border: 0; background: #07090b;
+}
+.project-viewer-stage .project-placeholder { width: 100%; height: 100%; min-height: 260px; aspect-ratio: auto; }
+.project-viewer-stage .project-placeholder:after { width: min(36%, 280px); }
+.project-viewer-media-placeholder { position: absolute; z-index: 4; max-width: min(440px, 80%); text-align: center; padding: 18px; }
+.project-viewer-media-placeholder strong { display: block; margin-bottom: 9px; font-size: clamp(13px, 1.6vw, 18px); font-weight: 500; letter-spacing: -.02em; }
+.project-viewer-media-placeholder span { color: #929caa; font-size: 11px; line-height: 1.7; }
+.project-viewer-media-nav { position: absolute; inset: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; padding: 0 12px; pointer-events: none; }
+.project-viewer-media-nav button { pointer-events: auto; width: 38px; height: 42px; border-radius: 4px; font-size: 20px; background: rgba(13,16,20,.8); }
+.project-viewer-media-nav[hidden] { display: none !important; }
+.project-viewer-gallery-footer { flex: 0 0 auto; min-height: 43px; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #23272d; color: #86909c; font-size: 9px; letter-spacing: .06em; }
+.project-viewer-gallery-footer span:last-child { text-align: right; }
+.project-viewer-details { overflow: auto; min-width: 0; padding: clamp(24px, 3vw, 42px); }
+.project-viewer-eyebrow { color: #8eadd6; font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 16px; }
+.project-viewer-details h2 { margin: 0 0 11px; color: #f0f4fa; font-size: clamp(30px, 3.7vw, 48px); line-height: 1.02; letter-spacing: -.055em; font-weight: 500; overflow-wrap: anywhere; }
+.project-viewer-category { margin: 0; color: #acb4bf; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; line-height: 1.6; }
+.project-viewer-rule { height: 1px; background: #2b3037; margin: 28px 0 24px; }
+.project-viewer-section-label { color: #8eadd6; font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 12px; }
+.project-viewer-description { white-space: pre-line; color: #bfc5ce; font-size: 14px; line-height: 1.85; overflow-wrap: anywhere; }
+.project-viewer-description.is-empty { color: #79818b; font-size: 12px; line-height: 1.8; }
+.project-viewer-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 28px; }
+.project-viewer-fact { padding: 14px 13px; border: 1px solid #2b3037; border-radius: 5px; background: #13161a; min-width: 0; }
+.project-viewer-fact span { display: block; margin-bottom: 7px; color: #838e9c; font-size: 8px; letter-spacing: .14em; text-transform: uppercase; }
+.project-viewer-fact strong { display: block; color: #dde3ea; font-size: 11px; line-height: 1.6; font-weight: 500; overflow-wrap: anywhere; }
+.project-viewer-note { margin-top: 28px; padding: 16px 17px; border-left: 2px solid #506580; background: #14181d; color: #8f99a6; font-size: 11px; line-height: 1.7; }
+.project-viewer-note strong { display: block; margin-bottom: 5px; color: #c7daf3; font-size: 10px; font-weight: 600; }
+.project-viewer-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 28px; padding-top: 18px; border-top: 1px solid #2b3037; color: #828c99; font-size: 10px; }
+.project-viewer-footer button { border: 0; padding: 0; background: transparent; color: #c9daf0; font: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+.project-viewer-footer button:focus-visible { outline: 2px solid #a6c8f4; outline-offset: 4px; }
+@media (max-width: 820px) {
+  #project-viewer { padding: 0; }
+  .project-viewer-panel { width: 100%; height: 100dvh; max-height: 100dvh; border-radius: 0; border: 0; }
+  .project-viewer-toolbar { min-height: 58px; padding: 10px 12px 10px 16px; }
+  .project-viewer-layout { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(220px, 41dvh) minmax(0, 1fr); overflow: auto; }
+  .project-viewer-gallery { border-right: 0; border-bottom: 1px solid #272b31; }
+  .project-viewer-stage { min-height: 0; }
+  .project-viewer-stage .project-placeholder { min-height: 0; }
+  .project-viewer-details { overflow: visible; padding: 24px 20px 36px; }
+  .project-viewer-details h2 { font-size: clamp(32px, 9vw, 44px); }
+  .project-viewer-rule { margin: 20px 0; }
+  .project-viewer-note { margin-top: 22px; }
+  .project-viewer-footer { margin-top: 22px; }
+  .project-viewer-gallery-footer { min-height: 36px; padding: 9px 11px; font-size: 8px; }
+}
+@media (max-width: 480px) {
+  .project-viewer-toolbar-title { display: none; }
+  .project-viewer-controls { gap: 5px; }
+  .project-viewer-controls .project-viewer-icon-button:not(.project-viewer-close) { min-width: 32px; width: 32px; }
+  .project-viewer-facts { gap: 8px; }
+  .project-viewer-fact { padding: 12px 10px; }
+  .project-viewer-gallery-footer span:last-child { max-width: 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project[role="button"] .image-frame::before { transition: none; }
+  .project-viewer-panel { animation: none; }
+}
+
+
+/* Refinements: original-site structure, mobile nav and links */
+.collection-copy { margin:-6px 0 22px; max-width:560px; color:light-dark(#656a71,#a4aab2); font-size:13px; }
+.prof-links { display:flex; gap:18px; flex-wrap:wrap; }
+.footer { align-items:center; line-height:1.7; }
+.footer-links { display:flex; align-items:center; justify-content:center; gap:10px; }
+.social-icon-link {
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:40px;
+  height:40px;
+  border:1px solid light-dark(#d7dce3,#31363d);
+  border-radius:50%;
+  color:light-dark(#737b86,#aeb7c2);
+  transition:color .18s ease, border-color .18s ease, background .18s ease;
+}
+.social-icon-link:hover,
+.social-icon-link:focus-visible { color:var(--site-primary); border-color:var(--site-primary); background:light-dark(#fff,#11151a); }
+.social-icon-link:focus-visible { outline:2px solid var(--site-primary); outline-offset:3px; }
+.footer-links .social-icon-link::after {
+  content:attr(data-label);
+  position:absolute;
+  z-index:20;
+  bottom:calc(100% + 9px);
+  left:50%;
+  padding:7px 10px;
+  border:1px solid light-dark(#d7dce3,#31363d);
+  border-radius:4px;
+  background:light-dark(#fff,#11151a);
+  color:light-dark(#242a31,#e1e9f2);
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.1em;
+  line-height:1.2;
+  text-transform:uppercase;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transform:translate(-50%,4px);
+  transition:opacity .16s ease,transform .16s ease;
+}
+.footer-links .social-icon-link:hover::after,
+.footer-links .social-icon-link:focus-visible::after { opacity:1; transform:translate(-50%,0); }
+.social-icon { display:block; width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.55; stroke-linecap:round; stroke-linejoin:round; }
+.showcase-links a[data-label]::after {
+  content:attr(data-label);
+  position:absolute;
+  z-index:20;
+  top:calc(100% + 8px);
+  left:50%;
+  padding:7px 10px;
+  border:1px solid #394655;
+  border-radius:4px;
+  background:#11151a;
+  color:#e1e9f2;
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.1em;
+  line-height:1.2;
+  text-transform:uppercase;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transform:translate(-50%,-4px);
+  transition:opacity .16s ease,transform .16s ease;
+}
+.showcase-links a[data-label]:hover::after,
+.showcase-links a[data-label]:focus-visible::after { opacity:1; transform:translate(-50%,0); }
+@media (max-width:1000px) {
+  .nav { flex-wrap:wrap; gap:10px 16px; min-height:0; padding:14px 0 10px; }
+  .navlinks { display:flex; order:3; width:100%; gap:8px 14px; justify-content:space-between; overflow:visible; white-space:nowrap; flex-wrap:nowrap; padding-bottom:0; }
+  .navlinks a:not(.contact-link) { display:grid; }
+}
+@media (max-width:850px) { .prof-links { grid-column:1 / -1; } }
+@media (max-width:620px) {
+  .navlinks { display:flex; flex-wrap:nowrap; justify-content:space-between; gap:clamp(2px,1vw,4px); }
+  .navlinks a:not(.contact-link) { flex:0 0 38px; width:38px; height:38px; padding:0; }
+  .section-title-group,
+  .collection-heading { align-items:center; }
+}
+.image-frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+
+/* Pages + inline viewer */
+#site-root { overflow: visible; overflow-x: clip; }   /* "hidden" would stop the sticky header working */
+.topbar { position: sticky; top: 0; z-index: 1000; background: light-dark(rgba(248,247,250,.92), rgba(6,6,8,.88)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.navlinks a[aria-current="page"] { color: var(--site-primary); }
+body.about-view main > :not(#about) { display: none !important; }
+body:not(.about-view) #about { display: none !important; }
+#personal .collection-title, #university .collection-title { font-size: calc(clamp(36px,4.5vw,54px) * var(--site-heading-scale)); margin-bottom: 14px; }
+#personal .collection-copy, #university .collection-copy { margin: 0 0 28px; }
+.placeholder-label { font: 10px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .01em; text-transform: none; right: 14px; overflow-wrap: anywhere; color: #9fb0c6; }
+#project-viewer { position: static; inset: auto; z-index: auto; display: block; padding: 0; margin: 0 0 6px; }
+.project-viewer-backdrop { display: none; }
+.project-viewer-panel { width: 100%; height: auto; max-height: none; overflow: visible; border-radius: 10px; background: #0b0c0f; box-shadow: none; }
+.project-viewer-layout { overflow: visible; }
+.project-viewer-gallery { flex: none; }
+.project-viewer-stage { flex: none; aspect-ratio: 16 / 9; }
+.project-viewer-stage .project-placeholder { min-height: 0; }
+.project-viewer-details { overflow: visible; }
+@media (max-width: 820px) {
+  .project-viewer-panel { height: auto; max-height: none; border-radius: 10px; border: 1px solid #31373f; }
+  .project-viewer-layout { grid-template-rows: auto auto; overflow: visible; }
+  .project-viewer-stage { min-height: 0; }
+}
+
+/* One scrolling page + viewer that expands in place */
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
+#project-viewer { display: grid; grid-template-rows: 0fr; margin: 0; transition: grid-template-rows .55s cubic-bezier(.2,.75,.2,1), margin .55s cubic-bezier(.2,.75,.2,1); }
+#project-viewer.is-open { grid-template-rows: 1fr; margin: 0 0 34px; }
+#project-viewer[hidden] { display: none !important; }
+.project-viewer-panel { min-height: 0; overflow: hidden; border: 1px solid #31373f; opacity: 0; transform: translateY(-12px); animation: none; transition: opacity .4s ease .08s, transform .55s cubic-bezier(.2,.75,.2,1); }
+#project-viewer.is-open .project-viewer-panel { opacity: 1; transform: none; }
+.project.is-active .image-frame { outline: 2px solid var(--site-primary); outline-offset: 3px; }
+.project.is-active h3 { color: var(--site-primary); }
+.project.is-active .project-index::before { content: "VIEWING · "; color: var(--site-primary); letter-spacing: .08em; }
+
+
+/* Featured project viewer: one generous player, a browseable project rail and full page-flow details. */
+#project-viewer {
+  position: relative;
+  inset: auto;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0 0 42px;
+  scroll-margin-top: calc(var(--header-h, 78px) + 18px);
+  color: #eef2f8;
+  color-scheme: dark;
+}
+#project-viewer[hidden] { display: none !important; }
+.project-viewer-backdrop { display: none !important; }
+.project-viewer-panel {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  min-height: 0;
+  overflow: visible;
+  border: 1px solid #303740;
+  border-radius: 12px;
+  background: #0b0e12;
+  box-shadow: 0 18px 54px rgba(0,0,0,.18);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: none;
+  transition: opacity .32s ease, transform .42s cubic-bezier(.2,.75,.2,1);
+}
+#project-viewer.is-open .project-viewer-panel { opacity: 1; transform: none; }
+.project-viewer-toolbar { min-height: 64px; position: relative; }
+.project-viewer-layout { display: flex; flex-direction: column; min-height: 0; overflow: visible; }
+.project-viewer-gallery {
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(10px, 1.8vw, 22px);
+  border: 0;
+  background: #07090c;
+}
+.project-viewer-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  max-height: none;
+  overflow: hidden;
+  background: #050608;
+  border: 1px solid #252b33;
+  border-radius: 4px;
+}
+.project-viewer-stage img,
+.project-viewer-stage video,
+.project-viewer-stage iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+  border: 0;
+  background: #050608;
+}
+.project-viewer-stage .project-placeholder { width: 100%; height: 100%; min-height: 0; aspect-ratio: auto; }
+.project-viewer-media-placeholder { max-width: min(540px, 82%); padding: 22px; }
+.project-viewer-media-placeholder strong { font-size: clamp(16px, 2vw, 23px); }
+.project-viewer-media-placeholder span { font-size: 12px; }
+.project-viewer-gallery-footer { min-height: 38px; padding: 10px 4px 2px; border: 0; font-size: 10px; }
+.project-viewer-carousel {
+  min-width: 0;
+  padding: 6px clamp(16px, 2.4vw, 30px) 22px;
+  border-bottom: 1px solid #272d35;
+  background: #0b0e12;
+}
+.project-viewer-carousel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 18px;
+  margin: 0 0 11px;
+  color: #a3b7d1;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.project-viewer-carousel-heading span:last-child { color: #778391; text-align: right; font-weight: 500; }
+.project-viewer-carousel-track {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding: 3px 2px 9px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #465568 #151a20;
+}
+.project-carousel-item {
+  flex: 0 0 clamp(142px, 17vw, 190px);
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #2c333d;
+  border-radius: 5px;
+  background: #12171d;
+  color: #b7c0cc;
+  text-align: left;
+  cursor: pointer;
+  scroll-snap-align: center;
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+.project-carousel-item:hover { border-color: #758ba7; background: #171e27; transform: translateY(-2px); }
+.project-carousel-item[aria-pressed="true"] { border-color: #8bb9f4; background: #1b2634; box-shadow: 0 0 0 1px rgba(139,185,244,.18); }
+.project-carousel-item:focus-visible { outline: 2px solid #a6c8f4; outline-offset: 3px; }
+.project-carousel-thumb {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg,#19212b,#080a0d);
+}
+.project-carousel-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.project-carousel-thumb-fallback { position: absolute; inset: 0; display: grid; place-items: center; color: #73849a; font-size: 10px; letter-spacing: .15em; pointer-events: none; }
+.project-carousel-thumb-fallback[hidden] { display: none !important; }
+.project-carousel-title { display: block; min-height: 39px; padding: 9px 10px; font-size: 10px; line-height: 1.45; overflow-wrap: anywhere; }
+.project-viewer-details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, .9fr);
+  column-gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+  width: min(1200px, 100%);
+  min-width: 0;
+  margin: 0 auto;
+  padding: clamp(25px, 4vw, 48px);
+  overflow: visible;
+}
+.project-viewer-eyebrow,
+.project-viewer-details h2,
+.project-viewer-category,
+.project-viewer-rule,
+.project-viewer-footer { grid-column: 1 / -1; }
+.project-viewer-eyebrow { margin-bottom: 12px; }
+.project-viewer-details h2 { font-size: clamp(34px, 5vw, 58px); margin-bottom: 10px; line-height: 1.02; }
+.project-viewer-category { font-size: 11px; }
+.project-viewer-rule { margin: 22px 0 22px; }
+.project-viewer-section-label { grid-column: 1; margin: 0 0 10px; }
+.project-viewer-description { grid-column: 1; min-width: 0; font-size: 15px; line-height: 1.8; }
+.project-viewer-facts { grid-column: 2; grid-row: 5 / span 2; align-self: start; margin: 0; }
+.project-viewer-fact { padding: 15px; }
+.project-viewer-fact span { font-size: 9px; }
+.project-viewer-fact strong { font-size: 12px; }
+.project-viewer-footer { margin-top: 28px; padding-top: 17px; }
+@media (max-width: 760px) {
+  .project-viewer-toolbar { padding: 10px 12px 10px 15px; }
+  .project-viewer-gallery { padding: 9px; }
+  .project-viewer-stage { aspect-ratio: 16 / 9; }
+  .project-viewer-carousel { padding: 5px 12px 16px; }
+  .project-carousel-item { flex-basis: 145px; }
+  .project-viewer-details { display: block; padding: 25px 20px 28px; }
+  .project-viewer-facts { margin-top: 24px; }
+}
+@media (max-width: 480px) {
+  .project-viewer-toolbar-title { display: block; font-size: 9px; }
+  .project-viewer-controls { gap: 5px; }
+  .project-viewer-details h2 { font-size: 36px; }
+  .project-viewer-description { font-size: 14px; }
+  .project-viewer-facts { grid-template-columns: 1fr 1fr; }
+  .project-viewer-footer { align-items: flex-start; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-viewer-panel, .project-carousel-item { transition: none !important; }
+}
+
+
+/* Integrated project showcases: player and project information belong to one feature panel;
+   the collection rail sits below the complete feature and rotates gently by default. */
+.project-showcase {
+  --showcase-line: #303740;
+  margin: 30px 0 36px;
+  overflow: hidden;
+  border: 1px solid var(--showcase-line);
+  border-radius: 12px;
+  color: #eef2f8;
+  color-scheme: dark;
+  background: #0b0e12;
+  box-shadow: 0 18px 54px rgba(0,0,0,.16);
+}
+.showcase-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-width: 0;
+}
+.showcase-visual {
+  min-width: 0;
+  padding: clamp(12px, 1.8vw, 22px);
+  background: #07090c;
+  border-right: 1px solid var(--showcase-line);
+}
+.showcase-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #252c35;
+  border-radius: 5px;
+  background: #050608;
+}
+.showcase-stage > img,
+.showcase-stage > video,
+.showcase-stage > iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 0;
+  background: #050608;
+}
+.showcase-stage .project-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+.showcase-empty-media {
+  position: absolute;
+  z-index: 2;
+  width: min(440px, 78%);
+  padding: 18px;
+  text-align: center;
+  pointer-events: none;
+}
+.showcase-empty-media strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #e5ebf4;
+  font-size: clamp(15px, 1.7vw, 21px);
+  font-weight: 500;
+  letter-spacing: -.02em;
+}
+.showcase-empty-media span { color: #929caa; font-size: 11px; line-height: 1.7; }
+.showcase-media-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  margin-top: 10px;
+}
+.showcase-media-picker[hidden] { display: none !important; }
+.showcase-media-picker > button {
+  display: grid;
+  flex: 0 0 30px;
+  place-items: center;
+  width: 30px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #303945;
+  border-radius: 4px;
+  background: #10151b;
+  color: #e0e7f0;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.showcase-media-picker > button:hover { border-color: #7086a1; background: #18212c; }
+.showcase-media-picker > button:focus-visible,
+.showcase-media-thumb:focus-visible { outline: 2px solid #9bb8dc; outline-offset: 2px; }
+.showcase-media-rail {
+  display: flex;
+  flex: 1 1 auto;
+  gap: 7px;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  touch-action: pan-x;
+}
+.showcase-media-rail::-webkit-scrollbar { display: none; }
+.showcase-media-thumb {
+  position: relative;
+  display: flex;
+  flex: 0 0 72px;
+  flex-direction: column;
+  gap: 3px;
+  width: 72px;
+  padding: 3px;
+  overflow: hidden;
+  border: 1px solid #303945;
+  border-radius: 4px;
+  background: #10151b;
+  color: #aeb9c8;
+  text-align: left;
+  cursor: pointer;
+}
+.showcase-media-thumb[aria-pressed="true"] { border-color: #9bb8dc; background: #18212c; color: #f0f4fa; }
+.showcase-media-thumb-preview {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #080b0f;
+  color: #aab8ca;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.showcase-media-thumb-preview img { width: 100%; height: 100%; object-fit: cover; }
+.showcase-media-thumb-type {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  padding: 2px 3px;
+  border-radius: 2px;
+  background: rgba(7,9,12,.82);
+  color: #f0f4fa;
+  font-size: 6px;
+  line-height: 1;
+}
+.showcase-media-thumb-label {
+  overflow: hidden;
+  font-size: 7px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.showcase-media-count {
+  flex: 0 0 auto;
+  min-width: 31px;
+  color: #aab4c0;
+  font-size: 8px;
+  letter-spacing: .05em;
+  text-align: right;
+}
+.showcase-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(22px, 3vw, 38px);
+  background: linear-gradient(145deg, #11161d, #0b0e12 70%);
+}
+.showcase-title {
+  margin: 0;
+  color: #f0f4fa;
+  font-size: clamp(24px, 2.25vw, 34px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -.055em;
+  overflow-wrap: anywhere;
+}
+.showcase-subtitle {
+  margin: 11px 0 0;
+  color: #aab4c0;
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: .01em;
+}
+.showcase-rule { height: 1px; margin: 23px 0 20px; background: #2b323c; }
+.showcase-label {
+  margin: 0 0 9px;
+  color: #9bb8dc;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.showcase-overview {
+  margin: 0;
+  color: #c0c8d2;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.showcase-overview.is-empty { color: #8a95a2; }
+.showcase-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 22px;
+}
+#professional-showcase .showcase-info { justify-content:center; }
+#professional-showcase .showcase-rule { margin:18px 0 20px; }
+#professional-showcase .showcase-facts { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:0; }
+#professional-showcase .showcase-fact { display:flex; flex-direction:column; justify-content:center; min-height:112px; padding:16px; border-color:#364151; background:linear-gradient(145deg,rgba(26,34,45,.96),rgba(17,22,29,.92)); }
+#professional-showcase .showcase-fact:last-child { grid-column:auto; }
+#professional-showcase .showcase-fact span { margin-bottom:10px; color:#9bb8dc; font-size:9px; }
+#professional-showcase .showcase-fact strong { font-size:13px; }
+#professional-showcase .showcase-links { gap:10px; margin-top:15px; }
+#professional-showcase .showcase-links a { width:42px; height:42px; min-height:42px; justify-content:center; padding:0; border-radius:50%; }
+#professional-showcase .showcase-links .social-icon { width:19px; height:19px; }
+#professional-showcase .showcase-links a::after { top:calc(100% + 8px); bottom:auto; transform:translate(-50%,-4px); }
+#professional-showcase .showcase-links a:hover::after,
+#professional-showcase .showcase-links a:focus-visible::after { opacity:1; transform:translate(-50%,0); }
+.showcase-fact {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #2c333d;
+  border-radius: 4px;
+  background: rgba(21,26,33,.74);
+}
+.showcase-fact span {
+  display: block;
+  margin-bottom: 7px;
+  color: #8794a4;
+  font-size: 8px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.showcase-fact:last-child { grid-column: 1 / -1; }
+.showcase-fact strong {
+  display: block;
+  color: #e0e6ee;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.showcase-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 19px; }
+.showcase-links:empty { display: none; }
+.showcase-links a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 7px 10px;
+  border: 1px solid #394655;
+  border-radius: 4px;
+  background: #111821;
+  color: #d3e4f8;
+  font-size: 10px;
+  text-decoration: none;
+  transition: background .16s ease, border-color .16s ease, color .16s ease;
+}
+.showcase-links a:hover { border-color: #7086a1; background: #18212c; color: #fff; }
+.showcase-links a:focus-visible { outline: 2px solid #9bb8dc; outline-offset: 3px; }
+.showcase-collection {
+  padding: 13px clamp(14px, 2.2vw, 26px) 12px;
+  border-top: 1px solid var(--showcase-line);
+  background: #0b0e12;
+}
+.showcase-collection-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.showcase-collection-head h4 {
+  margin: 0;
+  color: #dce5f0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.showcase-collection-head span {
+  color: #8491a0;
+  font-size: 9px;
+  text-align: right;
+}
+.showcase-rail {
+  display: flex;
+  justify-content: safe center;
+  align-items: stretch;
+  gap: clamp(8px, .9vw, 12px);
+  min-width: 0;
+  overflow-x: auto;
+  padding: 2px 2px 5px;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #465568 #151a20;
+}
+.showcase-item {
+  flex: 0 0 clamp(118px, 10vw, 145px);
+  min-width: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid #2c333d;
+  border-radius: 5px;
+  background: #12171d;
+  color: #b7c0cc;
+  text-align: left;
+  cursor: pointer;
+  scroll-snap-align: center;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.showcase-item:hover { border-color: #758ba7; background: #171e27; transform: translateY(-2px); }
+.showcase-item[aria-pressed="true"] { border-color: #8bb9f4; background: #1b2634; box-shadow: 0 0 0 1px rgba(139,185,244,.18); }
+.showcase-item:focus-visible { outline: 2px solid #a6c8f4; outline-offset: 3px; }
+.showcase-thumb {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: linear-gradient(135deg,#19212b,#080a0d);
+}
+.showcase-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.showcase-thumb-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #8090a5;
+  font-size: 9px;
+  letter-spacing: .13em;
+  pointer-events: none;
+}
+.showcase-item-title { display: block; min-height: 34px; padding: 7px 8px; color: inherit; font-size: 9px; line-height: 1.35; text-align: center; overflow-wrap: anywhere; }
+/* The original cards remain as content sources; visitors browse them in the feature rail. */
+#personal .project-grid,
+#university > .archive-year-grid,
+#professional .professional-list { display: none !important; }
+@media (max-width: 900px) {
+  .showcase-main { grid-template-columns: minmax(0, 1fr); }
+  .showcase-visual { border-right: 0; border-bottom: 1px solid var(--showcase-line); }
+  .showcase-info { padding: 25px clamp(18px, 4vw, 34px) 28px; }
+}
+@media (max-width: 560px) {
+  .project-showcase { margin: 22px 0 30px; border-radius: 9px; }
+  .showcase-visual { padding: 8px; }
+  .showcase-info { padding: 22px 17px; }
+  .showcase-title { font-size: 27px; }
+  .showcase-facts { gap: 8px; }
+  .showcase-fact { padding: 10px; }
+  .showcase-item { flex-basis: 112px; }
+  .showcase-collection { padding: 11px 11px 9px; }
+  .showcase-collection-head { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .showcase-collection-head span { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .showcase-item { transition: none !important; }
+}
+
+
+
+/* Layout refinement: separate the selected project from its wider browse rail. */
+.project-showcase {
+  position: relative;
+  left: 50%;
+  width: min(1600px, calc(100vw - 48px));
+  margin: 30px 0 42px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.showcase-main {
+  width: min(1320px, 100%);
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid var(--showcase-line);
+  border-radius: 12px;
+  background: #0b0e12;
+  box-shadow: 0 18px 54px rgba(0,0,0,.16);
+}
+.showcase-collection {
+  width: 100%;
+  border: 1px solid var(--showcase-line);
+  border-radius: 10px;
+  padding: 17px clamp(16px, 2.2vw, 30px) 18px;
+}
+#university-showcase .showcase-collection > .filters { margin: 0 0 10px; }
+#university-showcase .showcase-collection > .filters .filter {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 38px;
+  padding: 8px 10px;
+  text-align: center;
+}
+.showcase-rail { touch-action: pan-x; }
+#work {
+  padding: 0;
+  background: light-dark(#f7f8fa, #090c11);
+}
+#work > .wrap { padding: calc(78px * var(--site-spacing-scale)) 0; }
+#university {
+  margin-top: 0;
+  padding: calc(78px * var(--site-spacing-scale)) 0;
+  background: light-dark(#eef1f5, #10141a);
+}
+#about { background: light-dark(#f2f4f7, #0b0d12); }
+#professional .section-head { justify-content: center; text-align: center; }
+#professional-showcase .showcase-fact:nth-child(2) { display: none; }
+.showcase-instagram-link {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #f0f4fa;
+}
+.showcase-instagram-link > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .25s ease;
+}
+.showcase-instagram-link:hover > img { transform: scale(1.025); }
+.showcase-instagram-cta {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
+  background: rgba(5, 8, 12, .28);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.showcase-instagram-icon {
+  width: 44px;
+  height: 44px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Category descriptions sit beside their headings as small italic supporting text. */
+.section-title-group,
+.collection-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 13px;
+  row-gap: 4px;
+  min-width: 0;
+  text-align: center;
+}
+.section-title-group .section-copy,
+.collection-heading .collection-copy {
+  max-width: none;
+  margin: 0;
+  color: light-dark(#737981, #9ca5b0);
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.5;
+  letter-spacing: .01em;
+}
+.collection-heading { margin: 0 0 26px; }
+.collection-heading .collection-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  text-align: center;
+}
+.collection-heading-icon {
+  display: block;
+  flex: 0 0 auto;
+  width: .68em;
+  height: .68em;
+  fill: none;
+  stroke: var(--site-primary);
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.collection-heading .collection-copy { max-width: min(680px, 100%); text-align: center; }
+#personal .collection-copy,
+#university .collection-copy { margin: 0; }
+@media (max-width: 900px) {
+  .project-showcase { width: calc(100vw - 40px); }
+  .showcase-main { width: 100%; grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 850px) {
+  #work > .wrap,
+  #university { padding-top: 58px; padding-bottom: 58px; }
+}
+@media (max-width: 560px) {
+  .project-showcase { width: calc(100vw - 30px); gap: 12px; }
+  .showcase-main { border-radius: 9px; }
+  .showcase-collection { padding: 14px 11px 15px; }
+  .showcase-item { flex-basis: 112px; }
+  .collection-heading { align-items: center; flex-direction: column; gap: 5px; }
+}
+
+</style>
+</head>
+<body>
+<div data-sites-preview-theme="custom" id="site-root">
+<header class="topbar">
+<div class="wrap nav">
+<a aria-label="Kieran Schofield home" class="brand" href="#top">
+<span>Kieran Schofield<small>VFX Generalist</small></span>
+</a>
+<nav aria-label="Main navigation" class="navlinks">
+<a aria-label="Home" data-label="Home" href="#top"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7"/><path d="M5.5 9v11h13V9M9 20v-6h6v6"/></svg></a>
+<a aria-label="Professional Work" data-label="Professional Work" href="#professional"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="7"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg></a>
+<a aria-label="Personal Projects" data-label="Personal Projects" href="#personal"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><path d="M3 6.5h7l2 2h9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m15.5 11 .8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8z"/></svg></a>
+<a aria-label="University Archive" data-label="University Archive" href="#university"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3.5 3 8.5 3 12 0v-5M22 9v6"/></svg></a>
+<a aria-label="About" data-label="About" href="#about"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0M19 4h3M20.5 2.5v3"/></svg></a>
+</nav>
+</div>
+</header>
+<main id="top">
+<section aria-labelledby="hero-title" class="hero hero-fullbleed" id="showreel">
+<div aria-hidden="true" class="hero-video" id="hero-video-wrap">
+<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;app_id=122963" id="hero-showreel-video" loading="eager" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
+</div>
+<div class="hero-content">
+<div class="kicker">Visual effects · 3D · Compositing</div>
+<h1 id="hero-title">Kieran Schofield<span>VFX Generalist</span></h1>
+<p>I’m Kieran, a UK-based VFX artist currently working at CHIEF Productions as a Visual Effects Generalist.</p>
+</div>
+</section>
+<div class="rule"></div>
+<section class="professional section" id="professional">
+<div class="wrap">
+<div class="section-head"><div class="section-title-group"><h2 id="professional-title">Professional Work</h2><p class="section-copy">Official release links for the projects featured below can be found alongside each piece.</p></div></div>
+<div id="professional-showcase-mount"></div>
+<div class="professional-list">
+<article class="prof-row" data-prof-categories="commercial">
+<div><h3>Blinds Direct</h3><p>2026 · Chief Productions / The Longhouse Post</p></div>
+<div class="credit">Credited VFX Generalist</div>
+<a class="text-link" href="https://youtu.be/p0dhbSnRBM0" rel="noreferrer" target="_blank">YouTube ↗</a>
+</article>
+<article class="prof-row" data-prof-categories="commercial">
+<div><h3>Marks &amp; Spencer Food / Eat Well</h3><p>2026 · Chief Productions / The Longhouse Post</p></div>
+<div class="credit">Credited VFX Artist (Freelance)</div>
+<div class="prof-links"><a class="text-link" href="https://www.instagram.com/wearechief/reel/DZNGUyOsxz6/?hl=en-gb" rel="noreferrer" target="_blank">Instagram ↗</a><a class="text-link" href="https://www.youtube.com/watch?v=qKBI3Aob0bA" rel="noreferrer" target="_blank">YouTube ↗</a></div>
+</article>
+<article class="prof-row" data-prof-categories="commercial">
+<div><h3>Karen Betts</h3><p>2026 · Chief Productions / The Longhouse Post</p></div>
+<div class="credit">Credited VFX Artist (Freelance)</div>
+<a class="text-link" href="https://www.instagram.com/wearechief/reel/DbqCmo9Mc1j/?hl=en-gb" rel="noreferrer" target="_blank">Instagram ↗</a>
+</article>
+</div>
+</section>
+<div class="rule"></div>
+<section class="section" id="work">
+<div class="wrap">
+<div aria-labelledby="personal-title" class="collection-block personal-collection" id="personal"><div class="collection-heading"><h3 class="collection-title" id="personal-title"><svg aria-hidden="true" class="collection-heading-icon" focusable="false" viewBox="0 0 24 24"><path d="M3 6.5h7l2 2h9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m15.5 11 .8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8z"/></svg>Personal Projects</h3><p class="collection-copy">Projects created independently for research, experimentation and personal development.</p></div><div id="personal-showcase-mount"></div><div class="project-grid" id="project-grid">
+<article aria-controls="personal-showcase" aria-label="Open project: BorisFX - Silhouette Rotoscoping Study" class="project" data-date="November 2025" data-description="This is a breakdown of a personal study using BorisFX Silhouette. The main goal was to explore both AI-assisted and manual rotoscoping workflows.
+
+Overall, I’m happy with both outcomes for these shots. I found the workflow intuitive and similar to, but more streamlined than, my prior experience with rotoscoping techniques in Nuke across both manual and AI-assisted methods." data-role="All work shown." data-summary="A Silhouette study exploring manual and AI-assisted rotoscoping for CG integration." data-tools="BorisFX Silhouette (rotoscoping); Houdini (modelling); Substance Painter (texturing); Arnold (rendering); Nuke (3D/2D integration); Pexels (footage)." data-youtube="https://www.youtube-nocookie.com/embed/MnPaiLLBjjU?rel=0" id="pp-silhouette" role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 01</span></div></div>
+<div class="project-meta"><div><h3>BorisFX - Silhouette Rotoscoping Study</h3><p>BorisFX Silhouette study · 2025</p></div><span class="project-index">01</span></div>
+</article>
+<article aria-controls="personal-showcase" aria-label="Open project: KeenTools Facetracking" class="project" data-date="March 2025" data-description="A facial-tracking study integrating a stylised CG face onto live-action footage. The final image works well and KeenTools proved intuitive to learn; the track slips slightly near the end and would benefit from refinement." data-role="All work shown." data-summary="A KeenTools facial-tracking and CG integration study." data-tools="KeenTools FaceTracker (tracking); Houdini (modelling); Substance Painter (texturing); Karma (rendering); Nuke (rotoscoping and grading); Pexels (footage)." data-youtube="https://www.youtube-nocookie.com/embed/s8l1wGASu8I?rel=0" id="pp-keentools" role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 02</span></div></div>
+<div class="project-meta"><div><h3>KeenTools Facetracking</h3><p>KeenTools study · 2025</p></div><span class="project-index">02</span></div>
+</article>
+<article aria-controls="personal-showcase" aria-label="Open project: Mouf" class="project" data-date="January 2025" data-description="Created with a four-person team in three days for the 2025 MMU CAVE JAM, this first-person looping animation turns a repetitive work routine into a horror story. The team won first place through student and industry voting; the changing environments and visual details reinforce the cycle’s unsettling theme." data-role="Art direction and story; Unreal Engine 5 animation, pipeline integration and lighting; asset modelling and texturing." data-summary="A first-person horror loop about the monotony of work, made for a three-day team jam." data-tools="Houdini (modelling); Unreal Engine (animation, integration and lighting); Substance Painter (texturing)." data-youtube="https://www.youtube-nocookie.com/embed/u6hYaja-4s4?rel=0" id="pp-mouf" role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 03</span></div></div>
+<div class="project-meta"><div><h3>Mouf</h3><p>Cave Jam · 2025</p></div><span class="project-index">03</span></div>
+</article>
+<article aria-controls="personal-showcase" aria-label="Open project: Magic Tomes" class="project" data-date="August 2024" data-description="A personal technical study modelling and rigging a magical book, then texturing it in three distinct styles. The short project helped streamline my texturing and rigging workflows and taught me how to combine modelling, rigging and texturing more efficiently." data-role="All work shown." data-summary="A Maya book model and rig, explored through three Substance Painter looks." data-tools="Maya (modelling, rigging and animation); Substance Painter (texturing); Arnold (rendering)." data-youtube="https://www.youtube-nocookie.com/embed/ypZmp-B6Mxo?rel=0" role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 04</span></div></div>
+<div class="project-meta"><div><h3>Magic Tomes</h3><p>2024</p></div><span class="project-index">04</span></div>
+</article>
+<article aria-controls="personal-showcase" aria-label="Open project: NieR: Smaller Stubby" class="project" data-date="August 2023" data-description="A model of a Smaller Stubby from NieR:Automata holding a Lunar Tear, made as a personal modelling exercise before learning to rig. I’m happy with the final renders and learned a lot about lighting, materials, Maya’s Outliner and how topology and edge flow affect future deformation." data-role="All work shown." data-summary="A Maya character modelling study inspired by NieR:Automata." data-tools="Maya (modelling and animation); Substance Painter (texturing); Arnold (rendering)." data-youtube="https://www.youtube-nocookie.com/embed/BahgUmxj0Q8?rel=0" role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 05</span></div></div>
+<div class="project-meta"><div><h3>NieR: Smaller Stubby</h3><p>2023</p></div><span class="project-index">05</span></div>
+</article>
+<article aria-controls="personal-showcase" aria-label="Open project: Monsters Of Mystery" class="project" data-date="August 2017–2018" data-description="My first game project, developed over summer 2017 and later used as the basis for a college assignment. It grew into a playable game with platforming, brick-breaker, riverboat and space-boss levels, plus menus, a shop and local multiplayer. I’m proud of taking an idea from concept to a complete executable and of what I learned about planning, scope, coding and asset creation." data-role="All assets and code." data-summary="A multi-level 2D game and my first complete game-development project." data-tools="GameMaker Studio 1.4 (programming); Photoshop (art and animation)." data-youtube="https://www.youtube-nocookie.com/embed/9_On8rNKrL4?rel=0" role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 06</span></div></div>
+<div class="project-meta"><div><h3>Monsters Of Mystery</h3><p>2017–2018</p></div><span class="project-index">06</span></div>
+</article>
+</div></div></div>
+<section aria-labelledby="archive-title" class="collection-block archive-collection" id="university">
+<div class="collection-heading"><h3 class="collection-title" id="archive-title"><svg aria-hidden="true" class="collection-heading-icon" focusable="false" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3.5 3 8.5 3 12 0v-5M22 9v6"/></svg>University Archive</h3><p class="collection-copy">Archive of university projects completed at Manchester Metropolitan University.</p></div>
+<div aria-label="Filter university archive by year" class="filters" role="group">
+<button aria-pressed="true" class="filter" data-filter="year1" type="button">First Year</button>
+<button aria-pressed="false" class="filter" data-filter="year2" type="button">Second Year</button>
+<button aria-pressed="false" class="filter" data-filter="year3" type="button">Third Year</button>
+</div>
+<div id="university-showcase-mount"></div>
+<div aria-label="University archive projects" class="project-grid archive-year-grid">
+<article aria-controls="project-viewer" aria-label="Open project: 3D Fundamentals" class="project" data-categories="year1" data-date="2022–2023" data-description="This unit covered the core workflows for producing a rendered image. I made a wooden toy train in Arnold and an interior scene in V-Ray. The train was my first modelling project and I’m happy with the result; the room could be stronger, but the experimentation taught me a lot and showed clear progress in Maya modelling and animation." data-role="Modelling, texturing and rendering." data-summary="Two first-year 3D studies: a wooden toy train and an interior scene." data-tools="Maya (modelling); Substance Painter (texturing); Arnold and V-Ray (rendering)." role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 01</span></div></div>
+<div class="project-meta"><div><h3>3D Fundamentals</h3><p>First Year · 2022–2023</p></div><span class="project-index">01</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: FX Fundamentals" class="project" data-categories="year1" data-date="2022–2023" data-description="A first Houdini showreel demonstrating RBD, FLIP and Pyro simulations. Learning the software and its simulation workflows was the main focus. The melting-metal sword mould was ambitious for my first FLIP shot: it works, but I would improve it with more time and experience." data-role="FX and rendering." data-summary="A first Houdini showreel exploring RBD, FLIP and Pyro." data-tools="Houdini (simulation); Substance Painter (texturing); Karma (rendering)." role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 02</span></div></div>
+<div class="project-meta"><div><h3>FX Fundamentals</h3><p>First Year · 2022–2023</p></div><span class="project-index">02</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: Production VFX" class="project" data-categories="year1" data-date="2022–2023" data-description="A live-action integration exercise featuring a CG robot flying around a corner and interacting with CG apples on a barrel. This was my first time using Nuke and my first experience capturing footage, creating a LiDAR scan and tracking a scene. I’m pleased with the result and found it rewarding to bring my Maya and Nuke learning together." data-role="Compositing and animation." data-summary="A CG robot and interactive apples integrated into a live-action shot." data-tools="Nuke (compositing); Maya (animation); Arnold (rendering). CG models acquired online." role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 03</span></div></div>
+<div class="project-meta"><div><h3>Production VFX</h3><p>First Year · 2022–2023</p></div><span class="project-index">03</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: Compositing Fundamentals" class="project" data-categories="year1" data-date="2022–2023" data-description="A foundational Nuke exercise covering rotoscoping, roto cleanup, removal and digital makeup. It was my first formal introduction to these techniques and built a foundation for understanding how they fit into VFX workflows." data-role="Compositing." data-summary="A Nuke fundamentals project covering roto, cleanup, removal and digital makeup." data-tools="Nuke and Photoshop (compositing). Some assets acquired online." role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 04</span></div></div>
+<div class="project-meta"><div><h3>Compositing Fundamentals</h3><p>First Year · 2022–2023</p></div><span class="project-index">04</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: Team Project" class="project" data-categories="year1" data-date="2022–2023" data-description="A team animation about gambling and its predatory effects, told through a story between two characters. My contributions included compositing the screens, modelling an asset, editing the final piece and creating the script, AI-assisted voice-over and subtitles." data-role="Maya modelling and rendering; compositing; editing; script, AI-assisted voice-over and subtitles." data-summary="A team short using a character-led story to explore gambling and its effects." data-tools="Nuke (compositing); Maya (modelling); Premiere Pro (editing); Arnold (rendering)." role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 05</span></div></div>
+<div class="project-meta"><div><h3>Team Project</h3><p>First Year · 2022–2023</p></div><span class="project-index">05</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: Compositing" class="project" data-categories="year2" data-date="2023–2024" data-description="A showreel extending beyond the first-year fundamentals, with advanced roto and integration, digital matte painting, and green-screen removal and integration. It also includes a FLIP simulation and layout work." data-role="Compositing, simulation and layout." data-summary="A compositing reel exploring advanced roto, integration, DMP and green screen." data-tools="Nuke (compositing); Houdini (FLIP simulation and layout); Karma (rendering)." role="button" tabindex="0" hidden="">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 01</span></div></div>
+<div class="project-meta"><div><h3>Compositing</h3><p>Second Year · 2023–2024</p></div><span class="project-index">01</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: Modelling" class="project" data-categories="year2" data-date="2023–2024" data-description="A character-development project following Evette from sketches and concept art through Maya modelling and Arnold render passes. The accompanying report documents the stages of development in more detail." data-role="Modelling, texturing and rendering." data-summary="Evette, a 3D character developed from initial sketches through final render passes." data-tools="Maya (modelling); Substance Painter (texturing); Arnold (rendering)." role="button" tabindex="0" hidden="">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 02</span></div></div>
+<div class="project-meta"><div><h3>Modelling</h3><p>Second Year · 2023–2024</p></div><span class="project-index">02</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: Character Rigging" class="project" data-categories="year2" data-date="2023–2024" data-description="A continuation of Evette’s modelling project, creating a custom Maya rig and walk cycle. The animation also shows several outfits designed and modelled for the character, including a separately rigged dress for more believable movement." data-role="Modelling, texturing, rigging, animation and rendering." data-summary="A custom character rig and walk cycle for Evette, including a secondary dress rig." data-tools="Maya (modelling, rigging and animation); Substance Painter (texturing); Arnold (rendering)." hidden="" id="uni-y2-rigging" role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 03</span></div></div>
+<div class="project-meta"><div><h3>Character Rigging</h3><p>Second Year · 2023–2024</p></div><span class="project-index">03</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: FX" class="project" data-categories="year2" data-date="2023–2024" data-description="A four-part Houdini FX reel featuring procedural modelling, Pyro smoke, smoke and particles interacting with a custom Maya-rigged character, and a Pyro-powered growth effect with ripple simulations." data-role="All work shown." data-summary="A Houdini reel spanning procedural modelling, Pyro, particles and ripple simulations." data-tools="Maya (character animation); Houdini (procedural modelling and simulations); Substance Painter (texturing); Karma (rendering)." role="button" tabindex="0" hidden="">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 04</span></div></div>
+<div class="project-meta"><div><h3>FX</h3><p>Second Year · 2023–2024</p></div><span class="project-index">04</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: Thematic Project" class="project" data-categories="year2" data-date="2023–2024" data-description="A team project building a procedural environment in Houdini. I generated the terrain with heightfields, composited the completed environment and led the team by coordinating discussions and tracking progress. The result could be improved, but the project strengthened my procedural environment, communication and team-leadership skills." data-role="Terrain generation and compositing; team lead." data-summary="A collaborative Houdini environment project focused on terrain and procedural workflows." data-tools="Houdini (terrain and modelling); Karma (rendering)." role="button" tabindex="0" hidden="">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 05</span></div></div>
+<div class="project-meta"><div><h3>Thematic Project</h3><p>Second Year · 2023–2024</p></div><span class="project-index">05</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: VFX Integration" class="project" data-categories="year3" data-date="2024–2025" data-description="Two live-action integration shots using footage from Pexels: a CG rock extension and portal, followed by a Houdini FLIP-water village with procedural buildings. I’m happy with both shots and their integration; if revisiting them, I’d refine the quickly built village assets, which are less convincing in close-up." data-role="Compositing, layout, environment creation, simulation, texturing and asset creation as shown." data-summary="Two live-action CG integration shots: a portal through a rock face and a water-swept village." data-tools="Nuke (tracking and compositing); Unreal Engine 5 (environment); Houdini (rock, particles, FLIP and procedural buildings); Maya (windmill and boat modelling); Substance Painter; Karma." hidden="" id="uni-y3-integration" role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 01</span></div></div>
+<div class="project-meta"><div><h3>VFX Integration</h3><p>Third Year · 2024–2025</p></div><span class="project-index">01</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: Unreal Project: Dreamscaper" class="project" data-categories="year3" data-date="2024–2025" data-description="A group project with games students to take Dreamscaper from concept to playable demo. I led the visual and FX work, including character modelling and animation, environment assets, asset pipelines into Unreal and Niagara effects. I enjoyed collaborating across disciplines and learned how to iterate quickly on a larger project." data-role="3D modelling, texturing, Unreal shaders and layout, Niagara FX, and Maya animation; visual/FX lead." data-summary="A cross-discipline team project developing a game from concept to playable demo." data-tools="Unreal Engine 5 (shaders, layout and Niagara FX); Maya (modelling and animation); Substance Painter (texturing); Arnold (rendering)." hidden="" id="uni-y3-dreamscaper" role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 02</span></div></div>
+<div class="project-meta"><div><h3>Unreal Project: Dreamscaper</h3><p>Third Year · 2024–2025</p></div><span class="project-index">02</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: Crafting a Visual Experience" class="project" data-categories="year3" data-date="2024–2025" data-description="A short animation/advertisement themed around 3D printing. I supported compositing across teams and led my own team developing experimental Houdini shaders, alongside FX, sculpting and 2D/3D compositing. Taking on many responsibilities spread my focus thin; a clearer intent and more focused shot plan would have made the final piece more cohesive." data-role="Team leadership and meetings; FX; sculpting; compositing." data-summary="A collaborative 3D-printing animation exploring experimental shaders and compositing." data-tools="Nomad Sculpt (sculpting); Maya (modelling); Nuke (compositing); Houdini (simulations and shaders); Karma (rendering)." role="button" tabindex="0" hidden="">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 03</span></div></div>
+<div class="project-meta"><div><h3>Crafting a Visual Experience</h3><p>Third Year · 2024–2025</p></div><span class="project-index">03</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: Innovation Project" class="project" data-categories="year3" data-date="2024–2025" data-description="I developed a Houdini Digital Asset that generates buildings along a user-drawn curve, building on a procedural terrarium project. The tool supports interior layouts, doors, windows, furniture, roofs, room extensions and randomized props, with controls designed for flexibility and ease of use. It was less about a flashy final model and more about learning HDA workflows, procedural design and thoughtful interfaces." data-role="Houdini Digital Asset development." data-summary="A flexible Houdini tool for generating buildings and interiors along a user-drawn curve." data-tools="Houdini 20 (HDA and procedural modelling). Some model assets acquired online." hidden="" role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 04</span></div></div>
+<div class="project-meta"><div><h3>Innovation Project</h3><p>Third Year · 2024–2025</p></div><span class="project-index">04</span></div>
+</article>
+<article aria-controls="project-viewer" aria-label="Open project: Synoptic Project" class="project" data-categories="year3" data-date="2024–2025" data-description="My dissertation project developing a full VFX pipeline to integrate a CG red-panda-inspired creature into live-action footage, from modelling, sculpting and rigging through animation, grooming and compositing. The model, texturing and first integration are the strongest parts; the animation and second shot are less resolved. The scope was too ambitious for the time, and a more focused plan would have produced a stronger result, but the process taught me a great deal." data-role="All work shown, including modelling, sculpting, rigging, animation, grooming and compositing." data-summary="A dissertation project building and integrating a CG creature through a complete VFX pipeline." data-tools="Nomad Sculpt (sculpting); Nuke (compositing); Houdini (grooming and simulations); Substance Painter (texturing); Karma (rendering)." hidden="" role="button" tabindex="0">
+<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 05</span></div></div>
+<div class="project-meta"><div><h3>Synoptic Project</h3><p>Third Year · 2024–2025</p></div><span class="project-index">05</span></div>
+</article>
+</div>
+</section></section>
+<section aria-labelledby="about-heading" class="about-page section" id="about">
+<div class="wrap">
+<div class="about-intro">
+<div class="section-eyebrow">About</div>
+<h1 id="about-heading">Hello!</h1>
+<p class="about-lead">I’m Kieran, a UK-based VFX artist currently working at CHIEF Productions as a Visual Effects Generalist.</p>
+<p>Across the site you can find my professional work, personal projects and an archive of work from my time studying at Manchester Metropolitan University.</p>
+<p class="about-contact-line">If you want to chat or have any questions, feel free to <a href="https://www.linkedin.com/in/kieran-schofield-a59137178/" rel="noreferrer" target="_blank">reach out on LinkedIn ↗</a>!</p>
+</div>
+<section aria-labelledby="skills-heading" class="about-network-section skills-section">
+<div class="skills-heading">
+<h2 id="skills-heading">Skills across the VFX pipeline</h2>
+</div>
+<div class="skills-pipeline-map">
+<ol aria-label="VFX production pipeline stages" class="skills-track">
+<li aria-hidden="true" class="skills-discipline skills-discipline-3d"><svg aria-hidden="true" class="skills-discipline-icon" viewBox="0 0 20 20"><path d="m10 2.5 6.5 3.75v7.5L10 17.5l-6.5-3.75v-7.5L10 2.5Z"/><path d="m3.7 6.4 6.3 3.7 6.3-3.7M10 10.1v7"/></svg><span>3D</span></li>
+<li class="skills-stage-item" data-discipline="3d" data-stage-column="1">
+<button id="skills-stage-model" aria-label="3D: Modelling and Sculpting" aria-controls="skills-detail-model" aria-expanded="true" class="skills-stage" data-skill-stage="model" type="button"><span aria-hidden="true" class="skills-stage-dot-wrap"><span class="skills-stage-dot"></span></span><span class="skills-stage-label">Modelling &amp; Sculpting</span></button>
+<section aria-labelledby="skills-stage-model" class="skills-detail" id="skills-detail-model" data-skills-detail="model">
+<div class="skills-widget-grid">
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon"><img alt="" src="images/skills/maya_logo_v001.svg"></span><h3>Maya</h3></header><ul><li>Create polygonal assets, then rig and animate them.</li></ul></article>
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon skills-software-icon--brand-wordmark"><img alt="" src="images/skills/houdini_wordmark_v001.svg"></span><h3>Houdini</h3></header><ul><li>Build procedural geometry and Houdini Digital Assets (HDAs).</li></ul></article>
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon"><img alt="" src="images/skills/nomad_sculpt_logo_v001.ico"></span><h3>Nomad Sculpt</h3></header><ul><li>Sculpt digital forms.</li></ul></article>
+</div>
+</section>
+</li>
+<li class="skills-stage-item" data-discipline="3d" data-stage-column="2">
+<button id="skills-stage-texture" aria-label="3D: Texturing" aria-controls="skills-detail-texture" aria-expanded="false" class="skills-stage" data-skill-stage="texture" type="button"><span aria-hidden="true" class="skills-stage-dot-wrap"><span class="skills-stage-dot"></span></span><span class="skills-stage-label">Texturing</span></button>
+<section aria-labelledby="skills-stage-texture" class="skills-detail" id="skills-detail-texture" data-skills-detail="texture" hidden>
+<div class="skills-widget-grid">
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon"><img alt="" src="images/skills/substance_painter_logo_v001.svg"></span><h3>Substance Painter</h3></header><ul><li>Paint PBR textures and author materials and texture maps.</li></ul></article>
+</div>
+</section>
+</li>
+<li class="skills-stage-item" data-discipline="3d" data-stage-column="3">
+<button id="skills-stage-lookdev" aria-label="3D: Look Development and Rendering" aria-controls="skills-detail-lookdev" aria-expanded="false" class="skills-stage" data-skill-stage="lookdev" type="button"><span aria-hidden="true" class="skills-stage-dot-wrap"><span class="skills-stage-dot"></span></span><span class="skills-stage-label">Look Development &amp; Rendering</span></button>
+<section aria-labelledby="skills-stage-lookdev" class="skills-detail" id="skills-detail-lookdev" data-skills-detail="lookdev" hidden>
+<div class="skills-widget-grid">
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-logos"><span class="skills-software-icon skills-software-icon--renderer-wordmark"><img alt="" src="images/skills/karma_logo_v001.svg"></span><span class="skills-software-icon"><img alt="" src="images/skills/vray_logo_v001.svg"></span></span><h3>Arnold, Karma &amp; V-Ray</h3></header><ul><li>Develop shaders and material looks.</li><li>Light and render CG and FX.</li></ul></article>
+</div>
+</section>
+</li>
+<li aria-hidden="true" class="skills-discipline skills-discipline-fx"><svg aria-hidden="true" class="skills-discipline-icon" viewBox="0 0 20 20"><path d="M10 2.5v3M10 14.5v3M2.5 10h3M14.5 10h3M4.7 4.7l2.1 2.1m6.4 6.4 2.1 2.1m0-10.6-2.1 2.1m-6.4 6.4-2.1 2.1"/><circle cx="10" cy="10" r="3.1"/><circle cx="10" cy="2.5" r=".65"/><circle cx="17.5" cy="10" r=".65"/><circle cx="10" cy="17.5" r=".65"/><circle cx="2.5" cy="10" r=".65"/></svg><span>FX</span></li>
+<li class="skills-stage-item" data-discipline="fx" data-stage-column="4">
+<button id="skills-stage-fx" aria-label="FX: Procedural FX and Simulation" aria-controls="skills-detail-fx" aria-expanded="false" class="skills-stage" data-skill-stage="fx" type="button"><span aria-hidden="true" class="skills-stage-dot-wrap"><span class="skills-stage-dot"></span></span><span class="skills-stage-label">Procedural FX &amp; Simulation</span></button>
+<section aria-labelledby="skills-stage-fx" class="skills-detail" id="skills-detail-fx" data-skills-detail="fx" hidden>
+<div class="skills-widget-grid">
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon skills-software-icon--brand-wordmark"><img alt="" src="images/skills/houdini_wordmark_v001.svg"></span><h3>Houdini</h3></header><ul><li>Create RBD, FLIP and Pyro simulations, particle systems and grooming effects.</li></ul></article>
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon"><img alt="" src="images/skills/unreal_engine_logo_v001.svg"></span><h3>Unreal Engine 5 &amp; Niagara</h3></header><ul><li>Create environments and scene layouts, set up lighting and shaders, and build real-time visual effects with Niagara.</li></ul></article>
+</div>
+</section>
+</li>
+<li aria-hidden="true" class="skills-discipline skills-discipline-comp"><svg aria-hidden="true" class="skills-discipline-icon" viewBox="0 0 20 20"><rect x="3" y="3" width="11" height="9" rx="1.2"/><path d="M6 6h5M6 8.5h3M6 15h11V6M3 15v2h11"/></svg><span>Compositing</span></li>
+<li class="skills-stage-item" data-discipline="compositing" data-stage-column="5">
+<button id="skills-stage-tracking" aria-label="Compositing: Tracking" aria-controls="skills-detail-tracking" aria-expanded="false" class="skills-stage" data-skill-stage="tracking" type="button"><span aria-hidden="true" class="skills-stage-dot-wrap"><span class="skills-stage-dot"></span></span><span class="skills-stage-label">Tracking</span></button>
+<section aria-labelledby="skills-stage-tracking" class="skills-detail" id="skills-detail-tracking" data-skills-detail="tracking" hidden>
+<div class="skills-widget-grid">
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon skills-software-icon--wordmark"><img alt="" src="images/skills/3dequalizer_logo_v001.png"></span><h3>3D Equalizer</h3></header><ul><li>Solve 3D cameras and establish matchmove.</li></ul></article>
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon skills-software-icon--brand-wordmark"><img alt="" src="images/skills/nuke_logo_v001.svg"></span><h3>Nuke</h3></header><ul><li>Track 2D motion for compositing.</li></ul></article>
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon"><img alt="" src="images/skills/keentools_logo_v001.svg"></span><h3>KeenTools FaceTracker</h3></header><ul><li>Track facial movement and support CG face integration.</li></ul></article>
+</div>
+</section>
+</li>
+<li class="skills-stage-item" data-discipline="compositing" data-stage-column="6">
+<button id="skills-stage-roto" aria-label="Compositing: Rotoscoping and Mattes" aria-controls="skills-detail-roto" aria-expanded="false" class="skills-stage" data-skill-stage="roto" type="button"><span aria-hidden="true" class="skills-stage-dot-wrap"><span class="skills-stage-dot"></span></span><span class="skills-stage-label">Rotoscoping &amp; Mattes</span></button>
+<section aria-labelledby="skills-stage-roto" class="skills-detail" id="skills-detail-roto" data-skills-detail="roto" hidden>
+<div class="skills-widget-grid">
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon skills-software-icon--silhouette"><img alt="" src="images/skills/silhouette_logo_v002.svg"></span><h3>Silhouette</h3></header><ul><li>Create spline roto and refine mattes.</li></ul></article>
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon skills-software-icon--brand-wordmark"><img alt="" src="images/skills/nuke_logo_v001.svg"></span><h3>Nuke</h3></header><ul><li>Clean up roto and generate mattes with CopyCat.</li></ul></article>
+</div>
+</section>
+</li>
+<li class="skills-stage-item" data-discipline="compositing" data-stage-column="7">
+<button id="skills-stage-paint" aria-label="Compositing: Keying and Paint" aria-controls="skills-detail-paint" aria-expanded="false" class="skills-stage" data-skill-stage="paint" type="button"><span aria-hidden="true" class="skills-stage-dot-wrap"><span class="skills-stage-dot"></span></span><span class="skills-stage-label">Keying &amp; Paint</span></button>
+<section aria-labelledby="skills-stage-paint" class="skills-detail" id="skills-detail-paint" data-skills-detail="paint" hidden>
+<div class="skills-widget-grid">
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon skills-software-icon--brand-wordmark"><img alt="" src="images/skills/nuke_logo_v001.svg"></span><h3>Nuke</h3></header><ul><li>Pull keys, remove rigs, clean up plates and create digital makeup.</li></ul></article>
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon"><img alt="" src="images/skills/comfyui_logo_v001.svg"></span><h3>ComfyUI</h3></header><ul><li>Generate AI-assisted paint elements.</li></ul></article>
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon"><img alt="" src="images/skills/photoshop_logo_v001.svg"></span><h3>Photoshop</h3></header><ul><li>Prepare image patches.</li></ul></article>
+</div>
+</section>
+</li>
+<li class="skills-stage-item" data-discipline="compositing" data-stage-column="8">
+<button id="skills-stage-integrate" aria-label="Compositing: CG Integration and Final Composite" aria-controls="skills-detail-integrate" aria-expanded="false" class="skills-stage" data-skill-stage="integrate" type="button"><span aria-hidden="true" class="skills-stage-dot-wrap"><span class="skills-stage-dot"></span></span><span class="skills-stage-label">CG Integration &amp; Final Composite</span></button>
+<section aria-labelledby="skills-stage-integrate" class="skills-detail" id="skills-detail-integrate" data-skills-detail="integrate" hidden>
+<div class="skills-widget-grid">
+<article class="skills-widget"><header><span aria-hidden="true" class="skills-software-icon skills-software-icon--brand-wordmark"><img alt="" src="images/skills/nuke_logo_v001.svg"></span><h3>Nuke</h3></header><ul><li>Integrate CG into plates, match colour, balance shots and complete the final composite.</li></ul></article>
+</div>
+</section>
+</li>
+</ol>
+</div>
+</section>
+<section aria-labelledby="timeline-heading" class="timeline-network-section">
+<div class="about-network-heading">
+<div>
+<div class="section-eyebrow">Experience &amp; Qualifications</div>
+<h2 id="timeline-heading">Work &amp; Education</h2>
+</div>
+<p>A timeline of the roles and courses that brought me into visual effects, with related skills branching off each step.</p>
+</div>
+<div aria-controls="timeline-items" aria-label="Filter work and education" class="timeline-filter-controls" role="group">
+<button aria-pressed="true" class="timeline-filter" data-timeline-filter="all" type="button"><svg aria-hidden="true" class="timeline-filter-icon" focusable="false" viewBox="0 0 24 24"><rect height="7" rx="1" width="7" x="3" y="3"/><rect height="7" rx="1" width="7" x="14" y="3"/><rect height="7" rx="1" width="7" x="3" y="14"/><rect height="7" rx="1" width="7" x="14" y="14"/></svg><span>All</span></button>
+<button aria-pressed="false" class="timeline-filter" data-timeline-filter="education" type="button"><svg aria-hidden="true" class="timeline-filter-icon" focusable="false" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3.5 3 8.5 3 12 0v-5M22 9v6"/></svg><span>Education</span></button>
+<button aria-pressed="false" class="timeline-filter" data-timeline-filter="work" type="button"><svg aria-hidden="true" class="timeline-filter-icon" focusable="false" viewBox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="7"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg><span>Work</span></button>
+</div>
+<div aria-hidden="true" class="timeline-lane-headings">
+<span>Education</span><span></span><span>Work</span>
+</div>
+<div class="timeline-network" id="timeline-items">
+<article class="timeline-point has-work">
+<span aria-hidden="true" class="timeline-marker"></span>
+<div class="timeline-card timeline-card--work">
+<div class="timeline-card-topline"><span class="timeline-kind">Work</span><span class="timeline-date">September 2026 — Present</span></div>
+<h3>Visual Effects Generalist</h3>
+<div class="timeline-organisation">CHIEF Productions</div>
+<p>Working across commercial VFX productions in post-production. Contributing to compositing, CG and asset creation as part of a collaborative VFX team.</p>
+<div class="timeline-branches">
+<div class="branch-label">Related work &amp; tools</div>
+<div class="branch-bubbles"><span class="branch-bubble">Compositing</span><span class="branch-bubble">CG</span><span class="branch-bubble">Asset creation</span><span class="branch-bubble">Nuke</span><span class="branch-bubble">3D Equalizer</span><span class="branch-bubble">Houdini</span><span class="branch-bubble">Maya</span></div>
+</div>
+</div>
+</article>
+<article class="timeline-point has-work">
+<span aria-hidden="true" class="timeline-marker"></span>
+<div class="timeline-card timeline-card--work">
+<div class="timeline-card-topline"><span class="timeline-kind">Work</span><span class="timeline-date">September 2025 — August 2026</span></div>
+<h3>Freelance Visual Effects Artist</h3>
+<div class="timeline-organisation">UK-based, available for freelance and on-location work</div>
+<p>Delivered client VFX projects from post-production through final delivery.</p>
+<div class="timeline-branches">
+<div class="branch-label">Related work</div>
+<div class="branch-bubbles"><span class="branch-bubble">Client projects</span><span class="branch-bubble">Post-production</span><span class="branch-bubble">CG</span><span class="branch-bubble">Final delivery</span></div>
+</div>
+</div>
+</article>
+<article class="timeline-point has-education has-work">
+<span aria-hidden="true" class="timeline-marker"></span>
+<div class="timeline-card timeline-card--education">
+<div class="timeline-card-topline"><span class="timeline-kind">Education</span><span class="timeline-date">2022 — 2025</span></div>
+<h3>Manchester Metropolitan University</h3>
+<div class="timeline-organisation">BSc (Hons) Computer Science, Computer Animation &amp; Visual Effects</div>
+<p>Grade: First</p>
+<div class="timeline-branches">
+<div class="branch-label">Study areas</div>
+<div class="branch-bubbles"><span class="branch-bubble">Computer Science</span><span class="branch-bubble">Computer Animation</span><span class="branch-bubble">Visual Effects</span></div>
+</div>
+<a class="timeline-archive-link" href="#university">Browse the archive of my VFX work from my studies ↗</a>
+</div>
+<div class="timeline-card timeline-card--work">
+<div class="timeline-card-topline"><span class="timeline-kind">Work</span><span class="timeline-date">September 2023 — August 2025</span></div>
+<h3>VFX Lab Demonstrator (Teaching Assistant)</h3>
+<div class="timeline-organisation">Manchester Metropolitan University</div>
+<p>Supported first- and second-year students with practical VFX and animation workflows.</p>
+<div class="timeline-branches">
+<div class="branch-label">Related areas &amp; tools</div>
+<div class="branch-bubbles"><span class="branch-bubble">3D</span><span class="branch-bubble">Compositing</span><span class="branch-bubble">Rigging</span><span class="branch-bubble">FX workflows</span><span class="branch-bubble">Maya</span><span class="branch-bubble">Houdini</span><span class="branch-bubble">Nuke</span><span class="branch-bubble">Substance Painter</span></div>
+</div>
+</div>
+</article>
+<article class="timeline-point has-education has-work">
+<span aria-hidden="true" class="timeline-marker"></span>
+<div class="timeline-card timeline-card--education">
+<div class="timeline-card-topline"><span class="timeline-kind">Education</span><span class="timeline-date">2021</span></div>
+<h3>Calderdale College</h3>
+<div class="timeline-organisation">Level 2 BTEC Diploma (Specialist 37–48) in Business Administration</div>
+<div class="timeline-branches">
+<div class="branch-label">Qualification</div>
+<div class="branch-bubbles"><span class="branch-bubble">Business Administration</span><span class="branch-bubble">Level 2 BTEC</span></div>
+</div>
+</div>
+<div class="timeline-card timeline-card--work">
+<div class="timeline-card-topline"><span class="timeline-kind">Work</span><span class="timeline-date">October 2019 — August 2022</span></div>
+<h3>Workforce Business Intelligence Assistant</h3>
+<div class="timeline-organisation">NHS CHFT (Calderdale Huddersfield Foundation Trust)</div>
+<p>Apprenticeship role supporting data, reporting, records, quality checks and training.</p>
+<div class="timeline-branches">
+<div class="branch-label">Related responsibilities</div>
+<div class="branch-bubbles"><span class="branch-bubble">Data &amp; reporting</span><span class="branch-bubble">Business intelligence</span><span class="branch-bubble">Records</span><span class="branch-bubble">Training support</span></div>
+</div>
+</div>
+</article>
+<article class="timeline-point has-education">
+<span aria-hidden="true" class="timeline-marker"></span>
+<div class="timeline-card timeline-card--education">
+<div class="timeline-card-topline"><span class="timeline-kind">Education</span><span class="timeline-date">2016 — 2018</span></div>
+<h3>Kirklees College</h3>
+<div class="timeline-organisation">Level 3 BTEC Extended Diploma in Computing in Business</div>
+<p>Grade: D*DD</p>
+<div class="timeline-branches">
+<div class="branch-label">Qualification</div>
+<div class="branch-bubbles"><span class="branch-bubble">Computing in Business</span><span class="branch-bubble">Level 3 BTEC</span></div>
+</div>
+</div>
+</article>
+</div>
+</section>
+</div>
+</section>
+</main>
+<footer class="wrap footer"><span>KIERAN SCHOFIELD VFX GENERALIST<br/>© 2026 Kieran Schofield – All Rights Reserved</span><nav aria-label="Social links" class="footer-links"><a aria-label="ArtStation" class="social-icon-link" data-icon="artstation" data-label="ArtStation" href="https://www.artstation.com/kierans1" rel="noreferrer" target="_blank"><svg aria-hidden="true" class="social-icon" focusable="false" viewBox="0 0 24 24"><path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.142-1.289H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z"/></svg></a><a aria-label="LinkedIn" class="social-icon-link" data-icon="linkedin" data-label="LinkedIn" href="https://www.linkedin.com/in/kieran-schofield-a59137178/" rel="noreferrer" target="_blank"><svg aria-hidden="true" class="social-icon social-icon-linkedin" focusable="false" viewBox="0 0 24 24"><rect height="17" rx="2" width="17" x="3.5" y="3.5"/><path d="M8.25 10v6m0-8.5v.1M11.5 16v-6m0 2c0-2.8 4.25-2.8 4.25 0v4"/></svg></a><a aria-label="Vimeo" class="social-icon-link" data-icon="vimeo" data-label="Vimeo" href="https://vimeo.com/user246299472" rel="noreferrer" target="_blank"><svg aria-hidden="true" class="social-icon social-icon-vimeo" focusable="false" viewBox="0 0 24 24"><path d="M23.9765 6.4168c-.105 2.338-1.739 5.5429-4.894 9.6088-3.2679 4.247-6.0258 6.3699-8.2898 6.3699-1.409 0-2.578-1.294-3.553-3.881l-1.9179-7.1138c-.719-2.584-1.488-3.878-2.312-3.878-.179 0-.806.378-1.8809 1.132l-1.129-1.457a315.06 315.06 0 003.501-3.1279c1.579-1.368 2.765-2.085 3.5539-2.159 1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.5069.5389 2.45 1.1309 3.674 1.7759 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.8679 3.434-5.7568 6.7619-5.6368 2.4729.06 3.6279 1.664 3.4929 4.7969z"/></svg></a></nav></footer>
+</div>
+<script>(() => {
+  const timeline = document.getElementById('timeline-items');
+  if (!timeline) return;
+  const buttons = [...document.querySelectorAll('[data-timeline-filter]')];
+  const points = [...timeline.querySelectorAll('.timeline-point')];
+  buttons.forEach(button => button.addEventListener('click', () => {
+    const filter = button.dataset.timelineFilter;
+    buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    points.forEach(point => {
+      const education = point.classList.contains('has-education') && (filter === 'all' || filter === 'education');
+      const work = point.classList.contains('has-work') && (filter === 'all' || filter === 'work');
+      point.hidden = !education && !work;
+      point.querySelector('.timeline-card--education')?.toggleAttribute('hidden', !education);
+      point.querySelector('.timeline-card--work')?.toggleAttribute('hidden', !work);
+    });
+  }));
+})();
+
+const professionalFilterButtons = [...document.querySelectorAll('[data-prof-filter]')];
+const professionalRows = [...document.querySelectorAll('.prof-row[data-prof-categories]')];
+professionalFilterButtons.forEach(button => button.addEventListener('click', () => {
+  const filter = button.dataset.profFilter;
+  professionalFilterButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  professionalRows.forEach(row => {
+    const categories = (row.dataset.profCategories || '').split(/\s+/);
+    row.hidden = filter !== 'all' && !categories.includes(filter);
+  });
+}));
+
+document.querySelectorAll('.collection-block').forEach(collection => {
+  const filterButtons = [...collection.querySelectorAll('[data-filter]')];
+  const projects = [...collection.querySelectorAll('.project[data-categories]')];
+  filterButtons.forEach(button => button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    filterButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    projects.forEach(project => {
+      const categories = (project.dataset.categories || '').split(/\s+/);
+      project.hidden = filter !== 'all' && !categories.includes(filter);
+    });
+  }));
+});
+
+(() => {
+  const stageButtons = [...document.querySelectorAll('.skills-stage[data-skill-stage]')];
+  const detailPanels = [...document.querySelectorAll('.skills-detail[data-skills-detail]')];
+  if (!stageButtons.length || !detailPanels.length) return;
+
+  const activateStage = button => {
+    stageButtons.forEach(stage => {
+      const selected = stage === button;
+      stage.setAttribute('aria-expanded', String(selected));
+    });
+    detailPanels.forEach(panel => {
+      panel.hidden = panel.dataset.skillsDetail !== button.dataset.skillStage;
+    });
+  };
+
+  stageButtons.forEach((button, index) => {
+    button.addEventListener('click', () => activateStage(button));
+    button.addEventListener('keydown', event => {
+      let nextIndex = index;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = Math.min(stageButtons.length - 1, index + 1);
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = Math.max(0, index - 1);
+      else if (event.key === 'Home') nextIndex = 0;
+      else if (event.key === 'End') nextIndex = stageButtons.length - 1;
+      else return;
+
+      event.preventDefault();
+      const nextButton = stageButtons[nextIndex];
+      nextButton.focus();
+      activateStage(nextButton);
+    });
+  });
+  const initialStage = stageButtons.find(button => button.getAttribute('aria-expanded') === 'true') || stageButtons[0];
+  activateStage(initialStage);
+})();
+
+(() => {
+  const bar = document.querySelector('.topbar');
+  const links = [...document.querySelectorAll('.navlinks a[href^="#"]')].map(a => ({ a, el: document.querySelector(a.getAttribute('href')) })).filter(x => x.el);
+  const setH = () => document.documentElement.style.setProperty('--header-h', bar.offsetHeight + 'px');
+  let ticking = false;
+  const spy = () => {
+    ticking = false;
+    if (document.body.classList.contains('about-view')) {
+      links.forEach(l => l.a.hash === '#about' ? l.a.setAttribute('aria-current', 'page') : l.a.removeAttribute('aria-current'));
+      return;
+    }
+    const line = bar.offsetHeight + 140;
+    const visibleLinks = links.filter(l => l.el.getClientRects().length);
+    let current = visibleLinks[0];
+    visibleLinks.forEach(l => { if (l.el.getBoundingClientRect().top <= line) current = l; });
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) current = visibleLinks[visibleLinks.length - 1];
+    links.forEach(l => l === current ? l.a.setAttribute('aria-current', 'page') : l.a.removeAttribute('aria-current'));
+  };
+  const syncAboutView = () => {
+    const wasAbout = document.body.classList.contains('about-view');
+    const isAbout = location.hash === '#about';
+    document.body.classList.toggle('about-view', isAbout);
+    if (isAbout) window.scrollTo(0, 0);
+    else if (wasAbout) {
+      const target = links.find(l => l.a.hash === location.hash)?.el;
+      requestAnimationFrame(() => {
+        target?.scrollIntoView({ block: 'start' });
+        spy();
+      });
+    }
+    spy();
+  };
+  addEventListener('hashchange', syncAboutView);
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }, { passive: true });
+  addEventListener('resize', () => { setH(); spy(); });
+  setH(); syncAboutView();
+})();
+</script>
+<script>
+(() => {
+  const iframe = document.getElementById('hero-showreel-video');
+  if (!iframe) return;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion) iframe.src = iframe.dataset.src;
+})();
+</script>
+<script>
+/* Thumbnails: put images in images/thumbs/ named after the project, e.g. images/thumbs/mouf_v001.jpg
+   (lowercase title, spaces -> hyphens). A missing file just keeps the placeholder.
+   Override any card with data-thumb="path/to/file.jpg". */
+(() => {
+  const slug = t => t.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const attach = (frame, src, title) => {
+    const img = new Image();
+    img.loading = 'lazy'; img.decoding = 'async'; img.alt = '';
+    img.onload = () => { img.alt = title; };
+    img.onerror = () => img.remove();
+    img.src = src; frame.appendChild(img);
+  };
+  document.querySelectorAll('.project[role="button"]').forEach(card => {
+    const title = card.querySelector('.project-meta h3').textContent.trim();
+    card._thumb = card.dataset.thumb || 'images/thumbs/' + slug(title) + '_v001.jpg';
+    const lab = card.querySelector('.placeholder-label'); if (lab) lab.textContent = 'THUMBNAIL NOT ADDED YET';
+  });
+})();
+</script>
+<script>
+/* Always-on project features: each portfolio section has a default selection and a slow carousel. */
+(() => {
+  const clean = value => (value || '').replace(/\s+/g, ' ').trim();
+  const slug = value => value.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const allProjectCards = [...document.querySelectorAll('.project[role="button"]')];
+  const projectTitle = card => clean(card.querySelector('.project-meta h3')?.textContent) || 'Project';
+  const projectSubtitle = card => clean(card.querySelector('.project-meta p')?.textContent) || 'VFX';
+  const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const modules = [];
+  const projectMedia = [
+    { collection: '#personal', title: 'BorisFX - Silhouette Rotoscoping Study', videos: ['MnPaiLLBjjU'] },
+    { collection: '#personal', title: 'KeenTools Facetracking', videos: ['s8l1wGASu8I'], folder: 'keentools-facetracking', imageCount: 3 },
+    { collection: '#personal', title: 'Mouf', videos: ['u6hYaja-4s4'], folder: 'mouf', imageCount: 5 },
+    { collection: '#personal', title: 'Magic Tomes', videos: ['ypZmp-B6Mxo'], folder: 'magic-tomes', imageCount: 3 },
+    { collection: '#personal', title: 'NieR: Smaller Stubby', videos: ['BahgUmxj0Q8'], folder: 'nier-smaller-stubby', imageCount: 6, links: [['View on ArtStation', 'https://www.artstation.com/artwork/m82DLd']] },
+    { collection: '#personal', title: 'Monsters Of Mystery', videos: ['9_On8rNKrL4'], folder: 'monsters-of-mystery', imageCount: 2 },
+    { collection: '#university', title: '3D Fundamentals', videos: ['pMtk3X1uEBk'], folder: 'y1-3d-fundamentals', imageCount: 4 },
+    { collection: '#university', title: 'FX Fundamentals', videos: ['JfT0VLn5dsE'] },
+    { collection: '#university', title: 'Production VFX', videos: ['Pxoh43-0jR8'] },
+    { collection: '#university', title: 'Compositing Fundamentals', videos: ['_M98JmJpovM'] },
+    { collection: '#university', title: 'Team Project', videos: ['lCwr5S8km90'] },
+    { collection: '#university', title: 'Compositing', videos: ['RJr2BOJPygM'] },
+    { collection: '#university', title: 'Modelling', videos: ['mFF74M3W39o'], folder: 'y2-modelling', imageCount: 8, links: [['Development document', 'https://drive.google.com/file/d/1Gr6wOm8KsSYgQDMzgusLgFJH7c4W2Kh8/view?usp=drive_link']] },
+    { collection: '#university', title: 'Character Rigging', videos: ['LB5qKue3I5s', '42H9PJotWFw'] },
+    { collection: '#university', title: 'FX', videos: ['Bw0k-IHVWv4'] },
+    { collection: '#university', title: 'Thematic Project', folder: 'y2-thematic-project', imageCount: 3 },
+    { collection: '#university', title: 'VFX Integration', videos: ['ZMGE-gSUmjg', '55xTaQYUA6w'], folder: 'y3-vfx-integration-methods', imageCount: 4 },
+    { collection: '#university', title: 'Unreal Project: Dreamscaper', folder: 'y3-vfx-and-game-production-studio', imageCount: 14, links: [['Playable demo', 'https://alexallenk3.itch.io/dreamscaper-v1-6']] },
+    { collection: '#university', title: 'Crafting a Visual Experience', videos: ['IDHpMeUHxs4'] },
+    { collection: '#university', title: 'Innovation Project', folder: 'y3-innovation-project', imageCount: 3, links: [['Research document', 'https://drive.google.com/file/d/1-f0iObRvXrWHO6-sRdx01UAvdsj905ky/view?usp=sharing'], ['HDA / Houdini file', 'https://drive.google.com/drive/folders/1X8aOatm7V0ALtwYi7vI6_r9j-W2SJf8a?usp=sharing']] },
+    { collection: '#university', title: 'Synoptic Project', videos: ['OLdINpnoUfk'] }
+  ];
+  projectMedia.forEach(project => {
+    const card = [...document.querySelectorAll(`${project.collection} .project`)]
+      .find(item => projectTitle(item) === project.title);
+    if (!card) throw new Error(`Project media entry has no matching card: ${project.title}`);
+    const videos = (project.videos || []).map(id => `https://www.youtube-nocookie.com/embed/${id}?rel=0`);
+    if (videos.length) card.dataset.youtube = videos[0];
+    else delete card.dataset.youtube;
+    const gallery = [
+      ...videos.slice(1),
+      ...Array.from({ length: project.imageCount || 0 }, (_, index) =>
+        `images/projects/${project.folder}/${slug(project.title)}-still-${String(index + 1).padStart(2, '0')}_v001.jpg`)
+    ];
+    if (gallery.length) card.dataset.gallery = gallery.join('|');
+    else delete card.dataset.gallery;
+    if (project.links?.length) card.dataset.links = project.links.flatMap(link => link).join('|');
+    else delete card.dataset.links;
+  });
+
+  function node(tag, className, text) {
+    const item = document.createElement(tag);
+    if (className) item.className = className;
+    if (text !== undefined) item.textContent = text;
+    return item;
+  }
+  function socialIcon(name) {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('class', `social-icon social-icon-${name}`);
+    svg.setAttribute('viewBox', '0 0 24 24');
+    const shapes = {
+      instagram: [
+        ['rect', { x: '3.5', y: '3.5', width: '17', height: '17', rx: '5' }],
+        ['circle', { cx: '12', cy: '12', r: '4' }],
+        ['circle', { cx: '17.5', cy: '6.5', r: '.75' }]
+      ],
+      youtube: [
+        ['rect', { x: '3', y: '5', width: '18', height: '14', rx: '4' }],
+        ['path', { d: 'm10 9 5 3-5 3z' }]
+      ],
+      artstation: [
+        ['path', { d: 'M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.142-1.289H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z' }]
+      ],
+      linkedin: [
+        ['rect', { x: '3.5', y: '3.5', width: '17', height: '17', rx: '2' }],
+        ['path', { d: 'M8.25 10v6m0-8.5v.1M11.5 16v-6m0 2c0-2.8 4.25-2.8 4.25 0v4' }]
+      ],
+      vimeo: [
+        ['path', { d: 'M23.9765 6.4168c-.105 2.338-1.739 5.5429-4.894 9.6088-3.2679 4.247-6.0258 6.3699-8.2898 6.3699-1.409 0-2.578-1.294-3.553-3.881l-1.9179-7.1138c-.719-2.584-1.488-3.878-2.312-3.878-.179 0-.806.378-1.8809 1.132l-1.129-1.457a315.06 315.06 0 003.501-3.1279c1.579-1.368 2.765-2.085 3.5539-2.159 1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.5069.5389 2.45 1.1309 3.674 1.7759 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.8679 3.434-5.7568 6.7619-5.6368 2.4729.06 3.6279 1.664 3.4929 4.7969z' }]
+      ]
+    };
+    for (const [tag, attributes] of shapes[name] || []) {
+      const shape = document.createElementNS('http://www.w3.org/2000/svg', tag);
+      Object.entries(attributes).forEach(([key, value]) => shape.setAttribute(key, value));
+      svg.append(shape);
+    }
+    return svg;
+  }
+  function iconTypeForLink(link) {
+    if (/instagram\.com/i.test(link.href)) return 'instagram';
+    if (/(?:youtube\.com|youtu\.be)/i.test(link.href)) return 'youtube';
+    if (/artstation\.com/i.test(link.href)) return 'artstation';
+    if (/linkedin\.com/i.test(link.href)) return 'linkedin';
+    if (/vimeo\.com/i.test(link.href)) return 'vimeo';
+    return '';
+  }
+  function makeFeature(id, label, mount, records, options = {}) {
+    const root = node('section', 'project-showcase');
+    root.id = id;
+    root.setAttribute('aria-label', `${label} selected project and collection`);
+    const main = node('div', 'showcase-main');
+    const visual = node('div', 'showcase-visual');
+    const stage = node('div', 'showcase-stage');
+    stage.setAttribute('aria-label', 'Selected project media');
+    const mediaPicker = node('div', 'showcase-media-picker');
+    const previousMedia = node('button', '', '‹');
+    previousMedia.type = 'button';
+    previousMedia.setAttribute('aria-label', 'Previous project media');
+    const mediaRail = node('div', 'showcase-media-rail');
+    mediaRail.setAttribute('aria-label', `${label} media previews`);
+    const nextMedia = node('button', '', '›');
+    nextMedia.type = 'button';
+    nextMedia.setAttribute('aria-label', 'Next project media');
+    const mediaCount = node('span', 'showcase-media-count');
+    mediaPicker.append(previousMedia, mediaRail, nextMedia, mediaCount);
+    const info = node('aside', 'showcase-info');
+    const title = node('h3', 'showcase-title');
+    const subtitle = node('p', 'showcase-subtitle');
+    const rule = node('div', 'showcase-rule');
+    const overviewLabel = node('div', 'showcase-label', 'Project notes');
+    const overview = node('p', 'showcase-overview');
+    const facts = node('div', 'showcase-facts');
+    const links = node('div', 'showcase-links');
+    const collection = node('section', 'showcase-collection');
+    const collectionHead = node('div', 'showcase-collection-head');
+    const collectionTitle = node('h4', '', 'Browse this collection');
+    const rail = node('div', 'showcase-rail');
+    rail.setAttribute('aria-label', `${label} projects`);
+    rail.setAttribute('tabindex', '0');
+    collectionHead.append(collectionTitle);
+    collection.append(collectionHead, rail);
+    visual.append(stage, mediaPicker);
+    info.append(title, subtitle, rule);
+    if (!options.hideOverview) info.append(overviewLabel, overview);
+    info.append(facts, links);
+    main.append(visual, info);
+    root.append(main, collection);
+    mount.replaceWith(root);
+
+    const factEls = ['My contribution', 'Software / tools', 'Date completed'].map(labelText => {
+      const box = node('div', 'showcase-fact');
+      box.append(node('span', '', labelText), node('strong', '', 'Details to be added'));
+      facts.append(box);
+      return box.querySelector('strong');
+    });
+
+    const state = {
+      root, stage, mediaPicker, mediaRail, mediaCount, previousMedia, nextMedia,
+      title, subtitle, overview, factEls, links, rail,
+      records: [...records], selected: null, media: [], mediaIndex: 0, visible: false,
+      manuallyPaused: false, timer: null, buttons: new Map(), options
+    };
+
+    function placeholderMedia() {
+      stage.replaceChildren();
+      mediaPicker.hidden = true;
+      mediaRail.replaceChildren();
+      const base = node('div', 'project-placeholder');
+      base.setAttribute('aria-label', 'Project media placeholder');
+      base.append(node('span', 'placeholder-label', 'PROJECT MEDIA PENDING'));
+      const prompt = node('div', 'showcase-empty-media');
+      prompt.append(node('strong', '', 'Media not added yet'), node('span', '', 'This space is ready for project stills, footage and breakdown imagery.'));
+      stage.append(base, prompt);
+      state.media = [{ type: 'placeholder' }];
+      state.mediaIndex = 0;
+      mediaCount.textContent = '';
+    }
+    function renderMediaPicker() {
+      mediaRail.replaceChildren();
+      mediaPicker.hidden = state.media.length < 2;
+      if (mediaPicker.hidden) return;
+      let videoCount = 0;
+      let stillCount = 0;
+      state.media.forEach((item, index) => {
+        const type = item.type === 'youtube' || item.type === 'video' || item.type === 'instagram' ? 'VIDEO' : 'STILL';
+          const labelText = item.type === 'instagram'
+            ? 'Instagram'
+            : item.type === 'youtube' || item.type === 'video'
+            ? `Video ${++videoCount}`
+            : `Still ${++stillCount}`;
+          const preview = node('span', 'showcase-media-thumb-preview', type);
+          const previewSrc = item.type === 'youtube'
+            ? `https://img.youtube.com/vi/${youtubeVideoId(item.src)}/hqdefault.jpg`
+            : item.type === 'image' ? item.src : item.poster;
+        if (previewSrc) {
+          const image = node('img');
+          image.src = previewSrc;
+          image.alt = '';
+          image.loading = 'lazy';
+          image.decoding = 'async';
+          image.onerror = () => image.remove();
+          preview.prepend(image);
+        }
+        const typeLabel = node('span', 'showcase-media-thumb-type', type);
+        preview.append(typeLabel);
+        const button = node('button', 'showcase-media-thumb');
+        button.type = 'button';
+        button.setAttribute('aria-label', `Show ${labelText}`);
+        button.setAttribute('aria-pressed', String(index === state.mediaIndex));
+        button.append(preview, node('span', 'showcase-media-thumb-label', labelText));
+        button.addEventListener('click', () => renderMedia(index));
+        mediaRail.append(button);
+      });
+      mediaCount.textContent = `${state.mediaIndex + 1} / ${state.media.length}`;
+      const selectedPreview = mediaRail.children[state.mediaIndex];
+      if (selectedPreview) {
+        const target = selectedPreview.offsetLeft + selectedPreview.offsetWidth / 2 - mediaRail.clientWidth / 2;
+        mediaRail.scrollTo({ left: Math.max(0, target), behavior: motionReduced ? 'auto' : 'smooth' });
+      }
+    }
+    function renderMedia(index = 0) {
+      const record = state.selected;
+      if (!record) return;
+      const card = record.card;
+      const mediaTitle = card ? projectTitle(card) : record.title;
+      let items = [];
+      if (card) {
+        const gallery = (card.dataset.gallery || '').split('|').map(x => x.trim()).filter(Boolean);
+        const galleryItems = gallery.map(src => ({
+          src,
+          type: /youtube(?:-nocookie)?\.com\/embed\//i.test(src) ? 'youtube' : /\.(mp4|m4v|webm|ogv|ogg)(?:[?#].*)?$/i.test(src) ? 'video' : 'image',
+          poster: card.dataset.galleryPoster || ''
+        }));
+        if (card.dataset.youtube) items = [{ src: card.dataset.youtube, type: 'youtube' }, ...galleryItems];
+        else if (gallery.length) items = galleryItems;
+        else if (card.dataset.videoSrc) items = [{ src: card.dataset.videoSrc, type: 'video', poster: card.dataset.videoPoster || '' }];
+        else {
+          const video = card.querySelector('.image-frame video');
+          if (video) {
+            const src = video.currentSrc || video.getAttribute('src') || video.querySelector('source')?.getAttribute('src') || '';
+            if (src) items = [{ src, type: 'video', poster: video.getAttribute('poster') || '' }];
+          }
+        }
+      } else if (record.youtube) items = [{ src: record.youtube, type: 'youtube' }];
+      else if (record.instagram) items = [{ src: record.instagram, type: 'instagram', poster: record.image || '' }];
+      else if (record.image) items = [{ src: record.image, type: 'image', alt: record.title }];
+      if (!items.length) { placeholderMedia(); return; }
+      state.media = items;
+      state.mediaIndex = (index + items.length) % items.length;
+      const item = items[state.mediaIndex];
+      stage.replaceChildren();
+      if (item.type === 'youtube') {
+        const frame = node('iframe');
+        frame.src = item.src;
+        frame.title = `${mediaTitle} — YouTube video`;
+        frame.loading = 'lazy';
+        frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        frame.setAttribute('allowfullscreen', '');
+        frame.referrerPolicy = 'strict-origin-when-cross-origin';
+        stage.append(frame);
+      } else if (item.type === 'instagram') {
+        const link = node('a', 'showcase-instagram-link');
+        link.href = item.src;
+        link.target = '_blank';
+        link.rel = 'noreferrer';
+        link.setAttribute('aria-label', `Watch ${mediaTitle} on Instagram (opens in a new tab)`);
+        const poster = node('img');
+        poster.src = item.poster || '';
+        poster.alt = '';
+        poster.decoding = 'async';
+        const callout = node('span', 'showcase-instagram-cta');
+        const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        icon.setAttribute('aria-hidden', 'true');
+        icon.setAttribute('class', 'showcase-instagram-icon');
+        icon.setAttribute('viewBox', '0 0 24 24');
+        const outline = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        outline.setAttribute('x', '3.5');
+        outline.setAttribute('y', '3.5');
+        outline.setAttribute('width', '17');
+        outline.setAttribute('height', '17');
+        outline.setAttribute('rx', '5');
+        const lens = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        lens.setAttribute('cx', '12');
+        lens.setAttribute('cy', '12');
+        lens.setAttribute('r', '4');
+        const flash = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        flash.setAttribute('cx', '17.5');
+        flash.setAttribute('cy', '6.5');
+        flash.setAttribute('r', '.75');
+        icon.append(outline, lens, flash);
+        callout.append(icon, node('span', '', 'Watch on Instagram ↗'));
+        link.append(poster, callout);
+        stage.append(link);
+      } else if (item.type === 'video') {
+        const video = node('video');
+        video.src = item.src;
+        if (item.poster) video.poster = item.poster;
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = 'metadata';
+        video.setAttribute('aria-label', `${mediaTitle} video`);
+        stage.append(video);
+      } else {
+        const img = node('img');
+        img.src = item.src;
+        img.alt = item.alt || `${mediaTitle} project media`;
+        img.decoding = 'async';
+        img.onerror = () => placeholderMedia();
+        stage.append(img);
+      }
+      renderMediaPicker();
+    }
+    previousMedia.addEventListener('click', () => renderMedia(state.mediaIndex - 1));
+    nextMedia.addEventListener('click', () => renderMedia(state.mediaIndex + 1));
+    function inferDate(value) {
+      const match = (value || '').match(/(?:19|20)\d{2}(?:\s*[–-]\s*(?:19|20)?\d{2})?/);
+      return match ? match[0] : '';
+    }
+    function recordDetails(record) {
+      if (record.card) {
+        const card = record.card;
+        const description = clean(card.dataset.description);
+        const role = clean(card.dataset.role);
+        const tools = clean(card.dataset.tools);
+        return {
+          title: projectTitle(card),
+          subtitle: clean(card.dataset.summary) || projectSubtitle(card),
+          overview: description || 'Project notes not added yet.', empty: !description,
+          role: role || 'Not added yet',
+          tools: tools || 'Not added yet',
+          date: clean(card.dataset.date) || inferDate(projectSubtitle(card)) || 'Not added yet'
+        };
+      }
+      return {
+        title: record.title,
+        subtitle: record.summary || record.subtitle,
+        overview: record.overview || 'Project notes not added yet.', empty: !record.overview,
+        role: record.role || 'Not added yet',
+        tools: record.tools || 'Not added yet',
+        date: record.date || inferDate(record.subtitle) || 'Not added yet'
+      };
+    }
+    function centreButton(record) {
+      const button = state.buttons.get(record);
+      if (!button) return;
+      const target = button.offsetLeft - (rail.clientWidth / 2) + (button.clientWidth / 2);
+      rail.scrollTo({ left: Math.max(0, target), behavior: motionReduced ? 'auto' : 'smooth' });
+    }
+    function select(record, fromUser = false) {
+      if (!record) return;
+      state.selected = record;
+      const details = recordDetails(record);
+      title.textContent = details.title;
+      subtitle.textContent = details.subtitle;
+      overview.textContent = details.overview;
+      overview.classList.toggle('is-empty', details.empty);
+      factEls[0].textContent = details.role;
+      factEls[1].textContent = details.tools;
+      factEls[2].textContent = details.date;
+      links.replaceChildren();
+      const externalLinks = record.card ? (() => {
+        const card = record.card;
+        const gallery = (card.dataset.gallery || '').split('|').map(x => x.trim()).filter(Boolean);
+        const videos = [...new Set([card.dataset.youtube, ...gallery]
+          .filter(src => src && /youtube(?:-nocookie)?\.com\/embed\//i.test(src)))];
+        const videoLinks = videos.map((src, index) => ({
+          label: videos.length > 1 ? `Watch video ${index + 1} on YouTube` : 'Watch on YouTube',
+          href: youtubeWatch(src)
+        }));
+        const entries = (card.dataset.links || '').split('|');
+        const projectLinks = [];
+        for (let i = 0; i + 1 < entries.length; i += 2) {
+          projectLinks.push({ label: clean(entries[i]), href: entries[i + 1] });
+        }
+        return [...videoLinks, ...projectLinks];
+      })() : record.links || [];
+      externalLinks.forEach(link => {
+        const iconType = iconTypeForLink(link);
+        const anchor = node('a', iconType ? 'social-icon-link' : '', iconType ? undefined : `${link.label} ↗`);
+        anchor.href = link.href;
+        anchor.target = link.target || '_blank';
+        anchor.rel = 'noreferrer';
+        if (iconType) {
+          anchor.dataset.label = link.label;
+          anchor.setAttribute('aria-label', `${link.label} (opens in a new tab)`);
+          anchor.append(socialIcon(iconType));
+        }
+        links.append(anchor);
+      });
+      renderMedia(0);
+      state.buttons.forEach((button, item) => button.setAttribute('aria-pressed', String(item === record)));
+      if (fromUser) centreButton(record);
+      restartTimer();
+    }
+    function drawRail() {
+      rail.replaceChildren();
+      state.buttons.clear();
+      state.records.forEach((record, index) => {
+        const button = node('button', 'showcase-item');
+        button.type = 'button';
+        button.setAttribute('aria-pressed', 'false');
+        button.setAttribute('aria-label', `Show ${record.card ? projectTitle(record.card) : record.title}`);
+        const thumb = node('span', 'showcase-thumb');
+        const img = node('img');
+        img.alt = ''; img.loading = 'lazy'; img.decoding = 'async';
+        const fallback = node('span', 'showcase-thumb-fallback', `PROJECT ${String(index + 1).padStart(2, '0')}`);
+        if (record.card) img.src = record.card._thumb || `images/thumbs/${slug(projectTitle(record.card))}_v001.jpg`;
+        else img.src = record.image || `images/thumbs/${slug(record.title)}_v001.jpg`;
+        img.onload = () => { fallback.hidden = true; };
+        img.onerror = () => { img.remove(); fallback.hidden = false; };
+        thumb.append(img, fallback);
+        const labelEl = node('span', 'showcase-item-title', record.card ? projectTitle(record.card) : record.title);
+        button.append(thumb, labelEl);
+        button.addEventListener('click', () => {
+          state.manuallyPaused = true;
+          select(record, true);
+        });
+        rail.append(button);
+        state.buttons.set(record, button);
+      });
+      if (state.selected && state.records.includes(state.selected)) {
+        state.buttons.get(state.selected)?.setAttribute('aria-pressed', 'true');
+      }
+    }
+    function stopTimer() { if (state.timer) clearTimeout(state.timer); state.timer = null; }
+    function shouldRotate() { return !motionReduced && state.visible && !state.manuallyPaused && state.records.length > 1; }
+    function startTimer() {
+      stopTimer();
+      if (!shouldRotate()) return;
+      state.timer = setTimeout(() => {
+        const index = state.records.indexOf(state.selected);
+        const next = state.records[(index + 1) % state.records.length];
+        select(next, true);
+      }, 8200);
+    }
+    function restartTimer() { stopTimer(); startTimer(); }
+    const resumeRotation = () => {
+      if (!state.manuallyPaused) return;
+      state.manuallyPaused = false;
+      startTimer();
+    };
+    window.addEventListener('wheel', resumeRotation, { passive: true });
+    window.addEventListener('touchmove', resumeRotation, { passive: true });
+    window.addEventListener('keydown', event => {
+      if (['ArrowDown', 'PageDown', ' ', 'End', 'Home'].includes(event.key)) resumeRotation();
+    });
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        for (const entry of entries) {
+          if (entry.target === root) {
+            state.visible = entry.isIntersecting;
+            if (state.visible) startTimer(); else stopTimer();
+          }
+        }
+      }, { threshold: 0.2 });
+      observer.observe(root);
+    } else { state.visible = true; startTimer(); }
+
+    function refresh(nextRecords, keepSelection = true) {
+      state.records = [...nextRecords];
+      if (!state.records.length) {
+        title.textContent = 'No projects in this collection';
+        subtitle.textContent = '';
+        overview.textContent = 'Choose another year to view its projects.';
+        state.selected = null;
+        rail.replaceChildren();
+        placeholderMedia();
+        factEls.forEach(el => el.textContent = '—');
+        restartTimer();
+        return;
+      }
+      const selected = keepSelection && state.records.includes(state.selected) ? state.selected : state.records[0];
+      drawRail();
+      select(selected, false);
+      centreButton(selected);
+    }
+    state.refresh = refresh;
+    refresh(state.records, false);
+    modules.push(state);
+    return state;
+  }
+
+  // Convert any existing YouTube release URL into an embeddable privacy-enhanced URL.
+  function youtubeVideoId(url) {
+    try {
+      const parsed = new URL(url);
+      const embedded = parsed.pathname.match(/\/embed\/([^/?]+)/);
+      return parsed.hostname.includes('youtu.be') ? parsed.pathname.split('/').filter(Boolean)[0] : (parsed.searchParams.get('v') || embedded?.[1] || '');
+    } catch (_) { return ''; }
+  }
+  function youtubeEmbed(url) {
+    const id = youtubeVideoId(url);
+    return id ? `https://www.youtube-nocookie.com/embed/${id}?rel=0` : '';
+  }
+  function youtubeWatch(url) {
+    const id = youtubeVideoId(url);
+    return id ? `https://www.youtube.com/watch?v=${id}` : '';
+  }
+
+  // Professional Work uses its existing credits and outbound release links as the source.
+  const professionalRecords = [...document.querySelectorAll('#professional .prof-row')].map(row => {
+    const rowLinks = [...row.querySelectorAll('a[href]')];
+    const youtubeLink = rowLinks.find(a => /(?:youtube\.com|youtu\.be)/i.test(a.href));
+    const instagramLink = rowLinks.find(a => /instagram\.com\/(?:[^/]+\/)?reel\//i.test(a.href));
+    const title = clean(row.querySelector('h3')?.textContent) || 'Professional project';
+    const subtitle = clean(row.querySelector('p')?.textContent) || 'Professional work';
+    const role = clean(row.querySelector('.credit')?.textContent) || 'Not added yet';
+    return {
+      title,
+      subtitle,
+      summary: subtitle,
+      overview: `${subtitle}. My credited role was ${role}.`,
+      role,
+      tools: 'Not listed on the original portfolio.',
+      image: `images/thumbs/${slug(title)}_v001.jpg`,
+      youtube: youtubeLink ? youtubeEmbed(youtubeLink.href) : '',
+      instagram: instagramLink?.href || '',
+      links: rowLinks.map(a => ({ label: clean(a.textContent).replace(/\s*↗\s*$/, ''), href: a.href, target: a.target }))
+    };
+  });
+  const professionalMount = document.getElementById('professional-showcase-mount');
+  if (professionalMount) makeFeature('professional-showcase', 'Professional work', professionalMount, professionalRecords, { hideOverview: true });
+
+  const personalCards = [...document.querySelectorAll('#personal .project-grid > .project')];
+  const personalMount = document.getElementById('personal-showcase-mount');
+  if (personalMount) {
+    const state = makeFeature('personal-showcase', 'Personal projects', personalMount, personalCards.map(card => ({ card })));
+    personalCards.forEach(card => {
+      card.setAttribute('aria-controls', 'personal-showcase');
+      card.addEventListener('click', () => {
+        state.refresh(personalCards.map(item => ({ card: item })), true);
+        const record = state.records.find(item => item.card === card);
+        // Select directly through the rail button so active state and timing remain consistent.
+        state.buttons.get(record)?.click();
+        state.root.scrollIntoView({ behavior: motionReduced ? 'auto' : 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  const universityCards = [...document.querySelectorAll('#university > .archive-year-grid > .project')];
+  const universityMount = document.getElementById('university-showcase-mount');
+  let universityState = null;
+  if (universityMount) {
+    universityState = makeFeature('university-showcase', 'University archive', universityMount, universityCards.filter(card => !card.hidden).map(card => ({ card })));
+    const universityFilters = document.querySelector('#university > .filters');
+    if (universityFilters) universityState.root.querySelector('.showcase-collection-head')?.after(universityFilters);
+    universityCards.forEach(card => {
+      card.setAttribute('aria-controls', 'university-showcase');
+      card.addEventListener('click', () => {
+        const visibleCards = universityCards.filter(item => !item.hidden);
+        universityState.refresh(visibleCards.map(item => ({ card: item })), true);
+        const record = universityState.records.find(item => item.card === card);
+        universityState.buttons.get(record)?.click();
+        universityState.root.scrollIntoView({ behavior: motionReduced ? 'auto' : 'smooth', block: 'start' });
+      });
+    });
+    document.querySelectorAll('#university [data-filter]').forEach(button => button.addEventListener('click', () => {
+      const visibleCards = universityCards.filter(card => !card.hidden);
+      universityState.refresh(visibleCards.map(card => ({ card })), false);
+    }));
+  }
+
+  document.querySelectorAll('.navlinks a[href="#personal"], .navlinks a[href="#university"]').forEach(link => {
+    link.addEventListener('click', event => {
+      const target = document.querySelector(`${link.hash}-showcase .showcase-main`);
+      if (!target) return;
+      event.preventDefault();
+      if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+      document.body.classList.remove('about-view');
+      target.scrollIntoView({ behavior: motionReduced ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+
+
+})();
+</script>
+</body>
+</html>
