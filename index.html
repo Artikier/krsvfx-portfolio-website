@@ -2841,6 +2841,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         });
         backgroundPlayer.on('pause', () => {
           lastVideoTime = null;
+          restartBackground();
         });
         backgroundPlayer.on('ended', restartBackground);
         return backgroundPlayer.ready()
@@ -2918,8 +2919,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         .then(() => player.unload())
         .catch(error => console.error('Unable to unload the showreel pop-out.', error));
     }
-    if (backgroundReady) restartBackground();
-    else queueBackgroundLoad();
+    if (!backgroundReady) queueBackgroundLoad();
   };
   const closeLightbox = () => {
     if (dialog.open) dialog.close();
