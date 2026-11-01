@@ -2054,7 +2054,7 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
 .nav-contact:hover,
 .nav-contact:focus-visible { border-color: var(--site-primary); color: var(--site-primary); }
 .nav-contact:focus-visible { outline: 2px solid var(--site-primary); outline-offset: 3px; }
-.hero-video iframe { inset: -4%; width: 108%; height: 108%; transform: scale(1.18); }
+.hero-video iframe { inset: -4%; width: 108%; height: 108%; transform: scale(1.35); }
 .hero-actions {
   display: flex;
   justify-content: center;
@@ -2282,7 +2282,7 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
 <main id="top">
 <section aria-labelledby="hero-title" class="hero hero-fullbleed" id="showreel">
 <div aria-hidden="true" class="hero-video" id="hero-video-wrap">
-<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?autoplay=1&amp;muted=1&amp;controls=0&amp;loop=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;app_id=122963#t=6s" id="hero-showreel-video" loading="eager" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
+<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?autoplay=1&amp;muted=1&amp;controls=0&amp;loop=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;app_id=122963#t=5s" id="hero-showreel-video" loading="eager" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
 </div>
 <div class="hero-content">
 <div class="kicker">Visual effects · 3D · Compositing</div>
@@ -2751,10 +2751,10 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   const openButton = document.getElementById('open-reel');
   const closeButton = dialog?.querySelector('.reel-dialog-close');
   const videoId = '1117211289';
-  const startAt = 6;
+  const startAt = 5;
   if (!iframe || !dialog || !dialogFrame || !openButton || !closeButton) return;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const lightboxSource = `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=0&controls=1&loop=1&title=0&byline=0&portrait=0#t=${startAt}s`;
+  const lightboxSource = `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=0&controls=1&title=0&byline=0&portrait=0`;
   openButton.addEventListener('click', () => {
     dialogFrame.src = lightboxSource;
     dialog.showModal();
