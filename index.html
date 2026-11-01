@@ -183,18 +183,19 @@ h2 { font-family:var(--site-font-heading); font-size:calc(clamp(32px,4vw,46px) *
 .kicker:before { content: none; display: none; }
 .hero.hero-fullbleed {
   position: relative;
-  isolation: isolate;
   display: flex;
-  align-items: center;
-  min-height: clamp(620px, calc(100vh - 78px), 820px);
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 0;
   padding: 0;
   overflow: hidden;
   background: #08080b;
 }
 .hero-video {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   container-type: size;
   overflow: hidden;
   background: #08080b;
@@ -239,18 +240,17 @@ h2 { font-family:var(--site-font-heading); font-size:calc(clamp(32px,4vw,46px) *
 .hero-content {
   --hero-title-size: calc(clamp(38px, 6vw, 76px) * var(--site-heading-scale));
   position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
   width: min(1160px, calc(100% - 64px));
   margin: 0 auto;
-  padding: clamp(84px, 10vh, 126px) 0;
+  padding: clamp(34px, 6vw, 72px) 0;
   text-align: center;
 }
 .hero-content .kicker { justify-content: center; margin: 0 0 7px; }
-.hero-content h1 { max-width: 100%; margin: 0; font-size: var(--hero-title-size); font-weight: 500; letter-spacing: -.06em; line-height: 1; white-space: nowrap; }
+.hero-content h1 { max-width: 100%; margin: 0; font-size: var(--hero-title-size); font-weight: 500; letter-spacing: -.06em; line-height: 1; text-shadow: 0 2px 5px rgba(0,0,0,.92), 0 8px 24px rgba(0,0,0,.72); }
 .hero-content h1 span { color: #b6bec8; font-weight: 500; }
 .hero-content p { max-width: 600px; margin: 12px 0 0; color: #d9dfe6; font-size: 16px; }
 .hero-content .text-link { margin-top: 14px; }
@@ -284,19 +284,14 @@ h2 { font-family:var(--site-font-heading); font-size:calc(clamp(32px,4vw,46px) *
 .education-grade { color: light-dark(#838992, #a4aab2); font-size: 12px; margin: 0 0 13px; }
 .archive-link { color: var(--site-primary); font-size: 10px; letter-spacing: .06em; text-transform: none; }
 @media (max-width: 850px) {
-  .hero.hero-fullbleed { min-height: clamp(600px, calc(100vh - 70px), 760px); }
   .hero-content { width: calc(100% - 40px); }
   .focus-grid { column-gap: 26px; }
   .history-item { grid-template-columns: minmax(170px, .72fr) minmax(0, 1.28fr); gap: 24px; }
   .education-item { gap: 24px; }
 }
 @media (max-width: 620px) {
-  .hero.hero-fullbleed { display: block; min-height: 0; padding: 0; }
-  .hero-video { position: relative; inset: auto; height: clamp(190px, 56.25vw, 300px); }
-  .hero-video:after { background: linear-gradient(0deg, rgba(7,9,12,.34), rgba(7,9,12,.08)); }
   .hero-content { width: calc(100% - 30px); padding: 34px 0 40px; }
   .hero-content { --hero-title-size: calc(clamp(26px, 7.2vw, 38px) * var(--site-heading-scale)); }
-  .hero-content h1 { white-space: normal; }
   .hero-content p { font-size: 14px; }
   .hero-actions { max-width: none; }
   .hero-action { padding: 9px 10px; font-size: 9px; }
@@ -2312,7 +2307,7 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
 <section aria-labelledby="hero-title" class="hero hero-fullbleed" id="showreel">
 <div aria-hidden="true" class="hero-video" id="hero-video-wrap">
 <img alt="" class="hero-video-poster" fetchpriority="high" src="images/showreel-poster.jpg"/>
-<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?autoplay=1&amp;muted=1&amp;controls=0&amp;loop=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;app_id=122963#t=5s" id="hero-showreel-video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
+<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?autoplay=0&amp;muted=1&amp;controls=0&amp;loop=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;app_id=122963#t=5s" id="hero-showreel-video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
 </div>
 <div class="hero-content">
 <div class="kicker">Visual effects · 3D · Compositing</div>
