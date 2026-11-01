@@ -2107,8 +2107,9 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
 .hero-action-primary { border-color: var(--site-primary); background: var(--site-primary); color: var(--site-on-primary); cursor: pointer; }
 .hero-action-primary svg { fill: currentColor; stroke: none; }
 .reel-dialog {
-  width: min(1200px, calc(100vw - 40px));
+  width: min(1200px, calc(100vw - 40px), calc((100dvh - 112px) * 16 / 9));
   max-width: none;
+  max-height: calc(100dvh - 32px);
   padding: 16px;
   border: 1px solid #394655;
   border-radius: 10px;
@@ -2117,12 +2118,13 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
   box-shadow: 0 24px 100px rgba(0,0,0,.7);
 }
 .reel-dialog::backdrop { background: rgba(2,4,7,.82); backdrop-filter: blur(5px); }
-.reel-dialog-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 12px; }
-.reel-dialog-head h2 { font-size: 17px; letter-spacing: -.02em; }
-.reel-dialog-close { width: 34px; height: 34px; border: 1px solid #394655; border-radius: 50%; background: #111821; color: inherit; font-size: 23px; line-height: 1; cursor: pointer; }
+.reel-dialog-head { position: relative; display: flex; justify-content: center; align-items: center; min-height: 36px; margin-bottom: 12px; }
+.reel-dialog-head h2 { margin: 0; padding: 0 42px; font-size: clamp(13px, 2vw, 17px); letter-spacing: -.02em; line-height: 1.3; text-align: center; }
+.reel-dialog-title-initial { color: var(--site-primary); }
+.reel-dialog-close { position: absolute; top: 50%; right: 0; width: 34px; height: 34px; transform: translateY(-50%); border: 1px solid #394655; border-radius: 50%; background: #111821; color: inherit; font-size: 23px; line-height: 1; cursor: pointer; }
 .reel-dialog-close:hover { border-color: var(--site-primary); color: var(--site-primary); }
 .reel-dialog-video { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
-.reel-dialog-video iframe { position: absolute; top: 50%; left: 50%; display: block; width: 100%; height: 100%; border: 0; transform: translate(-50%, -50%) scale(1.16); }
+.reel-dialog-video iframe { display: block; width: 100%; height: 100%; border: 0; }
 .project-showcase { position: static; left: auto; width: 100%; margin: 30px auto 42px; transform: none; scroll-margin-top: calc(var(--header-h, 78px) + 18px); }
 .showcase-main { width: 100%; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); scroll-margin-top: calc(var(--header-h, 78px) + 18px); }
 .showcase-collection-head { display: none; }
@@ -2279,7 +2281,8 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
   .archive-book-years { font-size: 7px; letter-spacing: 0; }
   .showcase-facts { grid-template-columns: 1fr; }
   .showcase-tools-list { grid-template-columns: 1fr; }
-  .reel-dialog { width: calc(100vw - 20px); padding: 10px; }
+  .reel-dialog { width: min(calc(100vw - 20px), calc((100dvh - 96px) * 16 / 9)); padding: 10px; }
+  .reel-dialog-head h2 { padding: 0 38px; }
   #university > .collection-heading,
   #university-showcase { width: calc(100% - 30px); }
 }
@@ -2323,7 +2326,7 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
 </div>
 </section>
 <dialog aria-labelledby="reel-dialog-title" class="reel-dialog" id="reel-dialog">
-<div class="reel-dialog-head"><h2 id="reel-dialog-title">Kieran Schofield — Showreel</h2><button aria-label="Close showreel" class="reel-dialog-close" type="button">×</button></div>
+<div class="reel-dialog-head"><h2 id="reel-dialog-title"><span class="reel-dialog-title-initial">K</span>ieran <span class="reel-dialog-title-initial">S</span>chofield VFX Generalist</h2><button aria-label="Close showreel" class="reel-dialog-close" type="button">×</button></div>
 <div class="reel-dialog-video"><iframe allow="autoplay; fullscreen; picture-in-picture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel — Vimeo"></iframe></div>
 </dialog>
 <div class="rule"></div>
