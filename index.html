@@ -198,17 +198,34 @@ h2 { font-family:var(--site-font-heading); font-size:calc(clamp(32px,4vw,46px) *
   overflow: hidden;
   background: #08080b;
 }
+.hero-video-poster {
+  position: absolute;
+  inset: -4%;
+  z-index: 1;
+  display: block;
+  width: 108%;
+  height: 108%;
+  object-fit: cover;
+  transform: scale(1.55);
+  transition: opacity .35s ease;
+}
 .hero-video iframe {
   position: absolute;
-  inset: 0;
+  inset: -4%;
   display: block;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  width: 108%;
+  height: 108%;
+  z-index: 2;
   border: 0;
   pointer-events: none;
   background: #08080b;
+  opacity: 0;
+  transform: scale(1.55);
+  transition: opacity .35s ease;
 }
+.hero-video.is-playing .hero-video-poster { opacity: 0; }
+.hero-video.is-playing iframe { opacity: 1; }
+.hero-video-poster.is-error { opacity: 0; }
 .hero-video:after {
   content: "";
   position: absolute;
@@ -2054,7 +2071,6 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
 .nav-contact:hover,
 .nav-contact:focus-visible { border-color: var(--site-primary); color: var(--site-primary); }
 .nav-contact:focus-visible { outline: 2px solid var(--site-primary); outline-offset: 3px; }
-.hero-video iframe { inset: -4%; width: 108%; height: 108%; transform: scale(1.35); }
 .hero-actions {
   display: flex;
   justify-content: center;
@@ -2218,10 +2234,15 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
 .timeline-project-links a span { color: var(--site-primary); }
 #university-showcase .showcase-rail { justify-content: safe center; }
 #university-showcase .showcase-item { flex: 0 0 clamp(118px, 10vw, 145px); max-width: 145px; }
-#university-showcase .showcase-collection { --archive-accent: #80b7ff; background: color-mix(in srgb, var(--archive-accent) 5%, #0b0e12); border-color: color-mix(in srgb, var(--archive-accent) 30%, var(--showcase-line)); }
-#university-showcase .showcase-collection[data-year="year2"] { --archive-accent: #a898de; }
-#university-showcase .showcase-collection[data-year="year3"] { --archive-accent: #72c6c1; }
-#university-showcase .showcase-item[aria-pressed="true"] { border-color: color-mix(in srgb, var(--archive-accent, #80b7ff) 70%, #303945); }
+#university-showcase { --archive-accent: #80b7ff; }
+#university-showcase[data-year="year2"] { --archive-accent: #a898de; }
+#university-showcase[data-year="year3"] { --archive-accent: #72c6c1; }
+#university-showcase .showcase-main { border-color: color-mix(in srgb, var(--archive-accent) 45%, var(--showcase-line)); }
+#university-showcase .showcase-title { color: color-mix(in srgb, var(--archive-accent) 75%, #f0f4fa); }
+#university-showcase .showcase-label,
+#university-showcase .showcase-fact span { color: color-mix(in srgb, var(--archive-accent) 72%, #9bb8dc); }
+#university-showcase .showcase-collection { background: color-mix(in srgb, var(--archive-accent) 5%, #0b0e12); border-color: color-mix(in srgb, var(--archive-accent) 30%, var(--showcase-line)); }
+#university-showcase .showcase-item[aria-pressed="true"] { border-color: var(--archive-accent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--archive-accent) 28%, transparent); }
 #university-showcase .showcase-collection .showcase-rail { scrollbar-color: color-mix(in srgb, var(--archive-accent, #80b7ff) 45%, #465568) #151a20; }
 #university > .collection-heading,
 #university-showcase { width: min(1160px, calc(100% - 64px)); margin-right: auto; margin-left: auto; }
@@ -2282,7 +2303,8 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
 <main id="top">
 <section aria-labelledby="hero-title" class="hero hero-fullbleed" id="showreel">
 <div aria-hidden="true" class="hero-video" id="hero-video-wrap">
-<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?autoplay=1&amp;muted=1&amp;controls=0&amp;loop=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;app_id=122963#t=5s" id="hero-showreel-video" loading="eager" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
+<img alt="" class="hero-video-poster" fetchpriority="high" src="images/showreel-poster.jpg"/>
+<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?autoplay=1&amp;muted=1&amp;controls=0&amp;loop=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;app_id=122963#t=5s" id="hero-showreel-video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
 </div>
 <div class="hero-content">
 <div class="kicker">Visual effects · 3D · Compositing</div>
@@ -2746,48 +2768,123 @@ document.querySelectorAll('.collection-block').forEach(collection => {
 <script>
 (() => {
   const iframe = document.getElementById('hero-showreel-video');
+  const heroVideo = document.getElementById('hero-video-wrap');
+  const poster = heroVideo?.querySelector('.hero-video-poster');
   const dialog = document.getElementById('reel-dialog');
   const dialogFrame = dialog?.querySelector('iframe');
   const openButton = document.getElementById('open-reel');
   const closeButton = dialog?.querySelector('.reel-dialog-close');
   const videoId = '1117211289';
   const startAt = 5;
-  if (!iframe || !dialog || !dialogFrame || !openButton || !closeButton) return;
+  if (!iframe || !heroVideo || !poster || !dialog || !dialogFrame || !openButton || !closeButton) return;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const lightboxSource = `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=0&controls=1&title=0&byline=0&portrait=0`;
+  let backgroundPlayer = null;
+  let backgroundLoadQueued = false;
+  let backgroundRequested = false;
+  let backgroundReady = false;
+  let lightboxOpen = false;
+  let backgroundPausePromise = Promise.resolve();
+  let lastVideoTime = null;
+
+  const restartBackground = () => {
+    if (!backgroundPlayer || !backgroundReady || lightboxOpen) return;
+    backgroundPlayer.setCurrentTime(startAt)
+      .then(() => lightboxOpen ? undefined : backgroundPlayer.play())
+      .catch(error => console.error('Unable to restart the background showreel.', error));
+  };
+  const loadBackground = () => {
+    if (reduceMotion || lightboxOpen || backgroundRequested) return;
+    backgroundRequested = true;
+    iframe.src = iframe.dataset.src;
+    const playerScript = document.createElement('script');
+    playerScript.src = 'https://player.vimeo.com/api/player.js';
+    playerScript.async = true;
+    playerScript.onload = () => {
+      if (!window.Vimeo?.Player) {
+        console.error('The Vimeo Player API loaded without its Player constructor.');
+        return;
+      }
+      backgroundPlayer = new window.Vimeo.Player(iframe);
+      backgroundPlayer.on('timeupdate', ({ seconds }) => {
+        if (lastVideoTime !== null && seconds > lastVideoTime + 0.15) {
+          heroVideo.classList.add('is-playing');
+        }
+        lastVideoTime = seconds;
+      });
+      backgroundPlayer.on('pause', () => {
+        lastVideoTime = null;
+        heroVideo.classList.remove('is-playing');
+      });
+      backgroundPlayer.on('ended', restartBackground);
+      backgroundPlayer.ready()
+        .then(() => {
+          backgroundReady = true;
+          restartBackground();
+        })
+        .catch(error => console.error('Unable to initialize the background showreel.', error));
+    };
+    playerScript.onerror = () => console.error('Unable to load the Vimeo Player API for showreel looping.');
+    document.head.append(playerScript);
+  };
+  const queueBackgroundLoad = () => {
+    if (reduceMotion || !poster.complete || backgroundLoadQueued || backgroundRequested) return;
+    backgroundLoadQueued = true;
+    const loadWhenIdle = () => {
+      backgroundLoadQueued = false;
+      if (lightboxOpen) return;
+      loadBackground();
+    };
+    window.setTimeout(() => {
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(loadWhenIdle, { timeout: 2500 });
+      } else {
+        loadWhenIdle();
+      }
+    }, 1200);
+  };
+
+  poster.addEventListener('load', queueBackgroundLoad, { once: true });
+  poster.addEventListener('error', () => {
+    console.error('Unable to load the local showreel poster.');
+    poster.classList.add('is-error');
+    queueBackgroundLoad();
+  }, { once: true });
+  if (poster.complete) {
+    if (poster.naturalWidth) queueBackgroundLoad();
+    else {
+      console.error('The local showreel poster failed to load.');
+      queueBackgroundLoad();
+    }
+  }
+
   openButton.addEventListener('click', () => {
+    lightboxOpen = true;
+    if (backgroundPlayer && backgroundReady) {
+      backgroundPausePromise = backgroundPlayer.pause()
+        .catch(error => console.error('Unable to pause the background showreel.', error));
+    }
     dialogFrame.src = lightboxSource;
     dialog.showModal();
+    closeButton.focus({ preventScroll: true });
   });
-  const stopLightbox = () => { dialogFrame.removeAttribute('src'); };
+  const stopLightbox = () => {
+    lightboxOpen = false;
+    dialogFrame.removeAttribute('src');
+    if (backgroundReady) backgroundPausePromise.then(restartBackground);
+    else queueBackgroundLoad();
+  };
   closeButton.addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', stopLightbox);
+  dialog.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && dialog.open) {
+      event.preventDefault();
+      dialog.close();
+    }
+  });
   dialog.addEventListener('click', event => {
     if (event.target === dialog) dialog.close();
   });
-  if (reduceMotion) return;
-  iframe.src = iframe.dataset.src;
-  const playerScript = document.createElement('script');
-  playerScript.src = 'https://player.vimeo.com/api/player.js';
-  playerScript.async = true;
-  playerScript.onload = () => {
-    if (!window.Vimeo?.Player) {
-      console.error('The Vimeo Player API loaded without its Player constructor.');
-      return;
-    }
-    const player = new window.Vimeo.Player(iframe);
-    player.on('ended', () => {
-      player.setCurrentTime(startAt)
-        .then(() => player.play())
-        .catch(error => console.error('Unable to restart the showreel at its loop point.', error));
-    });
-    player.ready()
-      .then(() => player.setCurrentTime(startAt))
-      .then(() => player.play())
-      .catch(error => console.error('Unable to start the showreel at its selected loop point.', error));
-  };
-  playerScript.onerror = () => console.error('Unable to load the Vimeo Player API for showreel looping.');
-  document.head.append(playerScript);
 })();
 </script>
 <script>
@@ -3421,6 +3518,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     const yearBooks = [...document.querySelectorAll('#university .archive-book[data-year]')];
     const archiveCollection = universityState.root.querySelector('.showcase-collection');
     const activeYear = yearBooks.find(book => book.getAttribute('aria-pressed') === 'true')?.dataset.year || 'year1';
+    universityState.root.dataset.year = activeYear;
     if (archiveCollection) {
       archiveCollection.dataset.year = activeYear;
       archiveCollection.prepend(yearBooks[0]?.parentElement);
@@ -3438,6 +3536,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     yearBooks.forEach(book => book.addEventListener('click', () => {
       yearBooks.forEach(item => item.setAttribute('aria-pressed', String(item === book)));
       const year = book.dataset.year;
+      universityState.root.dataset.year = year;
       if (archiveCollection) archiveCollection.dataset.year = year;
       universityCards.forEach(card => {
         card.hidden = !card.dataset.categories.split(/\s+/).includes(year);
