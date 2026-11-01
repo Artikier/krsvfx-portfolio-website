@@ -3,18 +3,17 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-
 <title>Kieran Schofield | VFX Artist & Compositor</title>
 
 <meta name="description" content="Kieran Schofield is a UK-based VFX artist and compositor specialising in compositing, CG and visual effects. Explore selected professional work and personal projects.">
 
 <link rel="canonical" href="https://kieranschofield.com/">
+<link href="images/favicon.svg" rel="icon" type="image/svg+xml"/>
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kieranschofield.com/">
 <meta property="og:title" content="Kieran Schofield | VFX Artist & Compositor">
 <meta property="og:description" content="UK-based VFX artist specialising in compositing, CG and visual effects. Explore selected work.">
-
 <style>
 :root {
   color-scheme: dark;
@@ -39,21 +38,19 @@ button { font: inherit; }
 #site-root { background-color: light-dark(#f7f8fa, var(--site-background)); color: light-dark(#15181c, var(--site-on-background)); min-height: 100vh; border-radius: 0; overflow: hidden; }
 .wrap { width: min(1160px, calc(100% - 64px)); margin: 0 auto; }
 .topbar { border-bottom: 1px solid light-dark(#d9dde3, #272a2e); }
-.nav { min-height: calc(78px * var(--site-spacing-scale)); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
-.brand { display: flex; align-items: center; gap: 13px; letter-spacing: .11em; font-size: 11px; text-transform: uppercase; font-weight: 700; }
+.nav { position: relative; min-height: calc(78px * var(--site-spacing-scale)); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 11px; letter-spacing: .11em; font-size: 11px; text-transform: uppercase; font-weight: 700; }
+.brand-initial { color: var(--site-primary); }
 .brand small { display:block; margin-top:2px; color:light-dark(#71777f,#a2a8b0); font-size:9px; font-weight:500; letter-spacing:.2em; }
-.navlinks { display:flex; align-items:center; gap:18px; color:light-dark(#5a6067,#b1b7bf); }
-.navlinks a:not(.contact-link) { position:relative; display:grid; place-items:center; width:38px; height:38px; border-radius:50%; color:light-dark(#8a919a,#aeb7c2); }
+.navlinks { position:absolute; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:clamp(10px,1.7vw,22px); color:light-dark(#5a6067,#b1b7bf); }
+.navlinks a:not(.contact-link) { position:relative; display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:38px; color:light-dark(#8a919a,#aeb7c2); font-size:10px; font-weight:650; letter-spacing:.04em; white-space:nowrap; }
 .nav-icon { display:block; width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.55; stroke-linecap:round; stroke-linejoin:round; }
-.navlinks a:not(.contact-link)::after { content:attr(data-label); position:absolute; z-index:20; top:calc(100% + 9px); left:50%; padding:7px 10px; border:1px solid light-dark(#d7dce3,#31363d); border-radius:4px; background:light-dark(#fff,#11151a); color:light-dark(#242a31,#e1e9f2); font-size:9px; font-weight:600; letter-spacing:.1em; line-height:1.2; text-transform:uppercase; white-space:nowrap; opacity:0; pointer-events:none; transform:translate(-50%,-4px); transition:opacity .16s ease, transform .16s ease; }
 .navlinks a:not(.contact-link):hover,
 .navlinks a:not(.contact-link):focus-visible,
 .navlinks a:not(.contact-link)[aria-current="page"] { color:var(--site-primary); }
-.navlinks a:not(.contact-link):hover::after,
-.navlinks a:not(.contact-link):focus-visible::after { opacity:1; transform:translate(-50%,0); }
 .navlinks a:not(.contact-link):focus-visible { outline:2px solid var(--site-primary); outline-offset:2px; }
 .navlinks a:hover, .text-link:hover { color: var(--site-primary); }
-.navlinks .contact-link { color:light-dark(#15181c,#f4f7fb); border:1px solid light-dark(#c3c9d1,#454c55); padding:9px 14px; border-radius:calc(999px * var(--site-radius-scale)); }
+.navlinks .contact-link { display:inline-flex; align-items:center; gap:8px; margin-left:clamp(12px,2vw,26px); padding:9px 14px; border:1px solid light-dark(#c3c9d1,#454c55); border-radius:calc(999px * var(--site-radius-scale)); color:light-dark(#15181c,#f4f7fb); font-size:10px; font-weight:700; letter-spacing:.08em; white-space:nowrap; }
 .hero { padding: calc(80px * var(--site-spacing-scale)) 0 calc(68px * var(--site-spacing-scale)); display:grid; grid-template-columns: .94fr 1.06fr; gap:calc(54px * var(--site-spacing-scale)); align-items:center; }
 .kicker { font-size:10px; font-weight:700; letter-spacing:.23em; text-transform:uppercase; color:var(--site-primary); display:flex; align-items:center; gap:11px; }
 .kicker:before { content:""; width:27px; height:1px; background:var(--site-primary); }
@@ -114,7 +111,7 @@ h2 { font-family:var(--site-font-heading); font-size:calc(clamp(32px,4vw,46px) *
 .footer { padding:25px 0 29px; border-top:1px solid light-dark(#dbdfe4,#262a2f); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; color:light-dark(#7d838c,#7b828c); font-size:10px; letter-spacing:.04em; text-align:center; }
 @media (max-width:850px) {
   .wrap { width:calc(100% - 40px); }
-  .nav { min-height:70px; } .navlinks { gap:13px; } .navlinks a:not(.contact-link) { display:none; }
+  .nav { min-height:70px; }
   .hero { grid-template-columns:1fr; gap:36px; padding:58px 0 50px; }
   .reel-card { min-height:300px; } .reel-visual { min-height:286px; }
   .section { padding:58px 0; }
@@ -123,7 +120,6 @@ h2 { font-family:var(--site-font-heading); font-size:calc(clamp(32px,4vw,46px) *
 @media (max-width:620px) {
   .wrap { width:calc(100% - 30px); }
   .brand { font-size:10px; }
-  .navlinks .contact-link { padding:7px 10px; }
   .hero { padding-top:44px; } h1 { font-size:51px; }
   .section-head { display:block; } .section-copy { margin-top:15px; }
   .project-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px 12px; }
@@ -494,6 +490,7 @@ h2 { font-family:var(--site-font-heading); font-size:calc(clamp(32px,4vw,46px) *
   gap: 10px;
 }
 .skills-widget {
+  flex: 1 1 0;
   min-width: 0;
   padding: 13px 15px 14px;
   border: 1px solid var(--stage-soft-border);
@@ -1730,14 +1727,15 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
   gap: 9px;
   margin-top: 22px;
 }
-#professional-showcase .showcase-info { justify-content:center; }
-#professional-showcase .showcase-rule { margin:18px 0 20px; }
-#professional-showcase .showcase-facts { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:0; }
-#professional-showcase .showcase-fact { display:flex; flex-direction:column; justify-content:center; min-height:112px; padding:16px; border-color:#364151; background:linear-gradient(145deg,rgba(26,34,45,.96),rgba(17,22,29,.92)); }
+#professional-showcase .showcase-info { justify-content:flex-start; }
+#professional-showcase .showcase-rule { margin:14px 0 16px; }
+#professional-showcase .showcase-facts { grid-template-columns:minmax(0,1fr); gap:8px; margin-top:16px; }
+#professional-showcase .showcase-fact { display:flex; flex-direction:column; justify-content:flex-start; min-height:0; padding:12px; border-color:#364151; background:linear-gradient(145deg,rgba(26,34,45,.96),rgba(17,22,29,.92)); }
 #professional-showcase .showcase-fact:last-child { grid-column:auto; }
-#professional-showcase .showcase-fact span { margin-bottom:10px; color:#9bb8dc; font-size:9px; }
+#professional-showcase .showcase-fact span { margin-bottom:7px; color:#9bb8dc; font-size:9px; }
 #professional-showcase .showcase-fact strong { font-size:13px; }
-#professional-showcase .showcase-links { gap:10px; margin-top:15px; }
+#professional-showcase .showcase-fact .showcase-contribution { font-size:12px; }
+#professional-showcase .showcase-links { justify-content:center; gap:10px; margin-top:11px; }
 #professional-showcase .showcase-links a { width:42px; height:42px; min-height:42px; justify-content:center; padding:0; border-radius:50%; }
 #professional-showcase .showcase-links .social-icon { width:19px; height:19px; }
 #professional-showcase .showcase-links a::after { top:calc(100% + 8px); bottom:auto; transform:translate(-50%,-4px); }
@@ -1767,7 +1765,8 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
-.showcase-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 19px; }
+.showcase-contribution { margin: 0; color: #e0e6ee; font-size: 11px; font-weight: 500; line-height: 1.6; overflow-wrap: anywhere; }
+.showcase-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 19px; }
 .showcase-links:empty { display: none; }
 .showcase-links a {
   position: relative;
@@ -1790,13 +1789,7 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
   border-top: 1px solid var(--showcase-line);
   background: #0b0e12;
 }
-.showcase-collection-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 14px;
-  margin-bottom: 8px;
-}
+.showcase-collection-head { display: none; }
 .showcase-collection-head h4 {
   margin: 0;
   color: #dce5f0;
@@ -1860,7 +1853,7 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
   letter-spacing: .13em;
   pointer-events: none;
 }
-.showcase-item-title { display: block; min-height: 34px; padding: 7px 8px; color: inherit; font-size: 9px; line-height: 1.35; text-align: center; overflow-wrap: anywhere; }
+.showcase-item-title { display: block; min-height: 34px; padding: 7px 8px; color: inherit; font-size: 10px; font-weight: 650; line-height: 1.35; text-align: center; overflow-wrap: anywhere; }
 /* The original cards remain as content sources; visitors browse them in the feature rail. */
 #personal .project-grid,
 #university > .archive-year-grid,
@@ -1941,7 +1934,6 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
 }
 #about { background: light-dark(#f2f4f7, #0b0d12); }
 #professional .section-head { justify-content: center; text-align: center; }
-#professional-showcase .showcase-fact:nth-child(2) { display: none; }
 .showcase-instagram-link {
   position: relative;
   display: grid;
@@ -2004,6 +1996,7 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
   line-height: 1.5;
   letter-spacing: .01em;
 }
+.section-title-icon { display: inline-block; width: .68em; height: .68em; margin-right: 12px; vertical-align: -.035em; fill: none; stroke: var(--site-primary); stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
 .collection-heading { margin: 0 0 26px; }
 .collection-heading .collection-title {
   display: flex;
@@ -2043,6 +2036,230 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
   .collection-heading { align-items: center; flex-direction: column; gap: 5px; }
 }
 
+.nav-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+  gap: 8px;
+  padding: 9px 13px;
+  border: 1px solid light-dark(#c3c9d1, #454c55);
+  border-radius: 999px;
+  color: light-dark(#15181c, #f4f7fb);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  white-space: nowrap;
+  transition: color .18s ease, border-color .18s ease, background .18s ease;
+}
+.nav-contact:hover,
+.nav-contact:focus-visible { border-color: var(--site-primary); color: var(--site-primary); }
+.nav-contact:focus-visible { outline: 2px solid var(--site-primary); outline-offset: 3px; }
+.hero-video iframe { inset: -4%; width: 108%; height: 108%; transform: scale(1.18); }
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 16px;
+}
+.hero-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 39px;
+  padding: 9px 12px;
+  border: 1px solid rgba(220,232,248,.3);
+  border-radius: 4px;
+  background: rgba(8,12,17,.62);
+  color: #edf4fc;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+.hero-action:hover { border-color: var(--site-primary); background: rgba(15,24,36,.88); transform: translateY(-1px); }
+.hero-action:focus-visible { outline: 2px solid var(--site-primary); outline-offset: 3px; }
+.hero-action svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.hero-action-primary { border-color: var(--site-primary); background: var(--site-primary); color: var(--site-on-primary); cursor: pointer; }
+.hero-action-primary svg { fill: currentColor; stroke: none; }
+.reel-dialog {
+  width: min(1200px, calc(100vw - 40px));
+  max-width: none;
+  padding: 16px;
+  border: 1px solid #394655;
+  border-radius: 10px;
+  background: #080b10;
+  color: #edf4fc;
+  box-shadow: 0 24px 100px rgba(0,0,0,.7);
+}
+.reel-dialog::backdrop { background: rgba(2,4,7,.82); backdrop-filter: blur(5px); }
+.reel-dialog-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 12px; }
+.reel-dialog-head h2 { font-size: 17px; letter-spacing: -.02em; }
+.reel-dialog-close { width: 34px; height: 34px; border: 1px solid #394655; border-radius: 50%; background: #111821; color: inherit; font-size: 23px; line-height: 1; cursor: pointer; }
+.reel-dialog-close:hover { border-color: var(--site-primary); color: var(--site-primary); }
+.reel-dialog-video { aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
+.reel-dialog-video iframe { display: block; width: 100%; height: 100%; border: 0; }
+.project-showcase { position: static; left: auto; width: 100%; margin: 30px auto 42px; transform: none; scroll-margin-top: calc(var(--header-h, 78px) + 18px); }
+.showcase-main { width: 100%; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); scroll-margin-top: calc(var(--header-h, 78px) + 18px); }
+.showcase-collection-head { display: none; }
+.showcase-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.showcase-tools-panel {
+  margin-top: 15px;
+  padding: 14px 15px;
+  border: 1px solid light-dark(#d5dce5, #303945);
+  border-radius: 8px;
+  background: light-dark(#f7f9fc, #10151c);
+}
+.showcase-tools-title {
+  margin: 0 0 10px;
+  color: light-dark(#6f7884, #a4b0bf);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.showcase-tools-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; }
+.showcase-tool {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  color: light-dark(#363e48, #d6e0ec);
+  font-size: 11px;
+  line-height: 1.45;
+}
+.showcase-tool-icon {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid light-dark(#d5dce5, #303945);
+  border-radius: 6px;
+  background: light-dark(#fff, #171e27);
+}
+.showcase-tool-icon img { display: block; width: 17px; height: 17px; object-fit: contain; }
+.showcase-tool-icon img[src$=".png"],
+.showcase-tool-icon img[src$=".ico"] { border-radius: 3px; }
+.showcase-tool-detail { color: light-dark(#7d8794, #99a6b5); font-size: 9px; }
+.showcase-tools-empty { margin: 0; color: light-dark(#838b96, #8e9baa); font-size: 11px; font-style: italic; }
+.showcase-tools-notes { margin: 11px 0 0; padding-top: 9px; border-top: 1px solid light-dark(#dbe1e9, #2b333d); color: light-dark(#6f7884, #9aa5b2); font-size: 10px; line-height: 1.55; }
+.archive-year-books {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+  justify-content: center;
+  margin: 0;
+  padding: 0 0 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--archive-accent, #80b7ff) 34%, #303945);
+}
+.archive-book {
+  --book-accent: #80b7ff;
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 13px;
+  border: 1px solid transparent;
+  border-radius: 5px 5px 2px 2px;
+  background: transparent;
+  color: #aab4c0;
+  font: inherit;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: color .18s ease, border-color .18s ease, background .18s ease;
+}
+.archive-book--second { --book-accent: #a898de; }
+.archive-book--third { --book-accent: #72c6c1; }
+.archive-book::before {
+  content: none;
+}
+.archive-book-spine {
+  display: none;
+}
+.archive-book-edition,
+.archive-book strong,
+.archive-book-years,
+.archive-book-count { position: relative; z-index: 1; }
+.archive-book-edition,
+.archive-book-count { display: none; }
+.archive-book strong { font-size: 10px; font-weight: 700; letter-spacing: .06em; white-space: nowrap; }
+.archive-book-years { color: #8d99a8; font-size: 9px; white-space: nowrap; }
+.archive-book:hover,
+.archive-book:focus-visible { border-color: color-mix(in srgb, var(--book-accent) 65%, transparent); color: #edf4fc; }
+.archive-book:focus-visible { outline: 2px solid var(--book-accent); outline-offset: 2px; }
+.archive-book[aria-pressed="true"] { border-color: color-mix(in srgb, var(--book-accent) 42%, #303945); background: color-mix(in srgb, var(--book-accent) 11%, #10151c); color: color-mix(in srgb, var(--book-accent) 74%, #fff); }
+.timeline-project-links { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.timeline-project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 9px;
+  border: 1px solid light-dark(#d5dce5, #303945);
+  border-radius: 4px;
+  background: light-dark(#f7f9fc, #11161d);
+  color: light-dark(#505c6b, #b9c9dc);
+  font-size: 9px;
+  font-weight: 650;
+  line-height: 1.3;
+  transition: border-color .16s ease, color .16s ease, background .16s ease;
+}
+.timeline-project-links a:hover,
+.timeline-project-links a:focus-visible { border-color: var(--site-primary); background: light-dark(#edf5ff, #172232); color: var(--site-primary); }
+.timeline-project-links a:focus-visible { outline: 2px solid var(--site-primary); outline-offset: 2px; }
+.timeline-project-links a span { color: var(--site-primary); }
+#university-showcase .showcase-rail { justify-content: safe center; }
+#university-showcase .showcase-item { flex: 0 0 clamp(118px, 10vw, 145px); max-width: 145px; }
+#university-showcase .showcase-collection { --archive-accent: #80b7ff; background: color-mix(in srgb, var(--archive-accent) 5%, #0b0e12); border-color: color-mix(in srgb, var(--archive-accent) 30%, var(--showcase-line)); }
+#university-showcase .showcase-collection[data-year="year2"] { --archive-accent: #a898de; }
+#university-showcase .showcase-collection[data-year="year3"] { --archive-accent: #72c6c1; }
+#university-showcase .showcase-item[aria-pressed="true"] { border-color: color-mix(in srgb, var(--archive-accent, #80b7ff) 70%, #303945); }
+#university-showcase .showcase-collection .showcase-rail { scrollbar-color: color-mix(in srgb, var(--archive-accent, #80b7ff) 45%, #465568) #151a20; }
+#university > .collection-heading,
+#university-showcase { width: min(1160px, calc(100% - 64px)); margin-right: auto; margin-left: auto; }
+@media (max-width: 850px) {
+  .nav { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; padding: 10px 0; }
+  .navlinks { position: static; grid-column: 1 / -1; grid-row: 2; justify-self: center; transform: none; flex-wrap: wrap; justify-content: center; gap: 4px clamp(12px, 4vw, 24px); width: 100%; }
+  .navlinks a:not(.contact-link) { display: inline-flex; flex: 0 1 auto; width: auto; height: auto; min-height: 32px; padding: 0; font-size: 9px; }
+  .nav-icon { width: 17px; height: 17px; }
+  .nav-contact { grid-column: 2; grid-row: 1; padding: 7px 10px; font-size: 9px; }
+  #university > .collection-heading,
+  #university > .archive-year-books,
+  #university-showcase { width: calc(100% - 40px); }
+}
+@media (max-width: 700px) {
+  #university-showcase .showcase-item { flex: 0 0 112px; }
+}
+@media (max-width: 560px) {
+  .nav { gap: 8px; }
+  .navlinks { column-gap: 8px; }
+  .navlinks a:not(.contact-link) { gap: 5px; font-size: 9px; }
+  .navlinks .nav-icon { width: 15px; height: 15px; }
+  .nav-contact { padding: 6px 8px; gap: 6px; font-size: 8px; }
+  .nav-contact .nav-icon { width: 15px; height: 15px; }
+  .hero-actions { max-width: 340px; margin-right: auto; margin-left: auto; }
+  .hero-action { padding: 8px 9px; font-size: 8px; }
+  .archive-year-books { gap: 2px; padding-bottom: 9px; }
+  .archive-book { flex: 1 1 0; justify-content: center; gap: 5px; padding: 7px 5px; }
+  .archive-book strong { font-size: 8px; letter-spacing: .02em; }
+  .archive-book-years { font-size: 7px; letter-spacing: 0; }
+  .showcase-facts { grid-template-columns: 1fr; }
+  .showcase-tools-list { grid-template-columns: 1fr; }
+  .reel-dialog { width: calc(100vw - 20px); padding: 10px; }
+  #university > .collection-heading,
+  #university-showcase { width: calc(100% - 30px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .archive-book, .hero-action, .timeline-project-links a { transition: none !important; }
+}
 </style>
 </head>
 <body>
@@ -2050,45 +2267,55 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
 <header class="topbar">
 <div class="wrap nav">
 <a aria-label="Kieran Schofield home" class="brand" href="#top">
-<span>Kieran Schofield<small>VFX Generalist</small></span>
+<span><span class="brand-initial">K</span>ieran <span class="brand-initial">S</span>chofield<small>VFX Generalist</small></span>
 </a>
 <nav aria-label="Main navigation" class="navlinks">
-<a aria-label="Home" data-label="Home" href="#top"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7"/><path d="M5.5 9v11h13V9M9 20v-6h6v6"/></svg></a>
-<a aria-label="Professional Work" data-label="Professional Work" href="#professional"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="7"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg></a>
-<a aria-label="Personal Projects" data-label="Personal Projects" href="#personal"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><path d="M3 6.5h7l2 2h9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m15.5 11 .8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8z"/></svg></a>
-<a aria-label="University Archive" data-label="University Archive" href="#university"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3.5 3 8.5 3 12 0v-5M22 9v6"/></svg></a>
-<a aria-label="About" data-label="About" href="#about"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0M19 4h3M20.5 2.5v3"/></svg></a>
+<a aria-label="Home" href="#top"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7"/><path d="M5.5 9v11h13V9M9 20v-6h6v6"/></svg><span>Home</span></a>
+<a aria-label="Professional Work" href="#professional"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="7"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg><span>Professional</span></a>
+<a aria-label="Personal Projects" href="#personal"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><path d="M3 6.5h7l2 2h9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m15.5 11 .8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8z"/></svg><span>Personal</span></a>
+<a aria-label="University Archive" href="#university"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3.5 3 8.5 3 12 0v-5M22 9v6"/></svg><span>University</span></a>
+<a aria-label="About" href="#about"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0M19 4h3M20.5 2.5v3"/></svg><span>About</span></a>
 </nav>
+<a aria-label="Contact me on LinkedIn" class="nav-contact" href="https://www.linkedin.com/in/kieran-schofield-a59137178/" rel="noreferrer" target="_blank"><svg aria-hidden="true" class="nav-icon" focusable="false" viewBox="0 0 24 24"><rect height="17" rx="2" width="17" x="3.5" y="3.5"/><path d="M8.25 10v6m0-8.5v.1M11.5 16v-6m0 2c0-2.8 4.25-2.8 4.25 0v4"/></svg><span>Contact Me</span></a>
 </div>
 </header>
 <main id="top">
 <section aria-labelledby="hero-title" class="hero hero-fullbleed" id="showreel">
 <div aria-hidden="true" class="hero-video" id="hero-video-wrap">
-<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;app_id=122963" id="hero-showreel-video" loading="eager" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
+<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?autoplay=1&amp;muted=1&amp;controls=0&amp;loop=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;app_id=122963#t=6s" id="hero-showreel-video" loading="eager" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
 </div>
 <div class="hero-content">
 <div class="kicker">Visual effects · 3D · Compositing</div>
 <h1 id="hero-title">Kieran Schofield<span>VFX Generalist</span></h1>
 <p>I’m Kieran, a UK-based VFX artist currently working at CHIEF Productions as a Visual Effects Generalist.</p>
+<div class="hero-actions" aria-label="Showreel and contact options">
+<button class="hero-action hero-action-primary" id="open-reel" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 6 10 6-10 6z"/></svg><span>Watch showreel</span></button>
+<a class="hero-action" href="https://vimeo.com/1117211289" rel="noreferrer" target="_blank"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M23.9765 6.4168c-.105 2.338-1.739 5.5429-4.894 9.6088-3.2679 4.247-6.0258 6.3699-8.2898 6.3699-1.409 0-2.578-1.294-3.553-3.881l-1.9179-7.1138c-.719-2.584-1.488-3.878-2.312-3.878-.179 0-.806.378-1.8809 1.132l-1.129-1.457a315.06 315.06 0 003.501-3.1279c1.579-1.368 2.765-2.085 3.5539-2.159 1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.5069.5389 2.45 1.1309 3.674 1.7759 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.8679 3.434-5.7568 6.7619-5.6368 2.4729.06 3.6279 1.664 3.4929 4.7969z"/></svg><span>Watch on Vimeo</span></a>
+<a class="hero-action" href="https://www.linkedin.com/in/kieran-schofield-a59137178/" rel="noreferrer" target="_blank"><svg aria-hidden="true" viewBox="0 0 24 24"><rect height="17" rx="2" width="17" x="3.5" y="3.5"/><path d="M8.25 10v6m0-8.5v.1M11.5 16v-6m0 2c0-2.8 4.25-2.8 4.25 0v4"/></svg><span>Contact on LinkedIn</span></a>
+</div>
 </div>
 </section>
+<dialog aria-labelledby="reel-dialog-title" class="reel-dialog" id="reel-dialog">
+<div class="reel-dialog-head"><h2 id="reel-dialog-title">Kieran Schofield — Showreel</h2><button aria-label="Close showreel" class="reel-dialog-close" type="button">×</button></div>
+<div class="reel-dialog-video"><iframe allow="autoplay; fullscreen; picture-in-picture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel — Vimeo"></iframe></div>
+</dialog>
 <div class="rule"></div>
 <section class="professional section" id="professional">
 <div class="wrap">
-<div class="section-head"><div class="section-title-group"><h2 id="professional-title">Professional Work</h2><p class="section-copy">Official release links for the projects featured below can be found alongside each piece.</p></div></div>
+<div class="section-head"><div class="section-title-group"><h2 id="professional-title"><svg aria-hidden="true" class="section-title-icon" focusable="false" viewBox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="7"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg>Professional Work</h2><p class="section-copy">Official release links for the projects featured below can be found alongside each piece.</p></div></div>
 <div id="professional-showcase-mount"></div>
 <div class="professional-list">
-<article class="prof-row" data-prof-categories="commercial">
+<article class="prof-row" data-contribution="Compositing, roto cleanup and keying." data-prof-categories="commercial" data-tools="Nuke; ComfyUI">
 <div><h3>Blinds Direct</h3><p>2026 · Chief Productions / The Longhouse Post</p></div>
 <div class="credit">Credited VFX Generalist</div>
 <a class="text-link" href="https://youtu.be/p0dhbSnRBM0" rel="noreferrer" target="_blank">YouTube ↗</a>
 </article>
-<article class="prof-row" data-prof-categories="commercial">
+<article class="prof-row" data-contribution="Roto and cleanup using Nuke Copycat; some renders using Arnold in Maya; assisted with renders using Karma in Houdini." data-prof-categories="commercial" data-tools="Nuke Copycat (roto and cleanup); Arnold; Maya (renders); Karma; Houdini (assisted renders)">
 <div><h3>Marks &amp; Spencer Food / Eat Well</h3><p>2026 · Chief Productions / The Longhouse Post</p></div>
 <div class="credit">Credited VFX Artist (Freelance)</div>
 <div class="prof-links"><a class="text-link" href="https://www.instagram.com/wearechief/reel/DZNGUyOsxz6/?hl=en-gb" rel="noreferrer" target="_blank">Instagram ↗</a><a class="text-link" href="https://www.youtube.com/watch?v=qKBI3Aob0bA" rel="noreferrer" target="_blank">YouTube ↗</a></div>
 </article>
-<article class="prof-row" data-prof-categories="commercial">
+<article class="prof-row" data-contribution="Modelled in Houdini, textured in Substance Painter and rendered in Karma. Compositing in Nuke for integration, including roto, cleanup and Smart Vectors for logo integration." data-prof-categories="commercial" data-tools="Houdini (modelling); Substance Painter (texturing); Karma (rendering); Nuke (compositing, roto, cleanup and Smart Vectors)">
 <div><h3>Karen Betts</h3><p>2026 · Chief Productions / The Longhouse Post</p></div>
 <div class="credit">Credited VFX Artist (Freelance)</div>
 <a class="text-link" href="https://www.instagram.com/wearechief/reel/DbqCmo9Mc1j/?hl=en-gb" rel="noreferrer" target="_blank">Instagram ↗</a>
@@ -2128,10 +2355,10 @@ Overall, I’m happy with both outcomes for these shots. I found the workflow in
 </div></div></div>
 <section aria-labelledby="archive-title" class="collection-block archive-collection" id="university">
 <div class="collection-heading"><h3 class="collection-title" id="archive-title"><svg aria-hidden="true" class="collection-heading-icon" focusable="false" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3.5 3 8.5 3 12 0v-5M22 9v6"/></svg>University Archive</h3><p class="collection-copy">Archive of university projects completed at Manchester Metropolitan University.</p></div>
-<div aria-label="Filter university archive by year" class="filters" role="group">
-<button aria-pressed="true" class="filter" data-filter="year1" type="button">First Year</button>
-<button aria-pressed="false" class="filter" data-filter="year2" type="button">Second Year</button>
-<button aria-pressed="false" class="filter" data-filter="year3" type="button">Third Year</button>
+<div aria-label="Choose a year in the university archive" class="archive-year-books" role="group">
+<button aria-pressed="true" class="archive-book archive-book--first" data-year="year1" type="button"><strong>First Year</strong><span class="archive-book-years">2022–2023</span></button>
+<button aria-pressed="false" class="archive-book archive-book--second" data-year="year2" type="button"><strong>Second Year</strong><span class="archive-book-years">2023–2024</span></button>
+<button aria-pressed="false" class="archive-book archive-book--third" data-year="year3" type="button"><strong>Third Year</strong><span class="archive-book-years">2024–2025</span></button>
 </div>
 <div id="university-showcase-mount"></div>
 <div aria-label="University archive projects" class="project-grid archive-year-grid">
@@ -2318,6 +2545,7 @@ Overall, I’m happy with both outcomes for these shots. I found the workflow in
 <div class="branch-label">Related work &amp; tools</div>
 <div class="branch-bubbles"><span class="branch-bubble">Compositing</span><span class="branch-bubble">CG</span><span class="branch-bubble">Asset creation</span><span class="branch-bubble">Nuke</span><span class="branch-bubble">3D Equalizer</span><span class="branch-bubble">Houdini</span><span class="branch-bubble">Maya</span></div>
 </div>
+<div class="timeline-project-links" aria-label="Related CHIEF Productions projects"><a href="#professional-showcase" data-project-title="Blinds Direct">Blinds Direct <span aria-hidden="true">↗</span></a><a href="#professional-showcase" data-project-title="Marks &amp; Spencer Food / Eat Well">Marks &amp; Spencer Food <span aria-hidden="true">↗</span></a><a href="#professional-showcase" data-project-title="Karen Betts">Karen Betts <span aria-hidden="true">↗</span></a></div>
 </div>
 </article>
 <article class="timeline-point has-work">
@@ -2331,6 +2559,7 @@ Overall, I’m happy with both outcomes for these shots. I found the workflow in
 <div class="branch-label">Related work</div>
 <div class="branch-bubbles"><span class="branch-bubble">Client projects</span><span class="branch-bubble">Post-production</span><span class="branch-bubble">CG</span><span class="branch-bubble">Final delivery</span></div>
 </div>
+<div class="timeline-project-links" aria-label="Related freelance projects"><a href="#professional-showcase" data-project-title="Marks &amp; Spencer Food / Eat Well">Marks &amp; Spencer Food <span aria-hidden="true">↗</span></a><a href="#professional-showcase" data-project-title="Karen Betts">Karen Betts <span aria-hidden="true">↗</span></a></div>
 </div>
 </article>
 <article class="timeline-point has-education has-work">
@@ -2517,9 +2746,48 @@ document.querySelectorAll('.collection-block').forEach(collection => {
 <script>
 (() => {
   const iframe = document.getElementById('hero-showreel-video');
-  if (!iframe) return;
+  const dialog = document.getElementById('reel-dialog');
+  const dialogFrame = dialog?.querySelector('iframe');
+  const openButton = document.getElementById('open-reel');
+  const closeButton = dialog?.querySelector('.reel-dialog-close');
+  const videoId = '1117211289';
+  const startAt = 6;
+  if (!iframe || !dialog || !dialogFrame || !openButton || !closeButton) return;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduceMotion) iframe.src = iframe.dataset.src;
+  const lightboxSource = `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=0&controls=1&loop=1&title=0&byline=0&portrait=0#t=${startAt}s`;
+  openButton.addEventListener('click', () => {
+    dialogFrame.src = lightboxSource;
+    dialog.showModal();
+  });
+  const stopLightbox = () => { dialogFrame.removeAttribute('src'); };
+  closeButton.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', stopLightbox);
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+  if (reduceMotion) return;
+  iframe.src = iframe.dataset.src;
+  const playerScript = document.createElement('script');
+  playerScript.src = 'https://player.vimeo.com/api/player.js';
+  playerScript.async = true;
+  playerScript.onload = () => {
+    if (!window.Vimeo?.Player) {
+      console.error('The Vimeo Player API loaded without its Player constructor.');
+      return;
+    }
+    const player = new window.Vimeo.Player(iframe);
+    player.on('ended', () => {
+      player.setCurrentTime(startAt)
+        .then(() => player.play())
+        .catch(error => console.error('Unable to restart the showreel at its loop point.', error));
+    });
+    player.ready()
+      .then(() => player.setCurrentTime(startAt))
+      .then(() => player.play())
+      .catch(error => console.error('Unable to start the showreel at its selected loop point.', error));
+  };
+  playerScript.onerror = () => console.error('Unable to load the Vimeo Player API for showreel looping.');
+  document.head.append(playerScript);
 })();
 </script>
 <script>
@@ -2668,34 +2936,101 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     const facts = node('div', 'showcase-facts');
     const links = node('div', 'showcase-links');
     const collection = node('section', 'showcase-collection');
-    const collectionHead = node('div', 'showcase-collection-head');
-    const collectionTitle = node('h4', '', 'Browse this collection');
     const rail = node('div', 'showcase-rail');
     rail.setAttribute('aria-label', `${label} projects`);
     rail.setAttribute('tabindex', '0');
-    collectionHead.append(collectionTitle);
-    collection.append(collectionHead, rail);
-    visual.append(stage, mediaPicker);
+    const toolsPanel = node('section', 'showcase-tools-panel');
+    toolsPanel.setAttribute('aria-label', 'Software and tools used');
+    const toolsTitle = node('h4', 'showcase-tools-title', 'Software / tools');
+    const toolsList = node('div', 'showcase-tools-list');
+    const toolsNotes = node('p', 'showcase-tools-notes');
+    toolsPanel.append(toolsTitle, toolsList, toolsNotes);
+    collection.append(rail);
+    visual.append(stage, mediaPicker, links);
     info.append(title, subtitle, rule);
     if (!options.hideOverview) info.append(overviewLabel, overview);
-    info.append(facts, links);
+    info.append(facts, toolsPanel);
     main.append(visual, info);
     root.append(main, collection);
     mount.replaceWith(root);
 
-    const factEls = ['My contribution', 'Software / tools', 'Date completed'].map(labelText => {
+    const factEls = ['My contribution', 'Date completed'].map(labelText => {
       const box = node('div', 'showcase-fact');
-      box.append(node('span', '', labelText), node('strong', '', 'Details to be added'));
+      const value = node('p', 'showcase-contribution', 'Details to be added');
+      box.append(node('span', '', labelText), value);
       facts.append(box);
-      return box.querySelector('strong');
+      return value;
     });
 
     const state = {
       root, stage, mediaPicker, mediaRail, mediaCount, previousMedia, nextMedia,
-      title, subtitle, overview, factEls, links, rail,
+      title, subtitle, overview, factEls, links, rail, toolsList, toolsNotes,
       records: [...records], selected: null, media: [], mediaIndex: 0, visible: false,
       manuallyPaused: false, timer: null, buttons: new Map(), options
     };
+
+    function renderTools(value) {
+      toolsList.replaceChildren();
+      toolsNotes.replaceChildren();
+      const tools = [];
+      const notes = [];
+      (value || '').split(';')
+        .flatMap(entry => entry.split(/\.\s+(?=[A-Z])/))
+        .map(entry => entry.trim().replace(/\.$/, ''))
+        .filter(Boolean)
+        .forEach(entry => {
+          if (/\b(?:assets?|footage|pexels|acquired|online)\b/i.test(entry)) {
+            notes.push(entry);
+            return;
+          }
+          const detailMatch = entry.match(/^(.+?)\s*\(([^)]+)\)$/);
+          const names = (detailMatch ? detailMatch[1] : entry).split(/\s*(?:,|\band\b)\s*/i);
+          names.forEach(name => {
+            const cleanName = name.trim().replace(/[.]+$/, '');
+            if (cleanName) tools.push({ name: cleanName, detail: detailMatch?.[2] || '' });
+          });
+        });
+      const iconFor = (name, detail) => {
+        const lower = name.toLowerCase();
+        const icons = [
+          [/silhouette/, 'silhouette_logo_v002.svg'],
+          [/substance painter/, 'substance_painter_logo_v001.svg'],
+          [/3d equalizer/, '3dequalizer_logo_v001.png'],
+          [/keentools/, 'keentools_logo_v001.svg'],
+          [/comfyui/, 'comfyui_logo_v001.svg'],
+          [/photoshop/, 'photoshop_logo_v001.svg'],
+          [/unreal/, 'unreal_engine_logo_v001.svg'],
+          [/gamemaker/, 'photoshop_logo_v001.svg'],
+          [/maya/, 'maya_logo_v001.svg'],
+          [/houdini/, 'houdini_logo_v001.svg'],
+          [/arnold/, 'arnold_logo_v001.svg'],
+          [/karma/, 'karma_logo_v001.svg'],
+          [/v.?ray/, 'vray_logo_v001.svg'],
+          [/nuke/, 'nuke_logo_v001.svg'],
+          [/premiere/, 'photoshop_logo_v001.svg']
+        ];
+        const match = icons.find(([pattern]) => pattern.test(lower));
+        if (match) return `images/skills/${match[1]}`;
+        if (/fx|simulation/i.test(detail)) return 'images/skills/houdini_logo_v001.svg';
+        if (/model|animation|render|textur/i.test(detail)) return 'images/skills/maya_logo_v001.svg';
+        return 'images/skills/nuke_logo_v001.svg';
+      };
+      tools.forEach(tool => {
+        const row = node('div', 'showcase-tool');
+        const icon = node('span', 'showcase-tool-icon');
+        const image = node('img');
+        image.src = iconFor(tool.name, tool.detail);
+        image.alt = '';
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        icon.append(image);
+        row.append(icon, node('span', '', `${tool.name}${tool.detail ? ` · ${tool.detail}` : ''}`));
+        toolsList.append(row);
+      });
+      if (!tools.length) toolsList.append(node('p', 'showcase-tools-empty', 'Tools have not been added yet.'));
+      if (notes.length) toolsNotes.textContent = notes.join(' ');
+      toolsNotes.hidden = !notes.length;
+    }
 
     function placeholderMedia() {
       stage.replaceChildren();
@@ -2863,7 +3198,8 @@ document.querySelectorAll('.collection-block').forEach(collection => {
           subtitle: clean(card.dataset.summary) || projectSubtitle(card),
           overview: description || 'Project notes not added yet.', empty: !description,
           role: role || 'Not added yet',
-          tools: tools || 'Not added yet',
+          contribution: clean(card.dataset.contribution) || role || 'Not added yet',
+          tools,
           date: clean(card.dataset.date) || inferDate(projectSubtitle(card)) || 'Not added yet'
         };
       }
@@ -2872,7 +3208,8 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         subtitle: record.summary || record.subtitle,
         overview: record.overview || 'Project notes not added yet.', empty: !record.overview,
         role: record.role || 'Not added yet',
-        tools: record.tools || 'Not added yet',
+        contribution: record.contribution || record.role || 'Not added yet',
+        tools: record.tools || '',
         date: record.date || inferDate(record.subtitle) || 'Not added yet'
       };
     }
@@ -2890,9 +3227,9 @@ document.querySelectorAll('.collection-block').forEach(collection => {
       subtitle.textContent = details.subtitle;
       overview.textContent = details.overview;
       overview.classList.toggle('is-empty', details.empty);
-      factEls[0].textContent = details.role;
-      factEls[1].textContent = details.tools;
-      factEls[2].textContent = details.date;
+      factEls[0].textContent = details.contribution;
+      factEls[1].textContent = details.date;
+      renderTools(details.tools);
       links.replaceChildren();
       const externalLinks = record.card ? (() => {
         const card = record.card;
@@ -3047,7 +3384,8 @@ document.querySelectorAll('.collection-block').forEach(collection => {
       summary: subtitle,
       overview: `${subtitle}. My credited role was ${role}.`,
       role,
-      tools: 'Not listed on the original portfolio.',
+      contribution: clean(row.dataset.contribution) || role,
+      tools: clean(row.dataset.tools),
       image: `images/thumbs/${slug(title)}_v001.jpg`,
       youtube: youtubeLink ? youtubeEmbed(youtubeLink.href) : '',
       instagram: instagramLink?.href || '',
@@ -3055,7 +3393,9 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     };
   });
   const professionalMount = document.getElementById('professional-showcase-mount');
-  if (professionalMount) makeFeature('professional-showcase', 'Professional work', professionalMount, professionalRecords, { hideOverview: true });
+  const professionalState = professionalMount
+    ? makeFeature('professional-showcase', 'Professional work', professionalMount, professionalRecords, { hideOverview: true })
+    : null;
 
   const personalCards = [...document.querySelectorAll('#personal .project-grid > .project')];
   const personalMount = document.getElementById('personal-showcase-mount');
@@ -3078,8 +3418,13 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   let universityState = null;
   if (universityMount) {
     universityState = makeFeature('university-showcase', 'University archive', universityMount, universityCards.filter(card => !card.hidden).map(card => ({ card })));
-    const universityFilters = document.querySelector('#university > .filters');
-    if (universityFilters) universityState.root.querySelector('.showcase-collection-head')?.after(universityFilters);
+    const yearBooks = [...document.querySelectorAll('#university .archive-book[data-year]')];
+    const archiveCollection = universityState.root.querySelector('.showcase-collection');
+    const activeYear = yearBooks.find(book => book.getAttribute('aria-pressed') === 'true')?.dataset.year || 'year1';
+    if (archiveCollection) {
+      archiveCollection.dataset.year = activeYear;
+      archiveCollection.prepend(yearBooks[0]?.parentElement);
+    }
     universityCards.forEach(card => {
       card.setAttribute('aria-controls', 'university-showcase');
       card.addEventListener('click', () => {
@@ -3090,11 +3435,31 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         universityState.root.scrollIntoView({ behavior: motionReduced ? 'auto' : 'smooth', block: 'start' });
       });
     });
-    document.querySelectorAll('#university [data-filter]').forEach(button => button.addEventListener('click', () => {
+    yearBooks.forEach(book => book.addEventListener('click', () => {
+      yearBooks.forEach(item => item.setAttribute('aria-pressed', String(item === book)));
+      const year = book.dataset.year;
+      if (archiveCollection) archiveCollection.dataset.year = year;
+      universityCards.forEach(card => {
+        card.hidden = !card.dataset.categories.split(/\s+/).includes(year);
+      });
       const visibleCards = universityCards.filter(card => !card.hidden);
       universityState.refresh(visibleCards.map(card => ({ card })), false);
+      universityState.root.scrollIntoView({ behavior: motionReduced ? 'auto' : 'smooth', block: 'start' });
     }));
   }
+
+  document.querySelectorAll('.timeline-project-links a[data-project-title]').forEach(link => {
+    link.addEventListener('click', event => {
+      const record = professionalState?.records.find(item => item.title === link.dataset.projectTitle);
+      if (!professionalState || !record) return;
+      event.preventDefault();
+      if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+      document.body.classList.remove('about-view');
+      professionalState.manuallyPaused = true;
+      professionalState.buttons.get(record)?.click();
+      professionalState.root.scrollIntoView({ behavior: motionReduced ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
 
   document.querySelectorAll('.navlinks a[href="#personal"], .navlinks a[href="#university"]').forEach(link => {
     link.addEventListener('click', event => {
