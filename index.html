@@ -207,7 +207,7 @@ h2 { font-family:var(--site-font-heading); font-size:calc(clamp(32px,4vw,46px) *
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.12);
+  object-position: center 10%;
   transition: opacity .35s ease;
 }
 .hero-video iframe {
@@ -2312,8 +2312,8 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
 <main id="top">
 <section aria-labelledby="hero-title" class="hero hero-fullbleed" id="showreel">
 <div aria-hidden="true" class="hero-video" id="hero-video-wrap">
-<img alt="" class="hero-video-poster" fetchpriority="high" src="images/showreel-poster.jpg"/>
-<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?autoplay=1&amp;muted=1&amp;controls=0&amp;loop=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;app_id=122963#t=8s" id="hero-showreel-video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
+<img alt="" class="hero-video-poster" fetchpriority="high" src="images/showreel-poster.jpg?v=3"/>
+<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?autoplay=1&amp;muted=1&amp;controls=0&amp;loop=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;app_id=122963#t=10s" id="hero-showreel-video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
 </div>
 <div class="hero-content">
 <div class="kicker">Visual effects · 3D · Compositing</div>
@@ -2780,12 +2780,12 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   const heroVideo = document.getElementById('hero-video-wrap');
   const poster = heroVideo?.querySelector('.hero-video-poster');
   const dialog = document.getElementById('reel-dialog');
-  const dialogFrame = dialog?.querySelector('iframe');
+  let dialogFrame = dialog?.querySelector('iframe');
   const openButton = document.getElementById('open-reel');
   const closeButton = dialog?.querySelector('.reel-dialog-close');
   const videoId = '1117211289';
-  const startAt = 8;
-  const endAt = 50;
+  const startAt = 10;
+  const endAt = 48;
   if (!iframe || !heroVideo || !poster || !dialog || !dialogFrame || !openButton || !closeButton) return;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const lightboxSource = `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=0&controls=1&title=0&byline=0&portrait=0`;
@@ -2794,7 +2794,6 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   let backgroundRequested = false;
   let backgroundReady = false;
   let lightboxOpen = false;
-  let lightboxStopping = false;
   let lightboxPlayer = null;
   let vimeoPlayerApiPromise = null;
   let backgroundRestarting = false;
@@ -2835,7 +2834,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         backgroundPlayer = new Player(iframe);
         backgroundPlayer.on('timeupdate', ({ seconds }) => {
           if (seconds >= endAt) restartBackground();
-          if (lastVideoTime !== null && seconds > lastVideoTime + 0.15) {
+          if (seconds >= startAt && seconds < endAt && lastVideoTime !== null && seconds > lastVideoTime + 0.15) {
             heroVideo.classList.add('is-playing');
           }
           lastVideoTime = seconds;
@@ -2874,7 +2873,6 @@ document.querySelectorAll('.collection-block').forEach(collection => {
       }
     }, 1200);
   };
-
   poster.addEventListener('load', queueBackgroundLoad, { once: true });
   poster.addEventListener('error', () => {
     console.error('Unable to load the local showreel poster.');
@@ -2890,7 +2888,6 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   }
 
   openButton.addEventListener('click', () => {
-    if (lightboxStopping) return;
     lightboxOpen = true;
     if (backgroundPlayer && backgroundReady) {
       backgroundPausePromise = Promise.resolve(backgroundPlayer.pause())
@@ -2904,44 +2901,53 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         const player = new Player(dialogFrame);
         lightboxPlayer = player;
         return player.ready().then(() => {
-          if (!dialog.open || !lightboxOpen) return player.pause();
+          if (!dialog.open || !lightboxOpen) {
+            return Promise.resolve(player.pause())
+              .catch(error => console.error('Unable to pause the closed showreel pop-out.', error))
+              .then(() => Promise.resolve(player.unload()))
+              .catch(error => console.error('Unable to unload the closed showreel pop-out.', error));
+          }
         });
       })
       .catch(error => console.error('Unable to initialize the showreel pop-out.', error));
     closeButton.focus({ preventScroll: true });
   });
   const stopLightbox = () => {
-    if (lightboxStopping) return;
-    lightboxStopping = true;
+    if (!lightboxOpen && !lightboxPlayer && !dialogFrame.hasAttribute('src')) return;
     const player = lightboxPlayer;
     lightboxPlayer = null;
-    const stopPlayer = player
-      ? Promise.resolve(player.ready())
-        .catch(error => console.error('Unable to ready the showreel pop-out for closing.', error))
-        .then(() => Promise.resolve(player.pause()))
+    const closedFrame = dialogFrame;
+    closedFrame.removeAttribute('src');
+    dialogFrame = closedFrame.cloneNode(false);
+    closedFrame.replaceWith(dialogFrame);
+    lightboxOpen = false;
+    if (player) {
+      Promise.resolve()
+        .then(() => player.pause())
         .catch(error => console.error('Unable to pause the showreel pop-out.', error))
-        .then(() => Promise.resolve(player.unload()))
-        .catch(error => console.error('Unable to unload the showreel pop-out.', error))
-      : Promise.resolve();
-    stopPlayer.finally(() => {
-      dialogFrame.removeAttribute('src');
-      lightboxOpen = false;
-      lightboxStopping = false;
-      if (backgroundReady) backgroundPausePromise.then(restartBackground);
-      else queueBackgroundLoad();
-    });
+        .then(() => player.unload())
+        .catch(error => console.error('Unable to unload the showreel pop-out.', error));
+    }
+    if (backgroundReady) backgroundPausePromise.then(restartBackground);
+    else queueBackgroundLoad();
   };
-  closeButton.addEventListener('click', () => dialog.close());
+  const closeLightbox = () => {
+    if (dialog.open) dialog.close();
+    stopLightbox();
+  };
+  closeButton.addEventListener('click', closeLightbox);
   dialog.addEventListener('close', stopLightbox);
   dialog.addEventListener('keydown', event => {
     if (event.key === 'Escape' && dialog.open) {
       event.preventDefault();
-      dialog.close();
+      closeLightbox();
     }
   });
-  dialog.addEventListener('click', event => {
-    if (event.target === dialog) dialog.close();
+  dialog.addEventListener('cancel', event => {
+    event.preventDefault();
+    closeLightbox();
   });
+  dialog.addEventListener('click', event => { if (event.target === dialog) closeLightbox(); });
 })();
 </script>
 <script>
