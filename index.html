@@ -2313,7 +2313,7 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h, 80px) +
 <section aria-labelledby="hero-title" class="hero hero-fullbleed" id="showreel">
 <div aria-hidden="true" class="hero-video" id="hero-video-wrap">
 <img alt="" class="hero-video-poster" fetchpriority="high" src="images/showreel-poster.jpg"/>
-<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?autoplay=1&amp;muted=1&amp;controls=0&amp;loop=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;app_id=122963#t=7s" id="hero-showreel-video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
+<iframe allow="autoplay; fullscreen; picture-in-picture" data-src="https://player.vimeo.com/video/1117211289?autoplay=1&amp;muted=1&amp;controls=0&amp;loop=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;app_id=122963#t=8s" id="hero-showreel-video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel"></iframe>
 </div>
 <div class="hero-content">
 <div class="kicker">Visual effects · 3D · Compositing</div>
@@ -2784,8 +2784,8 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   const openButton = document.getElementById('open-reel');
   const closeButton = dialog?.querySelector('.reel-dialog-close');
   const videoId = '1117211289';
-  const startAt = 7;
-  const endAt = 52;
+  const startAt = 8;
+  const endAt = 50;
   if (!iframe || !heroVideo || !poster || !dialog || !dialogFrame || !openButton || !closeButton) return;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const lightboxSource = `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=0&controls=1&title=0&byline=0&portrait=0`;
@@ -2794,9 +2794,29 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   let backgroundRequested = false;
   let backgroundReady = false;
   let lightboxOpen = false;
+  let lightboxStopping = false;
+  let lightboxPlayer = null;
+  let vimeoPlayerApiPromise = null;
   let backgroundRestarting = false;
   let backgroundPausePromise = Promise.resolve();
   let lastVideoTime = null;
+
+  const loadVimeoPlayerAPI = () => {
+    if (window.Vimeo?.Player) return Promise.resolve(window.Vimeo.Player);
+    if (vimeoPlayerApiPromise) return vimeoPlayerApiPromise;
+    vimeoPlayerApiPromise = new Promise((resolve, reject) => {
+      const playerScript = document.createElement('script');
+      playerScript.src = 'https://player.vimeo.com/api/player.js';
+      playerScript.async = true;
+      playerScript.onload = () => {
+        if (window.Vimeo?.Player) resolve(window.Vimeo.Player);
+        else reject(new Error('The Vimeo Player API loaded without its Player constructor.'));
+      };
+      playerScript.onerror = () => reject(new Error('Unable to load the Vimeo Player API.'));
+      document.head.append(playerScript);
+    });
+    return vimeoPlayerApiPromise;
+  };
 
   const restartBackground = () => {
     if (!backgroundPlayer || !backgroundReady || lightboxOpen || backgroundRestarting) return;
@@ -2810,36 +2830,33 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     if (reduceMotion || lightboxOpen || backgroundRequested) return;
     backgroundRequested = true;
     iframe.src = iframe.dataset.src;
-    const playerScript = document.createElement('script');
-    playerScript.src = 'https://player.vimeo.com/api/player.js';
-    playerScript.async = true;
-    playerScript.onload = () => {
-      if (!window.Vimeo?.Player) {
-        console.error('The Vimeo Player API loaded without its Player constructor.');
-        return;
-      }
-      backgroundPlayer = new window.Vimeo.Player(iframe);
-      backgroundPlayer.on('timeupdate', ({ seconds }) => {
-        if (seconds >= endAt) restartBackground();
-        if (lastVideoTime !== null && seconds > lastVideoTime + 0.15) {
-          heroVideo.classList.add('is-playing');
-        }
-        lastVideoTime = seconds;
-      });
-      backgroundPlayer.on('pause', () => {
-        lastVideoTime = null;
-        heroVideo.classList.remove('is-playing');
-      });
-      backgroundPlayer.on('ended', restartBackground);
-      backgroundPlayer.ready()
-        .then(() => {
-          backgroundReady = true;
-          restartBackground();
-        })
-        .catch(error => console.error('Unable to initialize the background showreel.', error));
-    };
-    playerScript.onerror = () => console.error('Unable to load the Vimeo Player API for showreel looping.');
-    document.head.append(playerScript);
+    loadVimeoPlayerAPI()
+      .then(Player => {
+        backgroundPlayer = new Player(iframe);
+        backgroundPlayer.on('timeupdate', ({ seconds }) => {
+          if (seconds >= endAt) restartBackground();
+          if (lastVideoTime !== null && seconds > lastVideoTime + 0.15) {
+            heroVideo.classList.add('is-playing');
+          }
+          lastVideoTime = seconds;
+        });
+        backgroundPlayer.on('pause', () => {
+          lastVideoTime = null;
+          heroVideo.classList.remove('is-playing');
+        });
+        backgroundPlayer.on('ended', restartBackground);
+        return backgroundPlayer.ready()
+          .then(() => {
+            backgroundReady = true;
+            if (lightboxOpen) {
+              backgroundPausePromise = Promise.resolve(backgroundPlayer.pause())
+                .catch(error => console.error('Unable to pause the background showreel.', error));
+            } else {
+              restartBackground();
+            }
+          });
+      })
+      .catch(error => console.error('Unable to initialize the background showreel.', error));
   };
   const queueBackgroundLoad = () => {
     if (reduceMotion || !poster.complete || backgroundLoadQueued || backgroundRequested) return;
@@ -2873,20 +2890,46 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   }
 
   openButton.addEventListener('click', () => {
+    if (lightboxStopping) return;
     lightboxOpen = true;
     if (backgroundPlayer && backgroundReady) {
-      backgroundPausePromise = backgroundPlayer.pause()
+      backgroundPausePromise = Promise.resolve(backgroundPlayer.pause())
         .catch(error => console.error('Unable to pause the background showreel.', error));
     }
     dialogFrame.src = lightboxSource;
     dialog.showModal();
+    loadVimeoPlayerAPI()
+      .then(Player => {
+        if (!dialog.open || !lightboxOpen) return;
+        const player = new Player(dialogFrame);
+        lightboxPlayer = player;
+        return player.ready().then(() => {
+          if (!dialog.open || !lightboxOpen) return player.pause();
+        });
+      })
+      .catch(error => console.error('Unable to initialize the showreel pop-out.', error));
     closeButton.focus({ preventScroll: true });
   });
   const stopLightbox = () => {
-    lightboxOpen = false;
-    dialogFrame.removeAttribute('src');
-    if (backgroundReady) backgroundPausePromise.then(restartBackground);
-    else queueBackgroundLoad();
+    if (lightboxStopping) return;
+    lightboxStopping = true;
+    const player = lightboxPlayer;
+    lightboxPlayer = null;
+    const stopPlayer = player
+      ? Promise.resolve(player.ready())
+        .catch(error => console.error('Unable to ready the showreel pop-out for closing.', error))
+        .then(() => Promise.resolve(player.pause()))
+        .catch(error => console.error('Unable to pause the showreel pop-out.', error))
+        .then(() => Promise.resolve(player.unload()))
+        .catch(error => console.error('Unable to unload the showreel pop-out.', error))
+      : Promise.resolve();
+    stopPlayer.finally(() => {
+      dialogFrame.removeAttribute('src');
+      lightboxOpen = false;
+      lightboxStopping = false;
+      if (backgroundReady) backgroundPausePromise.then(restartBackground);
+      else queueBackgroundLoad();
+    });
   };
   closeButton.addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', stopLightbox);
