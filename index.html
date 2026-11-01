@@ -2797,7 +2797,6 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   let lightboxPlayer = null;
   let vimeoPlayerApiPromise = null;
   let backgroundRestarting = false;
-  let backgroundPausePromise = Promise.resolve();
   let lastVideoTime = null;
 
   const loadVimeoPlayerAPI = () => {
@@ -2818,10 +2817,11 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   };
 
   const restartBackground = () => {
-    if (!backgroundPlayer || !backgroundReady || lightboxOpen || backgroundRestarting) return;
+    if (!backgroundPlayer || !backgroundReady || backgroundRestarting) return;
     backgroundRestarting = true;
     backgroundPlayer.setCurrentTime(startAt)
-      .then(() => lightboxOpen ? undefined : backgroundPlayer.play())
+      .then(() => backgroundPlayer.play())
+      .then(() => heroVideo.classList.add('is-playing'))
       .catch(error => console.error('Unable to restart the background showreel.', error))
       .finally(() => { backgroundRestarting = false; });
   };
@@ -2841,18 +2841,12 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         });
         backgroundPlayer.on('pause', () => {
           lastVideoTime = null;
-          heroVideo.classList.remove('is-playing');
         });
         backgroundPlayer.on('ended', restartBackground);
         return backgroundPlayer.ready()
           .then(() => {
             backgroundReady = true;
-            if (lightboxOpen) {
-              backgroundPausePromise = Promise.resolve(backgroundPlayer.pause())
-                .catch(error => console.error('Unable to pause the background showreel.', error));
-            } else {
-              restartBackground();
-            }
+            restartBackground();
           });
       })
       .catch(error => console.error('Unable to initialize the background showreel.', error));
@@ -2889,10 +2883,6 @@ document.querySelectorAll('.collection-block').forEach(collection => {
 
   openButton.addEventListener('click', () => {
     lightboxOpen = true;
-    if (backgroundPlayer && backgroundReady) {
-      backgroundPausePromise = Promise.resolve(backgroundPlayer.pause())
-        .catch(error => console.error('Unable to pause the background showreel.', error));
-    }
     dialogFrame.src = lightboxSource;
     dialog.showModal();
     loadVimeoPlayerAPI()
@@ -2928,7 +2918,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         .then(() => player.unload())
         .catch(error => console.error('Unable to unload the showreel pop-out.', error));
     }
-    if (backgroundReady) backgroundPausePromise.then(restartBackground);
+    if (backgroundReady) restartBackground();
     else queueBackgroundLoad();
   };
   const closeLightbox = () => {
