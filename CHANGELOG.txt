@@ -3,4 +3,4 @@
 - Refine Skills content, official software icons, accessibility, and search metadata.
 - Add concise, accessible summaries to each Skills pipeline stage.
 - Add sitemap and crawler guidance.
-- Remove duplicated employer wording, link role histories to Professional Work, align project links with work type, and clarify render-support credits.
+- Keep the About intro concise, restore the current employer in the hero, and link role histories to Professional Work.
