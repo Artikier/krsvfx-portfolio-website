@@ -1,0 +1,4 @@
+2026-11-03
+- Improve responsive portfolio navigation, project viewing, and media presentation.
+- Refine Skills content, official software icons, accessibility, and search metadata.
+- Add sitemap and crawler guidance.
