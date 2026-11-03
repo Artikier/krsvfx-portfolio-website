@@ -4,3 +4,4 @@
 - Add concise, accessible summaries to each Skills pipeline stage.
 - Add sitemap and crawler guidance.
 - Keep the About intro concise, restore the current employer in the hero, and link role histories to Professional Work.
+- Keep the 6–54s trim on the silent background reel; let the showreel pop-out play full length from 0s.

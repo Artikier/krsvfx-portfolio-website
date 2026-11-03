@@ -2868,7 +2868,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     poster.src = 'images/showreel-poster.jpg?v=3';
   };
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const lightboxSource = `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=0&controls=1&title=0&byline=0&portrait=0#t=${startAt}s`;
+  const lightboxSource = `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=0&controls=1&title=0&byline=0&portrait=0`;
   let backgroundPlayer = null;
   let backgroundLoadQueued = false;
   let backgroundRequested = false;
@@ -2877,7 +2877,6 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   let lightboxPlayer = null;
   let vimeoPlayerApiPromise = null;
   let backgroundRestarting = false;
-  let lightboxEnding = false;
   let lastVideoTime = null;
 
   const loadVimeoPlayerAPI = () => {
@@ -2971,7 +2970,6 @@ document.querySelectorAll('.collection-block').forEach(collection => {
 
   openButton.addEventListener('click', () => {
     lightboxOpen = true;
-    lightboxEnding = false;
     dialogFrame.src = lightboxSource;
     dialog.showModal();
     loadVimeoPlayerAPI()
@@ -2979,12 +2977,6 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         if (!dialog.open || !lightboxOpen) return;
         const player = new Player(dialogFrame);
         lightboxPlayer = player;
-        player.on('timeupdate', ({ seconds }) => {
-          if (seconds >= endAt && !lightboxEnding) {
-            lightboxEnding = true;
-            player.pause().catch(error => console.error('Unable to stop the showreel at its end point.', error));
-          }
-        });
         return player.ready().then(() => {
           if (!dialog.open || !lightboxOpen) {
             return Promise.resolve(player.pause())
@@ -2992,9 +2984,6 @@ document.querySelectorAll('.collection-block').forEach(collection => {
               .then(() => Promise.resolve(player.unload()))
               .catch(error => console.error('Unable to unload the closed showreel pop-out.', error));
           }
-          return player.setCurrentTime(startAt)
-            .then(() => player.play())
-            .catch(error => console.error('Unable to start the showreel at its selected in-point.', error));
         });
       })
       .catch(error => console.error('Unable to initialize the showreel pop-out.', error));
