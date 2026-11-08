@@ -30,42 +30,88 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Kieran Schofield",
-  "url": "https://kieranschofield.com/",
-  "jobTitle": "VFX Generalist",
-  "description": "UK-based VFX Generalist at CHIEF Productions, working across compositing, CG and visual effects.",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "CHIEF Productions"
-  },
-  "alumniOf": {
-    "@type": "CollegeOrUniversity",
-    "name": "Manchester Metropolitan University"
-  },
-  "knowsAbout": [
-    "Visual effects",
-    "Compositing",
-    "Nuke",
-    "Houdini",
-    "Maya",
-    "3D Equalizer",
-    "BorisFX Silhouette",
-    "KeenTools FaceTracker",
-    "Unreal Engine",
-    "Niagara",
-    "Arnold",
-    "Karma",
-    "V-Ray",
-    "Substance Painter",
-    "ComfyUI",
-    "Photoshop",
-    "Nomad Sculpt"
-  ],
-  "sameAs": [
-    "https://www.linkedin.com/in/kieran-schofield-a59137178/",
-    "https://www.artstation.com/kieranschofield",
-    "https://vimeo.com/user246299472"
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://kieranschofield.com/#person",
+      "name": "Kieran Schofield",
+      "url": "https://kieranschofield.com/",
+      "jobTitle": "VFX Generalist",
+      "description": "UK-based VFX Generalist at CHIEF Productions, working across compositing, CG and visual effects.",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "CHIEF Productions"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Manchester Metropolitan University"
+      },
+      "knowsAbout": [
+        "Visual effects",
+        "Compositing",
+        "Nuke",
+        "Houdini",
+        "Maya",
+        "3D Equalizer",
+        "BorisFX Silhouette",
+        "KeenTools FaceTracker",
+        "Unreal Engine",
+        "Niagara",
+        "Arnold",
+        "Karma",
+        "V-Ray",
+        "Substance Painter",
+        "ComfyUI",
+        "Photoshop",
+        "Nomad Sculpt"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/kieran-schofield-a59137178/",
+        "https://www.artstation.com/kieranschofield",
+        "https://vimeo.com/user246299472"
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://kieranschofield.com/#work-blinds-direct",
+      "name": "Blinds Direct",
+      "description": "Kieran Schofield's VFX credit for a Blinds Direct commercial, covering compositing, roto cleanup and keying.",
+      "about": {
+        "@type": "Brand",
+        "name": "Blinds Direct"
+      },
+      "contributor": { "@id": "https://kieranschofield.com/#person" },
+      "creditText": "Kieran Schofield, VFX Generalist: compositing, roto cleanup and keying.",
+      "url": "https://youtu.be/p0dhbSnRBM0"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://kieranschofield.com/#work-marks-and-spencer-eat-well",
+      "name": "Marks & Spencer Food / Eat Well",
+      "alternateName": "M&S Food / Eat Well",
+      "about": {
+        "@type": "Brand",
+        "name": "Marks & Spencer Food",
+        "alternateName": ["M&S Food", "M&S"]
+      },
+      "description": "The Marks & Spencer Food / Eat Well (M&S Food / Eat Well) campaign features Kieran Schofield's freelance VFX work: Nuke compositing support, roto and cleanup, Nuke CopyCat, and render wrangling and rendering support with Arnold in Maya and Karma in Houdini.",
+      "contributor": { "@id": "https://kieranschofield.com/#person" },
+      "creditText": "Kieran Schofield, Freelance VFX Artist: Nuke compositing support: roto and cleanup with Nuke CopyCat; render wrangling and rendering support with Arnold (Maya) and Karma (Houdini).",
+      "url": "https://www.youtube.com/watch?v=qKBI3Aob0bA"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://kieranschofield.com/#work-karen-betts",
+      "name": "Karen Betts",
+      "about": {
+        "@type": "Brand",
+        "name": "Karen Betts"
+      },
+      "description": "A Karen Betts commercial credit for Kieran Schofield's freelance VFX work: Houdini modelling, Substance Painter texturing, Karma rendering, and Nuke compositing with roto, cleanup and Smart Vectors for logo integration.",
+      "contributor": { "@id": "https://kieranschofield.com/#person" },
+      "creditText": "Kieran Schofield, Freelance VFX Artist: Modelled in Houdini, textured in Substance Painter and rendered in Karma. Compositing in Nuke for integration, including roto, cleanup and Smart Vectors for logo integration.",
+      "url": "https://www.instagram.com/wearechief/reel/DbqCmo9Mc1j/?hl=en-gb"
+    }
   ]
 }
 </script>
@@ -1746,6 +1792,39 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
   letter-spacing: .05em;
   text-align: right;
 }
+.showcase-project-picker {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) 30px;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  margin-top: 11px;
+}
+.showcase-project-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.showcase-project-picker button {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #42536a;
+  border-radius: 50%;
+  background: #131b25;
+  color: #d3e4f8;
+  font: inherit;
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+}
+.showcase-project-picker button:hover { border-color: #8bb9f4; background: #1b2634; color: #fff; }
+.showcase-project-picker button:focus-visible { outline: 2px solid #9bb8dc; outline-offset: 3px; }
+.showcase-project-picker button[hidden] { visibility: hidden; }
+.showcase-project-picker .showcase-links { justify-content: center; min-width: 0; margin: 0; }
 .showcase-info {
   display: flex;
   flex-direction: column;
@@ -1807,6 +1886,7 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
 #professional-showcase .showcase-fact strong { font-size:13px; }
 #professional-showcase .showcase-fact .showcase-contribution { font-size:12px; }
 #professional-showcase .showcase-links { justify-content:center; gap:10px; margin-top:11px; }
+#professional-showcase .showcase-project-picker .showcase-links { justify-content:center; margin-top:0; }
 #professional-showcase .showcase-links a { width:42px; height:42px; min-height:42px; justify-content:center; padding:0; border-radius:50%; }
 #professional-showcase .showcase-links .social-icon { width:19px; height:19px; }
 #professional-showcase .showcase-links a::after { top:calc(100% + 8px); bottom:auto; transform:translate(-50%,-4px); }
@@ -2410,17 +2490,17 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
 <div class="section-head"><div class="section-title-group"><h2 id="professional-title"><svg aria-hidden="true" class="section-title-icon" focusable="false" viewBox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="7"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg>Professional Work</h2><p class="section-copy">Official release links for the projects featured below can be found alongside each piece.</p></div></div>
 <div id="professional-showcase-mount"></div>
 <div class="professional-list">
-<article class="prof-row" data-contribution="Compositing, roto cleanup and keying." data-prof-categories="commercial" data-tools="Nuke; ComfyUI">
+<article class="prof-row" data-contribution="Compositing, roto cleanup and keying." data-image-alt="Warm living room interior with window blinds in a Blinds Direct commercial still." data-prof-categories="commercial" data-tools="Nuke; ComfyUI">
 <div><h3>Blinds Direct</h3><p>2026 · CHIEF Productions / The Longhouse Post</p><p class="prof-contribution">Compositing, roto cleanup and keying.</p></div>
 <div class="credit"><span>Kieran Schofield</span> — <span class="credit-role">VFX Generalist</span></div>
 <a class="text-link" href="https://youtu.be/p0dhbSnRBM0" rel="noreferrer" target="_blank">YouTube</a>
 </article>
-<article class="prof-row" data-contribution="Nuke compositing support: roto and cleanup with Nuke CopyCat; render wrangling and rendering support with Arnold (Maya) and Karma (Houdini)." data-prof-categories="commercial" data-tools="Nuke Copycat (roto and cleanup); Arnold; Maya (renders); Karma; Houdini (assisted renders)">
+<article class="prof-row" data-contribution="Nuke compositing support: roto and cleanup with Nuke CopyCat; render wrangling and rendering support with Arnold (Maya) and Karma (Houdini)." data-image-alt="Smiling man in a red shirt among people in an M&amp;S Food campaign still." data-prof-categories="commercial" data-tools="Nuke Copycat (roto and cleanup); Arnold; Maya (renders); Karma; Houdini (assisted renders)">
 <div><h3>Marks &amp; Spencer Food / Eat Well</h3><p>2026 · M&amp;S Food / Eat Well · CHIEF Productions / The Longhouse Post</p><p class="prof-contribution">Nuke compositing support: roto and cleanup with Nuke CopyCat; render wrangling and rendering support with Arnold (Maya) and Karma (Houdini).</p></div>
 <div class="credit"><span>Kieran Schofield</span> — <span class="credit-role">Freelance VFX Artist</span></div>
 <div class="prof-links"><a class="text-link" href="https://www.instagram.com/wearechief/reel/DZNGUyOsxz6/?hl=en-gb" rel="noreferrer" target="_blank">Instagram</a><a class="text-link" href="https://www.youtube.com/watch?v=qKBI3Aob0bA" rel="noreferrer" target="_blank">YouTube</a></div>
 </article>
-<article class="prof-row" data-contribution="Modelled in Houdini, textured in Substance Painter and rendered in Karma. Compositing in Nuke for integration, including roto, cleanup and Smart Vectors for logo integration." data-prof-categories="commercial" data-tools="Houdini (modelling); Substance Painter (texturing); Karma (rendering); Nuke (compositing, roto, cleanup and Smart Vectors)">
+<article class="prof-row" data-contribution="Modelled in Houdini, textured in Substance Painter and rendered in Karma. Compositing in Nuke for integration, including roto, cleanup and Smart Vectors for logo integration." data-image-alt="Woman in beige beside a pale green miniature car by the sea in a Karen Betts commercial still." data-prof-categories="commercial" data-tools="Houdini (modelling); Substance Painter (texturing); Karma (rendering); Nuke (compositing, roto, cleanup and Smart Vectors)">
 <div><h3>Karen Betts</h3><p>2026 · CHIEF Productions / The Longhouse Post</p><p class="prof-contribution">Modelled in Houdini, textured in Substance Painter and rendered in Karma. Compositing in Nuke for integration, including roto, cleanup and Smart Vectors for logo integration.</p></div>
 <div class="credit"><span>Kieran Schofield</span> — <span class="credit-role">Freelance VFX Artist</span></div>
 <a class="text-link" href="https://www.instagram.com/wearechief/reel/DbqCmo9Mc1j/?hl=en-gb" rel="noreferrer" target="_blank">Instagram</a>
@@ -2434,27 +2514,27 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
 <article aria-controls="personal-showcase" aria-label="Open project: BorisFX - Silhouette Rotoscoping Study" class="project" data-date="November 2025" data-description="This is a breakdown of a personal study using BorisFX Silhouette. The main goal was to explore both AI-assisted and manual rotoscoping workflows.
 
 Overall, I’m happy with both outcomes for these shots. I found the workflow intuitive and similar to, but more streamlined than, my prior experience with rotoscoping techniques in Nuke across both manual and AI-assisted methods." data-role="All work shown." data-summary="A Silhouette study exploring manual and AI-assisted rotoscoping for CG integration." data-tools="BorisFX Silhouette (rotoscoping); Houdini (modelling); Substance Painter (texturing); Arnold (rendering); Nuke (3D/2D integration); Pexels (footage)." data-youtube="https://www.youtube-nocookie.com/embed/MnPaiLLBjjU?rel=0" id="pp-silhouette" role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 01</span></div></div>
+<div class="image-frame"><img alt="Roto comparison showing a person in a red shirt with traced silhouette lines." decoding="async" loading="lazy" src="images/thumbs/borisfx-silhouette-rotoscoping-study_v001.webp"/></div>
 <div class="project-meta"><div><h3>BorisFX - Silhouette Rotoscoping Study</h3><p>BorisFX Silhouette study · 2025</p></div><span class="project-index">01</span></div>
 </article>
 <article aria-controls="personal-showcase" aria-label="Open project: KeenTools Facetracking" class="project" data-date="March 2025" data-description="A facial-tracking study integrating a stylised CG face onto live-action footage. The final image works well and KeenTools proved intuitive to learn; the track slips slightly near the end and would benefit from refinement." data-role="All work shown." data-summary="A KeenTools facial-tracking and CG integration study." data-tools="KeenTools FaceTracker (tracking); Houdini (modelling); Substance Painter (texturing); Karma (rendering); Nuke (rotoscoping and grading); Pexels (footage)." data-youtube="https://www.youtube-nocookie.com/embed/s8l1wGASu8I?rel=0" id="pp-keentools" role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 02</span></div></div>
+<div class="image-frame"><img alt="Split-screen facial track comparing a live-action face with an aligned CG face." decoding="async" loading="lazy" src="images/thumbs/keentools-facetracking_v001.webp"/></div>
 <div class="project-meta"><div><h3>KeenTools Facetracking</h3><p>KeenTools study · 2025</p></div><span class="project-index">02</span></div>
 </article>
 <article aria-controls="personal-showcase" aria-label="Open project: Mouf" class="project" data-date="January 2025" data-description="Created with a four-person team in three days for the 2025 MMU CAVE JAM, this first-person looping animation turns a repetitive work routine into a horror story. The team won first place through student and industry voting; the changing environments and visual details reinforce the cycle’s unsettling theme." data-role="Art direction and story; Unreal Engine 5 animation, pipeline integration and lighting; asset modelling and texturing." data-summary="A first-person horror loop about the monotony of work, made for a three-day team jam." data-tools="Houdini (modelling); Unreal Engine (animation, integration and lighting); Substance Painter (texturing)." data-youtube="https://www.youtube-nocookie.com/embed/u6hYaja-4s4?rel=0" id="pp-mouf" role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 03</span></div></div>
+<div class="image-frame"><img alt="Dim industrial room with a circular door, lockers and pipes from the Mouf workplace-horror project." decoding="async" loading="lazy" src="images/thumbs/mouf_v001.webp"/></div>
 <div class="project-meta"><div><h3>Mouf</h3><p>Cave Jam · 2025</p></div><span class="project-index">03</span></div>
 </article>
 <article aria-controls="personal-showcase" aria-label="Open project: Magic Tomes" class="project" data-date="August 2024" data-description="A personal technical study modelling and rigging a magical book, then texturing it in three distinct styles. The short project helped streamline my texturing and rigging workflows and taught me how to combine modelling, rigging and texturing more efficiently." data-role="All work shown." data-summary="A Maya book model and rig, explored through three Substance Painter looks." data-tools="Maya (modelling, rigging and animation); Substance Painter (texturing); Arnold (rendering)." data-youtube="https://www.youtube-nocookie.com/embed/ypZmp-B6Mxo?rel=0" role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 04</span></div></div>
+<div class="image-frame"><img alt="Open 3D book model with gridded pages from the Magic Tomes study." decoding="async" loading="lazy" src="images/thumbs/magic-tomes_v001.webp"/></div>
 <div class="project-meta"><div><h3>Magic Tomes</h3><p>2024</p></div><span class="project-index">04</span></div>
 </article>
 <article aria-controls="personal-showcase" aria-label="Open project: NieR: Smaller Stubby" class="project" data-date="August 2023" data-description="A model of a Smaller Stubby from NieR:Automata holding a Lunar Tear, made as a personal modelling exercise before learning to rig. I’m happy with the final renders and learned a lot about lighting, materials, Maya’s Outliner and how topology and edge flow affect future deformation." data-role="All work shown." data-summary="A Maya character modelling study inspired by NieR:Automata." data-tools="Maya (modelling and animation); Substance Painter (texturing); Arnold (rendering)." data-youtube="https://www.youtube-nocookie.com/embed/BahgUmxj0Q8?rel=0" role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 05</span></div></div>
+<div class="image-frame"><img alt="Small grey NieR:Automata robot with glowing yellow eyes holding a white Lunar Tear." decoding="async" loading="lazy" src="images/thumbs/nier-smaller-stubby_v001.webp"/></div>
 <div class="project-meta"><div><h3>NieR: Smaller Stubby</h3><p>2023</p></div><span class="project-index">05</span></div>
 </article>
 <article aria-controls="personal-showcase" aria-label="Open project: Monsters Of Mystery" class="project" data-date="August 2017–2018" data-description="My first game project, developed over summer 2017 and later used as the basis for a college assignment. It grew into a playable game with platforming, brick-breaker, riverboat and space-boss levels, plus menus, a shop and local multiplayer. I’m proud of taking an idea from concept to a complete executable and of what I learned about planning, scope, coding and asset creation." data-role="All assets and code." data-summary="A multi-level 2D game and my first complete game-development project." data-tools="GameMaker Studio 1.4 (programming); Photoshop (art and animation)." data-youtube="https://www.youtube-nocookie.com/embed/9_On8rNKrL4?rel=0" role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 06</span></div></div>
+<div class="image-frame"><img alt="Pixel-art characters in a dark, blue-lit game environment." decoding="async" loading="lazy" src="images/thumbs/monsters-of-mystery_v001.webp"/></div>
 <div class="project-meta"><div><h3>Monsters Of Mystery</h3><p>2017–2018</p></div><span class="project-index">06</span></div>
 </article>
 </div></div></div>
@@ -2468,63 +2548,63 @@ Overall, I’m happy with both outcomes for these shots. I found the workflow in
 <div id="university-showcase-mount"></div>
 <div aria-label="University archive projects" class="project-grid archive-year-grid">
 <article aria-controls="project-viewer" aria-label="Open project: 3D Fundamentals" class="project" data-categories="year1" data-date="2022–2023" data-description="This unit covered the core workflows for producing a rendered image. I made a wooden toy train in Arnold and an interior scene in V-Ray. The train was my first modelling project and I’m happy with the result; the room could be stronger, but the experimentation taught me a lot and showed clear progress in Maya modelling and animation." data-role="Modelling, texturing and rendering." data-summary="Two first-year 3D studies: a wooden toy train and an interior scene." data-tools="Maya (modelling); Substance Painter (texturing); Arnold and V-Ray (rendering)." role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 01</span></div></div>
+<div class="image-frame"><img alt="Red and yellow wooden toy train rendered against a dark background." decoding="async" loading="lazy" src="images/thumbs/3d-fundamentals_v001.webp"/></div>
 <div class="project-meta"><div><h3>3D Fundamentals</h3><p>First Year · 2022–2023</p></div><span class="project-index">01</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: FX Fundamentals" class="project" data-categories="year1" data-date="2022–2023" data-description="A first Houdini showreel demonstrating RBD, FLIP and Pyro simulations. Learning the software and its simulation workflows was the main focus. The melting-metal sword mould was ambitious for my first FLIP shot: it works, but I would improve it with more time and experience." data-role="FX and rendering." data-summary="A first Houdini showreel exploring RBD, FLIP and Pyro." data-tools="Houdini (simulation); Substance Painter (texturing); Karma (rendering)." role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 02</span></div></div>
+<div class="image-frame"><img alt="Glowing orange molten stream pouring into a container in a Houdini FX study." decoding="async" loading="lazy" src="images/thumbs/fx-fundamentals_v001.webp"/></div>
 <div class="project-meta"><div><h3>FX Fundamentals</h3><p>First Year · 2022–2023</p></div><span class="project-index">02</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: Production VFX" class="project" data-categories="year1" data-date="2022–2023" data-description="A live-action integration exercise featuring a CG robot flying around a corner and interacting with CG apples on a barrel. This was my first time using Nuke and my first experience capturing footage, creating a LiDAR scan and tracking a scene. I’m pleased with the result and found it rewarding to bring my Maya and Nuke learning together." data-role="Compositing and animation." data-summary="A CG robot and interactive apples integrated into a live-action shot." data-tools="Nuke (compositing); Maya (animation); Arnold (rendering). CG models acquired online." role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 03</span></div></div>
+<div class="image-frame"><img alt="Yellow CG object composited into a live-action corridor beside wheeled bins." decoding="async" loading="lazy" src="images/thumbs/production-vfx_v001.webp"/></div>
 <div class="project-meta"><div><h3>Production VFX</h3><p>First Year · 2022–2023</p></div><span class="project-index">03</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: Compositing Fundamentals" class="project" data-categories="year1" data-date="2022–2023" data-description="A foundational Nuke exercise covering rotoscoping, roto cleanup, removal and digital makeup. It was my first formal introduction to these techniques and built a foundation for understanding how they fit into VFX workflows." data-role="Compositing." data-summary="A Nuke fundamentals project covering roto, cleanup, removal and digital makeup." data-tools="Nuke and Photoshop (compositing). Some assets acquired online." role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 04</span></div></div>
+<div class="image-frame"><img alt="Woman holding a phone with a composited screen against a green backdrop." decoding="async" loading="lazy" src="images/thumbs/compositing-fundamentals_v001.webp"/></div>
 <div class="project-meta"><div><h3>Compositing Fundamentals</h3><p>First Year · 2022–2023</p></div><span class="project-index">04</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: Team Project" class="project" data-categories="year1" data-date="2022–2023" data-description="A team animation about gambling and its predatory effects, told through a story between two characters. My contributions included compositing the screens, modelling an asset, editing the final piece and creating the script, AI-assisted voice-over and subtitles." data-role="Maya modelling and rendering; compositing; editing; script, AI-assisted voice-over and subtitles." data-summary="A team short using a character-led story to explore gambling and its effects." data-tools="Nuke (compositing); Maya (modelling); Premiere Pro (editing); Arnold (rendering)." role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 05</span></div></div>
+<div class="image-frame"><img alt="Desk scene with a pixel character, pencil cup and monitor from a team animation." decoding="async" loading="lazy" src="images/thumbs/team-project_v001.webp"/></div>
 <div class="project-meta"><div><h3>Team Project</h3><p>First Year · 2022–2023</p></div><span class="project-index">05</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: Compositing" class="project" data-categories="year2" data-date="2023–2024" data-description="A showreel extending beyond the first-year fundamentals, with advanced roto and integration, digital matte painting, and green-screen removal and integration. It also includes a FLIP simulation and layout work." data-role="Compositing, simulation and layout." data-summary="A compositing reel exploring advanced roto, integration, DMP and green screen." data-tools="Nuke (compositing); Houdini (FLIP simulation and layout); Karma (rendering)." role="button" tabindex="0" hidden="">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 01</span></div></div>
+<div class="image-frame"><img alt="Astronaut composite transitioning from green screen to a space scene." decoding="async" loading="lazy" src="images/thumbs/compositing_v001.webp"/></div>
 <div class="project-meta"><div><h3>Compositing</h3><p>Second Year · 2023–2024</p></div><span class="project-index">01</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: Modelling" class="project" data-categories="year2" data-date="2023–2024" data-description="A character-development project following Evette from sketches and concept art through Maya modelling and Arnold render passes. The accompanying report documents the stages of development in more detail." data-role="Modelling, texturing and rendering." data-summary="Evette, a 3D character developed from initial sketches through final render passes." data-tools="Maya (modelling); Substance Painter (texturing); Arnold (rendering)." role="button" tabindex="0" hidden="">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 02</span></div></div>
+<div class="image-frame"><img alt="Stylized blonde character model centered against pink and blue backgrounds." decoding="async" loading="lazy" src="images/thumbs/modelling_v001.webp"/></div>
 <div class="project-meta"><div><h3>Modelling</h3><p>Second Year · 2023–2024</p></div><span class="project-index">02</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: Character Rigging" class="project" data-categories="year2" data-date="2023–2024" data-description="A continuation of Evette’s modelling project, creating a custom Maya rig and walk cycle. The animation also shows several outfits designed and modelled for the character, including a separately rigged dress for more believable movement." data-role="Modelling, texturing, rigging, animation and rendering." data-summary="A custom character rig and walk cycle for Evette, including a secondary dress rig." data-tools="Maya (modelling, rigging and animation); Substance Painter (texturing); Arnold (rendering)." hidden="" id="uni-y2-rigging" role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 03</span></div></div>
+<div class="image-frame"><img alt="Two poses of a stylized character in different outfits, showing a rigging study." decoding="async" loading="lazy" src="images/thumbs/character-rigging_v001.webp"/></div>
 <div class="project-meta"><div><h3>Character Rigging</h3><p>Second Year · 2023–2024</p></div><span class="project-index">03</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: FX" class="project" data-categories="year2" data-date="2023–2024" data-description="A four-part Houdini FX reel featuring procedural modelling, Pyro smoke, smoke and particles interacting with a custom Maya-rigged character, and a Pyro-powered growth effect with ripple simulations." data-role="All work shown." data-summary="A Houdini reel spanning procedural modelling, Pyro, particles and ripple simulations." data-tools="Maya (character animation); Houdini (procedural modelling and simulations); Substance Painter (texturing); Karma (rendering)." role="button" tabindex="0" hidden="">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 04</span></div></div>
+<div class="image-frame"><img alt="Stylized witch holding a staff amid blue and purple smoke effects." decoding="async" loading="lazy" src="images/thumbs/fx_v001.webp"/></div>
 <div class="project-meta"><div><h3>FX</h3><p>Second Year · 2023–2024</p></div><span class="project-index">04</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: Thematic Project" class="project" data-categories="year2" data-date="2023–2024" data-description="A team project building a procedural environment in Houdini. I generated the terrain with heightfields, composited the completed environment and led the team by coordinating discussions and tracking progress. The result could be improved, but the project strengthened my procedural environment, communication and team-leadership skills." data-role="Terrain generation and compositing; team lead." data-summary="A collaborative Houdini environment project focused on terrain and procedural workflows." data-tools="Houdini (terrain and modelling); Karma (rendering)." role="button" tabindex="0" hidden="">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 05</span></div></div>
+<div class="image-frame"><img alt="Rocky landscape with overlaid tracking graphics from a VFX project." decoding="async" loading="lazy" src="images/thumbs/thematic-project_v001.webp"/></div>
 <div class="project-meta"><div><h3>Thematic Project</h3><p>Second Year · 2023–2024</p></div><span class="project-index">05</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: VFX Integration" class="project" data-categories="year3" data-date="2024–2025" data-description="Two live-action integration shots using footage from Pexels: a CG rock extension and portal, followed by a Houdini FLIP-water village with procedural buildings. I’m happy with both shots and their integration; if revisiting them, I’d refine the quickly built village assets, which are less convincing in close-up." data-role="Compositing, layout, environment creation, simulation, texturing and asset creation as shown." data-summary="Two live-action CG integration shots: a portal through a rock face and a water-swept village." data-tools="Nuke (tracking and compositing); Unreal Engine 5 (environment); Houdini (rock, particles, FLIP and procedural buildings); Maya (windmill and boat modelling); Substance Painter; Karma." hidden="" id="uni-y3-integration" role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 01</span></div></div>
+<div class="image-frame"><img alt="Foggy waterside village with a windmill and cottage in a VFX integration scene." decoding="async" loading="lazy" src="images/thumbs/vfx-integration_v001.webp"/></div>
 <div class="project-meta"><div><h3>VFX Integration</h3><p>Third Year · 2024–2025</p></div><span class="project-index">01</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: Unreal Project: Dreamscaper" class="project" data-categories="year3" data-date="2024–2025" data-description="A group project with games students to take Dreamscaper from concept to playable demo. I led the visual and FX work, including character modelling and animation, environment assets, asset pipelines into Unreal and Niagara effects. I enjoyed collaborating across disciplines and learned how to iterate quickly on a larger project." data-role="3D modelling, texturing, Unreal shaders and layout, Niagara FX, and Maya animation; visual/FX lead." data-summary="A cross-discipline team project developing a game from concept to playable demo." data-tools="Unreal Engine 5 (shaders, layout and Niagara FX); Maya (modelling and animation); Substance Painter (texturing); Arnold (rendering)." hidden="" id="uni-y3-dreamscaper" role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 02</span></div></div>
+<div class="image-frame"><img alt="Stylized teal-faced game character in a blue crystalline Dreamscaper environment." decoding="async" loading="lazy" src="images/thumbs/unreal-project-dreamscaper_v001.webp"/></div>
 <div class="project-meta"><div><h3>Unreal Project: Dreamscaper</h3><p>Third Year · 2024–2025</p></div><span class="project-index">02</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: Crafting a Visual Experience" class="project" data-categories="year3" data-date="2024–2025" data-description="A short animation/advertisement themed around 3D printing. I supported compositing across teams and led my own team developing experimental Houdini shaders, alongside FX, sculpting and 2D/3D compositing. Taking on many responsibilities spread my focus thin; a clearer intent and more focused shot plan would have made the final piece more cohesive." data-role="Team leadership and meetings; FX; sculpting; compositing." data-summary="A collaborative 3D-printing animation exploring experimental shaders and compositing." data-tools="Nomad Sculpt (sculpting); Maya (modelling); Nuke (compositing); Houdini (simulations and shaders); Karma (rendering)." role="button" tabindex="0" hidden="">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 03</span></div></div>
+<div class="image-frame"><img alt="Grayscale 3D balance scale model with suspended objects and tabletop props." decoding="async" loading="lazy" src="images/thumbs/crafting-a-visual-experience_v001.webp"/></div>
 <div class="project-meta"><div><h3>Crafting a Visual Experience</h3><p>Third Year · 2024–2025</p></div><span class="project-index">03</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: Innovation Project" class="project" data-categories="year3" data-date="2024–2025" data-description="I developed a Houdini Digital Asset that generates buildings along a user-drawn curve, building on a procedural terrarium project. The tool supports interior layouts, doors, windows, furniture, roofs, room extensions and randomized props, with controls designed for flexibility and ease of use. It was less about a flashy final model and more about learning HDA workflows, procedural design and thoughtful interfaces." data-role="Houdini Digital Asset development." data-summary="A flexible Houdini tool for generating buildings and interiors along a user-drawn curve." data-tools="Houdini 20 (HDA and procedural modelling). Some model assets acquired online." hidden="" role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 04</span></div></div>
+<div class="image-frame"><img alt="Houdini project view showing a tiled tabletop model and its scene layout." decoding="async" loading="lazy" src="images/thumbs/innovation-project_v001.webp"/></div>
 <div class="project-meta"><div><h3>Innovation Project</h3><p>Third Year · 2024–2025</p></div><span class="project-index">04</span></div>
 </article>
 <article aria-controls="project-viewer" aria-label="Open project: Synoptic Project" class="project" data-categories="year3" data-date="2024–2025" data-description="My dissertation project developing a full VFX pipeline to integrate a CG red-panda-inspired creature into live-action footage, from modelling, sculpting and rigging through animation, grooming and compositing. The model, texturing and first integration are the strongest parts; the animation and second shot are less resolved. The scope was too ambitious for the time, and a more focused plan would have produced a stronger result, but the process taught me a great deal." data-role="All work shown, including modelling, sculpting, rigging, animation, grooming and compositing." data-summary="A dissertation project building and integrating a CG creature through a complete VFX pipeline." data-tools="Nomad Sculpt (sculpting); Nuke (compositing); Houdini (grooming and simulations); Substance Painter (texturing); Karma (rendering)." hidden="" role="button" tabindex="0">
-<div class="image-frame"><div aria-label="Thumbnail placeholder" class="project-placeholder"><span class="placeholder-label">THUMBNAIL PLACEHOLDER · 05</span></div></div>
+<div class="image-frame"><img alt="Furry reddish animal beside a mug in a leafy outdoor scene." decoding="async" loading="lazy" src="images/thumbs/synoptic-project_v001.webp"/></div>
 <div class="project-meta"><div><h3>Synoptic Project</h3><p>Third Year · 2024–2025</p></div><span class="project-index">05</span></div>
 </article>
 </div>
@@ -3031,15 +3111,15 @@ document.querySelectorAll('.collection-block').forEach(collection => {
 })();
 </script>
 <script>
-/* Thumbnails: put images in images/thumbs/ named after the project, e.g. images/thumbs/mouf_v001.webp
-   (lowercase title, spaces -> hyphens). A missing file just keeps the placeholder.
+/* Use existing project stills for card thumbnails and the showcase rail.
    Override any card with data-thumb="path/to/file.webp". */
 (() => {
   const slug = t => t.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   document.querySelectorAll('.project[role="button"]').forEach(card => {
     const title = card.querySelector('.project-meta h3').textContent.trim();
     card._thumb = card.dataset.thumb || 'images/thumbs/' + slug(title) + '_v001.webp';
-    const lab = card.querySelector('.placeholder-label'); if (lab) lab.textContent = 'THUMBNAIL NOT ADDED YET';
+    const image = card.querySelector('.image-frame img');
+    if (image) image.src = card._thumb;
   });
 })();
 </script>
@@ -3083,10 +3163,11 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     const videos = (project.videos || []).map(id => `https://www.youtube-nocookie.com/embed/${id}?rel=0`);
     if (videos.length) card.dataset.youtube = videos[0];
     else delete card.dataset.youtube;
+    const stills = Array.from({ length: project.imageCount || 0 }, (_, index) =>
+      `images/projects/${project.folder}/${slug(project.title)}-still-${String(index + 1).padStart(2, '0')}_v001.webp`);
     const gallery = [
       ...videos.slice(1),
-      ...Array.from({ length: project.imageCount || 0 }, (_, index) =>
-        `images/projects/${project.folder}/${slug(project.title)}-still-${String(index + 1).padStart(2, '0')}_v001.webp`)
+      ...stills
     ];
     if (gallery.length) card.dataset.gallery = gallery.join('|');
     else delete card.dataset.gallery;
@@ -3170,6 +3251,19 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     nextMedia.setAttribute('aria-label', 'Next project media');
     const mediaCount = node('span', 'showcase-media-count');
     mediaPicker.append(previousMedia, mediaRail, nextMedia, mediaCount);
+    const projectPicker = node('div', 'showcase-project-picker');
+    projectPicker.setAttribute('role', 'group');
+    projectPicker.setAttribute('aria-label', `${label} project navigation`);
+    const previousProject = node('button', '', '‹‹');
+    previousProject.type = 'button';
+    previousProject.setAttribute('aria-label', 'Previous project');
+    const nextProject = node('button', '', '››');
+    nextProject.type = 'button';
+    nextProject.setAttribute('aria-label', 'Next project');
+    const links = node('div', 'showcase-links');
+    const projectCenter = node('div', 'showcase-project-center');
+    projectCenter.append(links);
+    projectPicker.append(previousProject, projectCenter, nextProject);
     const info = node('aside', 'showcase-info');
     const title = node('h3', 'showcase-title');
     const subtitle = node('p', 'showcase-subtitle');
@@ -3177,7 +3271,6 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     const overviewLabel = node('div', 'showcase-label', 'Project notes');
     const overview = node('p', 'showcase-overview');
     const facts = node('div', 'showcase-facts');
-    const links = node('div', 'showcase-links');
     const collection = node('section', 'showcase-collection');
     const rail = node('div', 'showcase-rail');
     rail.setAttribute('aria-label', `${label} projects`);
@@ -3189,7 +3282,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     const toolsNotes = node('p', 'showcase-tools-notes');
     toolsPanel.append(toolsTitle, toolsList, toolsNotes);
     collection.append(rail);
-    visual.append(stage, mediaPicker, links);
+    visual.append(stage, mediaPicker, projectPicker);
     info.append(title, subtitle, rule);
     if (!options.hideOverview) info.append(overviewLabel, overview);
     info.append(facts);
@@ -3211,6 +3304,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
 
     const state = {
       root, stage, mediaPicker, mediaRail, mediaCount, previousMedia, nextMedia,
+      projectPicker, previousProject, nextProject,
       title, subtitle, overview, factEls, links, rail, toolsList, toolsNotes,
       records: [...records], selected: null, media: [], mediaIndex: 0, visible: false,
       manuallyPaused: false, timer: null, buttons: new Map(), options
@@ -3296,7 +3390,9 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     }
     function renderMediaPicker() {
       mediaRail.replaceChildren();
-      mediaPicker.hidden = state.media.length < 2;
+      const hasSingleVideo = state.media.length === 1
+        && ['youtube', 'video', 'instagram'].includes(state.media[0].type);
+      mediaPicker.hidden = state.media.length < 2 && !hasSingleVideo;
       if (mediaPicker.hidden) return;
       let videoCount = 0;
       let stillCount = 0;
@@ -3313,7 +3409,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
             : item.type === 'image' ? item.src : item.poster;
         if (previewSrc) {
           const image = node('img');
-          image.alt = '';
+          image.alt = item.alt || '';
           image.loading = 'lazy';
           image.decoding = 'async';
           setImageSource(image, previewSrc);
@@ -3344,11 +3440,18 @@ document.querySelectorAll('.collection-block').forEach(collection => {
       let items = [];
       if (card) {
         const gallery = (card.dataset.gallery || '').split('|').map(x => x.trim()).filter(Boolean);
-        const galleryItems = gallery.map(src => ({
-          src,
-          type: /youtube(?:-nocookie)?\.com\/embed\//i.test(src) ? 'youtube' : /\.(mp4|m4v|webm|ogv|ogg)(?:[?#].*)?$/i.test(src) ? 'video' : 'image',
-          poster: card.dataset.galleryPoster || ''
-        }));
+        let stillIndex = 0;
+        const thumbnailAlt = card.querySelector('.image-frame img')?.alt || `${mediaTitle} project still`;
+        const summary = clean(card.dataset.summary).replace(/[.!?]+$/, '');
+        const galleryItems = gallery.map(src => {
+          const type = /youtube(?:-nocookie)?\.com\/embed\//i.test(src)
+            ? 'youtube'
+            : /\.(mp4|m4v|webm|ogv|ogg)(?:[?#].*)?$/i.test(src) ? 'video' : 'image';
+          const alt = type !== 'image' ? '' : src === card._thumb
+            ? thumbnailAlt
+            : `Still ${++stillIndex} from ${mediaTitle}${summary ? `: ${summary}` : ''}.`;
+          return { src, type, poster: card.dataset.galleryPoster || '', alt };
+        });
         if (card.dataset.youtube) items = [{ src: card.dataset.youtube, type: 'youtube' }, ...galleryItems];
         else if (gallery.length) items = galleryItems;
         else if (card.dataset.videoSrc) items = [{ src: card.dataset.videoSrc, type: 'video', poster: card.dataset.videoPoster || '' }];
@@ -3361,7 +3464,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         }
       } else if (record.youtube) items = [{ src: record.youtube, type: 'youtube' }];
       else if (record.instagram) items = [{ src: record.instagram, type: 'instagram', poster: record.image || '' }];
-      else if (record.image) items = [{ src: record.image, type: 'image', alt: record.title }];
+      else if (record.image) items = [{ src: record.image, type: 'image', alt: record.imageAlt || `${record.title} project still` }];
       if (!items.length) { placeholderMedia(); return; }
       state.media = items;
       state.mediaIndex = (index + items.length) % items.length;
@@ -3429,6 +3532,15 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     }
     previousMedia.addEventListener('click', () => renderMedia(state.mediaIndex - 1));
     nextMedia.addEventListener('click', () => renderMedia(state.mediaIndex + 1));
+    function moveProject(direction) {
+      if (state.records.length < 2) return;
+      state.manuallyPaused = true;
+      const currentIndex = state.records.indexOf(state.selected);
+      const nextIndex = (currentIndex + direction + state.records.length) % state.records.length;
+      select(state.records[nextIndex], true);
+    }
+    previousProject.addEventListener('click', () => moveProject(-1));
+    nextProject.addEventListener('click', () => moveProject(1));
     function inferDate(value) {
       const match = (value || '').match(/(?:19|20)\d{2}(?:\s*[–-]\s*(?:19|20)?\d{2})?/);
       return match ? match[0] : '';
@@ -3540,7 +3652,10 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         button.setAttribute('aria-label', `Show ${record.card ? projectTitle(record.card) : record.title}`);
         const thumb = node('span', 'showcase-thumb');
         const img = node('img');
-        img.alt = ''; img.loading = 'lazy'; img.decoding = 'async';
+        img.alt = record.card
+          ? record.card.querySelector('.image-frame img')?.alt || `${projectTitle(record.card)} project thumbnail`
+          : record.imageAlt || `${record.title} project thumbnail`;
+        img.loading = 'lazy'; img.decoding = 'async';
         const fallback = node('span', 'showcase-thumb-fallback', `PROJECT ${String(index + 1).padStart(2, '0')}`);
         img.onload = () => { fallback.hidden = true; };
         const imageSource = record.card
@@ -3602,6 +3717,9 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         subtitle.textContent = '';
         overview.textContent = 'Choose another year to view its projects.';
         state.selected = null;
+        previousProject.hidden = true;
+        nextProject.hidden = true;
+        links.replaceChildren();
         rail.replaceChildren();
         placeholderMedia();
         factEls.forEach(el => el.textContent = '—');
@@ -3610,6 +3728,9 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         restartTimer();
         return;
       }
+      const hasMultipleProjects = state.records.length > 1;
+      previousProject.hidden = !hasMultipleProjects;
+      nextProject.hidden = !hasMultipleProjects;
       const selected = keepSelection && state.records.includes(state.selected) ? state.selected : state.records[0];
       drawRail();
       select(selected, false);
@@ -3657,6 +3778,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
       contribution: clean(row.dataset.contribution) || role,
       tools: clean(row.dataset.tools),
       image: `images/thumbs/${slug(title)}_v001.webp`,
+      imageAlt: clean(row.dataset.imageAlt) || `${title} project still`,
       youtube: youtubeLink ? youtubeEmbed(youtubeLink.href) : '',
       instagram: instagramLink?.href || '',
       links: rowLinks.map(a => ({ label: clean(a.textContent), href: a.href, target: a.target }))
