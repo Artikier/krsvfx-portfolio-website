@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Kieran Schofield | VFX Generalist</title>
+<title>Kieran Schofield VFX Artist</title>
 
-<meta name="description" content="Kieran Schofield is a UK-based VFX Generalist at CHIEF Productions. Explore VFX and compositing credits for Marks &amp; Spencer (M&amp;S) Food / Eat Well, Blinds Direct and Karen Betts.">
+<meta name="description" content="Kieran Schofield, VFX artist working as a VFX Generalist at CHIEF Productions in Manchester, with experience in 3D modelling, Houdini, Maya, Nuke, FX, CG, lighting, rendering and compositing.">
 <meta name="author" content="Kieran Schofield">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#060608">
@@ -18,13 +18,13 @@
 <meta property="og:url" content="https://kieranschofield.com/">
 <meta property="og:site_name" content="Kieran Schofield VFX Portfolio">
 <meta property="og:locale" content="en_GB">
-<meta property="og:title" content="Kieran Schofield | VFX Generalist">
-<meta property="og:description" content="UK-based VFX Generalist at CHIEF Productions. Explore professional work, compositing, CG, Houdini FX and selected portfolio projects.">
+<meta property="og:title" content="Kieran Schofield VFX Artist">
+<meta property="og:description" content="Kieran Schofield, VFX artist working as a VFX Generalist at CHIEF Productions in Manchester, with experience in 3D modelling, Houdini, Maya, Nuke, FX, CG, lighting, rendering and compositing.">
 <meta property="og:image" content="https://kieranschofield.com/images/showreel-poster.jpg">
 <meta property="og:image:alt" content="Kieran Schofield VFX showreel poster">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kieran Schofield | VFX Generalist">
-<meta name="twitter:description" content="UK-based VFX Generalist at CHIEF Productions. Professional credits, personal projects and VFX portfolio.">
+<meta name="twitter:title" content="Kieran Schofield VFX Artist">
+<meta name="twitter:description" content="Kieran Schofield, VFX artist working as a VFX Generalist at CHIEF Productions in Manchester, with experience in 3D modelling, Houdini, Maya, Nuke, FX, CG, lighting, rendering and compositing.">
 <meta name="twitter:image" content="https://kieranschofield.com/images/showreel-poster.jpg">
 <meta name="twitter:image:alt" content="Kieran Schofield VFX showreel poster">
 <script type="application/ld+json">
@@ -1692,6 +1692,8 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
   position: relative;
   display: inline-flex;
   align-items: center;
+  width: auto;
+  height: auto;
   min-height: 32px;
   padding: 7px 10px;
   border: 1px solid #394655;
@@ -1791,6 +1793,7 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
   background: linear-gradient(135deg,#19212b,#080a0d);
 }
 .showcase-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.showcase-thumb--contain img { object-fit: contain; }
 .showcase-thumb-fallback {
   position: absolute;
   inset: 0;
@@ -2052,6 +2055,27 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
 .reel-dialog-close:hover { border-color: var(--site-primary); color: var(--site-primary); }
 .reel-dialog-video { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
 .reel-dialog-video iframe { display: block; width: 100%; height: 100%; border: 0; }
+.document-preview-dialog { flex-direction: column; width: min(1000px, calc(100vw - 40px)); height: min(900px, calc(100dvh - 32px)); }
+.document-preview-dialog[open] { display: flex; }
+.document-preview-pages { flex: 1 1 auto; min-height: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; background: #262d36; -webkit-overflow-scrolling: touch; touch-action: pan-y pinch-zoom; }
+.document-preview-page { display: block; width: 100%; max-width: 900px; height: auto; margin: 0 auto 10px; background: #fff; }
+.document-preview-page:last-child { margin-bottom: 0; }
+.document-preview-download { display: block; width: max-content; margin: 10px auto 0; color: #b9c9dc; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
+.document-preview-download:hover,
+.document-preview-download:focus-visible { color: var(--site-primary); }
+.document-preview-error { margin: 16px; color: #edf4fc; font-size: 14px; line-height: 1.5; text-align: center; }
+html.document-preview-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+html.document-preview-open body {
+  position: fixed;
+  top: var(--document-preview-scroll-y, 0px);
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
 .project-showcase { position: static; left: auto; width: 100%; margin: 30px auto 42px; transform: none; scroll-margin-top: calc(var(--header-h, 78px) + 18px); }
 .showcase-main { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); scroll-margin-top: calc(var(--header-h, 78px) + 18px); }
 .showcase-collection-head { display: none; }
@@ -2218,6 +2242,8 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
   .showcase-tool { flex-basis: 145px; }
   .reel-dialog { width: min(calc(100vw - 20px), calc((100dvh - 96px) * 16 / 9)); padding: 10px; }
   .reel-dialog-head h2 { padding: 0 38px; }
+  .document-preview-dialog { width: calc(100vw - 20px); padding: 10px; }
+  .document-preview-dialog { width: calc(100vw - 20px); height: calc(100dvh - 32px); }
   #university > .collection-heading,
   #university-showcase { width: calc(100% - 30px); }
 }
@@ -2266,7 +2292,7 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
   <span class="hero-title-initial">K</span>ieran <span class="hero-title-initial">S</span>chofield
   <span class="hero-subtitle">VFX Generalist</span>
 </h1>
-<p>I’m Kieran, a UK-based VFX Generalist currently working at CHIEF Productions.</p>
+<p>UK-based VFX Generalist currently working at CHIEF Productions.</p>
 <div class="hero-actions" aria-label="Showreel and contact options">
 <button class="hero-action hero-action-primary" id="open-reel" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 6 10 6-10 6z"/></svg><span>Watch showreel</span></button>
 <a class="hero-action" href="https://vimeo.com/1117211289" rel="noreferrer" target="_blank"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M23.9765 6.4168c-.105 2.338-1.739 5.5429-4.894 9.6088-3.2679 4.247-6.0258 6.3699-8.2898 6.3699-1.409 0-2.578-1.294-3.553-3.881l-1.9179-7.1138c-.719-2.584-1.488-3.878-2.312-3.878-.179 0-.806.378-1.8809 1.132l-1.129-1.457a315.06 315.06 0 003.501-3.1279c1.579-1.368 2.765-2.085 3.5539-2.159 1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.5069.5389 2.45 1.1309 3.674 1.7759 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.8679 3.434-5.7568 6.7619-5.6368 2.4729.06 3.6279 1.664 3.4929 4.7969z"/></svg><span>Watch on Vimeo</span></a>
@@ -2278,13 +2304,18 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
 <div class="reel-dialog-head"><h2 id="reel-dialog-title"><span class="reel-dialog-title-initial">K</span>ieran <span class="reel-dialog-title-initial">S</span>chofield VFX Generalist</h2><button aria-label="Close showreel" class="reel-dialog-close" type="button">×</button></div>
 <div class="reel-dialog-video"><iframe allow="autoplay; fullscreen; picture-in-picture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Kieran Schofield showreel — Vimeo"></iframe></div>
 </dialog>
+<dialog aria-labelledby="document-preview-title" class="reel-dialog document-preview-dialog" id="document-preview-dialog">
+<div class="reel-dialog-head"><h2 id="document-preview-title">Development document</h2><button aria-label="Close document preview" class="reel-dialog-close" type="button">×</button></div>
+<div aria-label="Development document pages" class="document-preview-pages" id="document-preview-pages" role="region" tabindex="0"></div>
+<a class="document-preview-download" download id="document-preview-download">Download original PDF</a>
+</dialog>
 <div class="rule"></div>
 <section class="professional section" id="professional">
 <div class="wrap">
 <div class="section-head"><div class="section-title-group"><h2 id="professional-title"><svg aria-hidden="true" class="section-title-icon" focusable="false" viewBox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="7"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg>Professional Work</h2><p class="section-copy">Official release links for the projects featured below can be found alongside each piece.</p></div></div>
 <div id="professional-showcase-mount"></div>
 <div class="professional-list">
-<article class="prof-row" data-contribution="Compositing, roto cleanup and keying." data-image-alt="Warm living room interior with window blinds in a Blinds Direct commercial still." data-prof-categories="commercial" data-tools="Nuke; ComfyUI">
+<article class="prof-row" data-contribution="Compositing, roto cleanup and keying." data-image-alt="Warm living room interior with window blinds in a Blinds Direct commercial still." data-prof-categories="commercial" data-thumbnail-fit="contain" data-tools="Nuke; ComfyUI">
 <div><h3>Blinds Direct</h3><p>2026 · CHIEF Productions / The Longhouse Post</p><p class="prof-contribution">Compositing, roto cleanup and keying.</p></div>
 <div class="credit"><span>Kieran Schofield</span> — <span class="credit-role">VFX Generalist</span></div>
 <a class="text-link" href="https://youtu.be/p0dhbSnRBM0" rel="noreferrer" target="_blank">YouTube</a>
@@ -2861,7 +2892,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     { collection: '#university', title: 'Compositing Fundamentals', videos: ['_M98JmJpovM'] },
     { collection: '#university', title: 'Team Project', videos: ['lCwr5S8km90'] },
     { collection: '#university', title: 'Compositing', videos: ['RJr2BOJPygM'] },
-    { collection: '#university', title: 'Modelling', videos: ['mFF74M3W39o'], folder: 'y2-modelling', imageCount: 8, links: [['Development document', 'https://drive.google.com/file/d/1Gr6wOm8KsSYgQDMzgusLgFJH7c4W2Kh8/view?usp=drive_link']] },
+    { collection: '#university', title: 'Modelling', videos: ['mFF74M3W39o'], folder: 'y2-modelling', imageCount: 8, links: [['Development document', 'documents/modelling-development.pdf']] },
     { collection: '#university', title: 'Character Rigging', videos: ['LB5qKue3I5s', '42H9PJotWFw'] },
     { collection: '#university', title: 'FX', videos: ['Bw0k-IHVWv4'] },
     { collection: '#university', title: 'Thematic Project', folder: 'y2-thematic-project', imageCount: 3 },
@@ -2946,6 +2977,84 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     if (/linkedin\.com/i.test(link.href)) return 'linkedin';
     if (/vimeo\.com/i.test(link.href)) return 'vimeo';
     return '';
+  }
+  const documentPreviewDialog = document.getElementById('document-preview-dialog');
+  const documentPreviewPages = document.getElementById('document-preview-pages');
+  const documentPreviewDownload = document.getElementById('document-preview-download');
+  const documentPreviewTitle = document.getElementById('document-preview-title');
+  const documentPreviewClose = documentPreviewDialog?.querySelector('.reel-dialog-close');
+  if (!documentPreviewDialog || !documentPreviewPages || !documentPreviewDownload || !documentPreviewTitle || !documentPreviewClose) {
+    throw new Error('The project document preview is missing required dialog elements.');
+  }
+  let documentPreviewOpener = null;
+  let documentPreviewScrollY = 0;
+  const closeDocumentPreview = () => {
+    if (documentPreviewDialog.open) documentPreviewDialog.close();
+  };
+  documentPreviewClose.addEventListener('click', closeDocumentPreview);
+  documentPreviewDialog.addEventListener('click', event => {
+    if (event.target === documentPreviewDialog) closeDocumentPreview();
+  });
+  documentPreviewDialog.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && documentPreviewDialog.open) {
+      event.preventDefault();
+      closeDocumentPreview();
+    }
+  });
+  documentPreviewDialog.addEventListener('cancel', event => {
+    event.preventDefault();
+    closeDocumentPreview();
+  });
+  function renderDocumentPages(link, pdfUrl) {
+    const pageCount = 16;
+    const pagesBaseUrl = pdfUrl.replace(/\.pdf$/i, '-pages/');
+    let errorShown = false;
+    documentPreviewPages.replaceChildren();
+    documentPreviewPages.scrollTop = 0;
+    documentPreviewDownload.href = pdfUrl;
+    documentPreviewDownload.download = pdfUrl.split('/').pop() || 'document.pdf';
+    for (let page = 1; page <= pageCount; page += 1) {
+      const image = node('img', 'document-preview-page');
+      image.width = 1275;
+      image.height = 1650;
+      image.alt = `${link.label}, page ${page} of ${pageCount}`;
+      image.decoding = 'async';
+      image.loading = page <= 2 ? 'eager' : 'lazy';
+      image.addEventListener('error', () => {
+        if (errorShown) return;
+        errorShown = true;
+        documentPreviewPages.prepend(node('p', 'document-preview-error', 'Some document pages could not be displayed. Download the original PDF to view the complete document.'));
+      }, { once: true });
+      image.src = new URL(`page-${String(page).padStart(2, '0')}.webp`, pagesBaseUrl).href;
+      documentPreviewPages.append(image);
+    }
+  }
+  documentPreviewDialog.addEventListener('close', () => {
+    document.documentElement.classList.remove('document-preview-open');
+    document.documentElement.style.removeProperty('--document-preview-scroll-y');
+    documentPreviewPages.replaceChildren();
+    window.scrollTo({ top: documentPreviewScrollY, behavior: 'instant' });
+    documentPreviewScrollY = 0;
+    if (documentPreviewOpener?.isConnected) documentPreviewOpener.focus({ preventScroll: true });
+    documentPreviewOpener = null;
+  });
+  function localPdfUrl(href) {
+    const pdfUrl = new URL(href, document.baseURI);
+    const documentsUrl = new URL('documents/', document.baseURI);
+    if (pdfUrl.origin !== documentsUrl.origin ||
+      !pdfUrl.pathname.startsWith(documentsUrl.pathname) ||
+      !/\.pdf$/i.test(pdfUrl.pathname)) return '';
+    return pdfUrl.href;
+  }
+  function openDocumentPreview(link, opener, pdfUrl) {
+    documentPreviewTitle.textContent = link.label;
+    renderDocumentPages(link, pdfUrl);
+    documentPreviewOpener = opener;
+    documentPreviewScrollY = window.scrollY;
+    document.documentElement.style.setProperty('--document-preview-scroll-y', `${-documentPreviewScrollY}px`);
+    documentPreviewDialog.showModal();
+    document.documentElement.classList.add('document-preview-open');
+    documentPreviewClose.focus({ preventScroll: true });
   }
   function makeFeature(id, label, mount, records, options = {}) {
     const root = node('section', 'project-showcase');
@@ -3131,25 +3240,41 @@ document.querySelectorAll('.collection-block').forEach(collection => {
       state.mediaIndex = 0;
       mediaCount.textContent = '';
     }
+    function mediaPlatform(item) {
+      const source = item.src || '';
+      if (item.type === 'youtube' || /(?:youtube(?:-nocookie)?\.com|youtu\.be)/i.test(source)) return 'YouTube';
+      if (item.type === 'instagram' || /instagram\.com/i.test(source)) return 'Instagram';
+      if (/vimeo\.com/i.test(source)) return 'Vimeo';
+      return item.type === 'video' ? 'Video' : '';
+    }
     function renderMediaPicker() {
       mediaRail.replaceChildren();
       const hasSingleVideo = state.media.length === 1
         && ['youtube', 'video', 'instagram'].includes(state.media[0].type);
       mediaPicker.hidden = state.media.length < 2 && !hasSingleVideo;
       if (mediaPicker.hidden) return;
-      let videoCount = 0;
+      const platformCounts = new Map();
+      const platformIndexes = new Map();
       let stillCount = 0;
+      state.media.forEach(item => {
+        const platform = mediaPlatform(item);
+        if (platform) platformCounts.set(platform, (platformCounts.get(platform) || 0) + 1);
+      });
       state.media.forEach((item, index) => {
         const type = item.type === 'youtube' || item.type === 'video' || item.type === 'instagram' ? 'VIDEO' : 'STILL';
-          const labelText = item.type === 'instagram'
-            ? 'Instagram'
-            : item.type === 'youtube' || item.type === 'video'
-            ? `Video ${++videoCount}`
-            : `Still ${++stillCount}`;
-          const preview = node('span', 'showcase-media-thumb-preview', type);
-          const previewSrc = item.type === 'youtube'
-            ? `https://img.youtube.com/vi/${youtubeVideoId(item.src)}/hqdefault.jpg`
-            : item.type === 'image' ? item.src : item.poster;
+        const platform = mediaPlatform(item);
+        let labelText;
+        if (platform) {
+          const platformIndex = (platformIndexes.get(platform) || 0) + 1;
+          platformIndexes.set(platform, platformIndex);
+          labelText = platformCounts.get(platform) > 1 ? `${platform} ${platformIndex}` : platform;
+        } else {
+          labelText = `Still ${++stillCount}`;
+        }
+        const preview = node('span', 'showcase-media-thumb-preview', type);
+        const previewSrc = item.type === 'youtube'
+          ? `https://img.youtube.com/vi/${youtubeVideoId(item.src)}/hqdefault.jpg`
+          : item.type === 'image' ? item.src : item.poster;
         if (previewSrc) {
           const image = node('img');
           image.alt = item.alt || '';
@@ -3205,9 +3330,11 @@ document.querySelectorAll('.collection-block').forEach(collection => {
             if (src) items = [{ src, type: 'video', poster: video.getAttribute('poster') || '' }];
           }
         }
-      } else if (record.youtube) items = [{ src: record.youtube, type: 'youtube' }];
-      else if (record.instagram) items = [{ src: record.instagram, type: 'instagram', poster: record.image || '' }];
-      else if (record.image) items = [{ src: record.image, type: 'image', alt: record.imageAlt || `${record.title} project still` }];
+      } else {
+        if (record.youtube) items.push({ src: record.youtube, type: 'youtube' });
+        if (record.instagram) items.push({ src: record.instagram, type: 'instagram', poster: record.image || '' });
+        if (!items.length && record.image) items = [{ src: record.image, type: 'image', alt: record.imageAlt || `${record.title} project still` }];
+      }
       if (!items.length) { placeholderMedia(); return; }
       state.media = items;
       state.mediaIndex = (index + items.length) % items.length;
@@ -3365,14 +3492,30 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         return [...videoLinks, ...projectLinks];
       })() : record.links || [];
       externalLinks.forEach(link => {
+        const pdfUrl = localPdfUrl(link.href);
+        if (pdfUrl) {
+          const anchor = node('a', '', link.label);
+          anchor.href = pdfUrl;
+          anchor.setAttribute('aria-haspopup', 'dialog');
+          anchor.setAttribute('aria-controls', documentPreviewDialog.id);
+          anchor.addEventListener('click', event => {
+            event.preventDefault();
+            openDocumentPreview(link, anchor, pdfUrl);
+          });
+          links.append(anchor);
+          return;
+        }
         const iconType = iconTypeForLink(link);
         const anchor = node('a', iconType ? 'social-icon-link' : '', iconType ? undefined : link.label);
         anchor.href = link.href;
         anchor.target = link.target || '_blank';
         anchor.rel = 'noreferrer';
         if (iconType) {
-          anchor.dataset.label = link.label;
-          anchor.setAttribute('aria-label', `${link.label} (opens in a new tab)`);
+          const hoverLabel = options.showSocialLinkTooltips && ['instagram', 'youtube'].includes(iconType)
+            ? `Watch on ${iconType === 'youtube' ? 'YouTube' : 'Instagram'}`
+            : '';
+          anchor.dataset.label = hoverLabel || link.label;
+          anchor.setAttribute('aria-label', `${hoverLabel || link.label} (opens in a new tab)`);
           anchor.append(socialIcon(iconType));
         }
         links.append(anchor);
@@ -3394,6 +3537,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         button.setAttribute('aria-pressed', 'false');
         button.setAttribute('aria-label', `Show ${record.card ? projectTitle(record.card) : record.title}`);
         const thumb = node('span', 'showcase-thumb');
+        if (record.thumbnailFit === 'contain') thumb.classList.add('showcase-thumb--contain');
         const img = node('img');
         img.alt = record.card
           ? record.card.querySelector('.image-frame img')?.alt || `${projectTitle(record.card)} project thumbnail`
@@ -3523,6 +3667,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
       tools: clean(row.dataset.tools),
       image: `images/thumbs/${slug(title)}_v001.webp`,
       imageAlt: clean(row.dataset.imageAlt) || `${title} project still`,
+      thumbnailFit: row.dataset.thumbnailFit || '',
       youtube: youtubeLink ? youtubeEmbed(youtubeLink.href) : '',
       instagram: instagramLink?.href || '',
       links: rowLinks.map(a => ({ label: clean(a.textContent), href: a.href, target: a.target }))
@@ -3530,7 +3675,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   });
   const professionalMount = document.getElementById('professional-showcase-mount');
   const professionalState = professionalMount
-    ? makeFeature('professional-showcase', 'Professional work', professionalMount, professionalRecords, { hideOverview: true, secondFact: 'role' })
+    ? makeFeature('professional-showcase', 'Professional work', professionalMount, professionalRecords, { hideOverview: true, secondFact: 'role', showSocialLinkTooltips: true })
     : null;
 
   const personalCards = [...document.querySelectorAll('#personal .project-grid > .project')];
