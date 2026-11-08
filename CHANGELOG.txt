@@ -1,6 +1,7 @@
 2026-11-08
 - Refine professional project details and descriptions for accuracy.
 - Add project navigation arrows beside project links.
+- Add responsive scroll arrows to mobile collection rails.
 
 2026-11-07
 - Update professional project details and search content for accuracy.
