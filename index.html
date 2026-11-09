@@ -2356,22 +2356,13 @@ html.document-preview-open body {
 <div class="section-head"><div class="section-title-group"><h2 id="professional-title"><svg aria-hidden="true" class="section-title-icon" focusable="false" viewBox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="7"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg>Professional Work</h2><p class="section-copy">Official release links for the projects featured below can be found alongside each piece.</p></div></div>
 <div id="professional-showcase-mount"></div>
 <div class="professional-list">
-<<<<<<< /tmp/krsvfx-merge.VPeqdX/current
-<article class="prof-row" data-contribution="Compositing, roto cleanup and keying." data-image-alt="Warm living room interior with window blinds in a Blinds Direct commercial still." data-prof-categories="commercial" data-thumbnail-fit="contain" data-tools="Nuke; ComfyUI">
-<div><h3>Blinds Direct</h3><p>2026 · CHIEF Productions / The Longhouse Post</p><p class="prof-contribution">Compositing, roto cleanup and keying.</p></div>
-=======
 <article class="prof-row" data-contribution="Nuke compositing support: roto mattes and cleanup with ComfyUI; keying in Nuke; camera tracking in 3D Equalizer." data-image-alt="Warm living room interior with window blinds in a Blinds Direct commercial still." data-prof-categories="commercial" data-thumbnail-fit="contain" data-tools="Nuke (keying); ComfyUI (roto mattes and cleanup); 3D Equalizer (camera tracking)">
 <div><h3>Blinds Direct</h3><p>2026 · CHIEF Productions / The Longhouse Post</p><p class="prof-contribution">Nuke compositing support: roto mattes and cleanup with ComfyUI; keying in Nuke; camera tracking in 3D Equalizer.</p></div>
->>>>>>> /home/kieranmsi/Desktop/krsvfx-portfolio-website-main/index.html
 <div class="credit"><span>Kieran Schofield</span> — <span class="credit-role">VFX Generalist</span></div>
 <a class="text-link" href="https://youtu.be/p0dhbSnRBM0" rel="noreferrer" target="_blank">YouTube</a>
 </article>
 <article class="prof-row" data-contribution="Nuke compositing support: roto and cleanup with Nuke CopyCat; render wrangling and rendering support with Arnold (Maya) and Karma (Houdini)." data-image-alt="Smiling man in a red shirt among people in an M&amp;S Food campaign still." data-prof-categories="commercial" data-thumbnail-cache-key="2" data-tools="Nuke Copycat (roto and cleanup); Arnold; Maya (renders); Karma; Houdini (assisted renders)">
-<<<<<<< /tmp/krsvfx-merge.VPeqdX/current
-<div><h3>Marks &amp; Spencer Food / Eat Well</h3><p>2026 · M&amp;S Food / Eat Well · CHIEF Productions / The Longhouse Post</p><p class="prof-contribution">Nuke compositing support: roto and cleanup with Nuke CopyCat; render wrangling and rendering support with Arnold (Maya) and Karma (Houdini).</p></div>
-=======
 <div><h3>Marks &amp; Spencer Food / Eat Well</h3><p>2026 · CHIEF Productions / The Longhouse Post</p><p class="prof-contribution">Nuke compositing support: roto and cleanup with Nuke CopyCat; render wrangling and rendering support with Arnold (Maya) and Karma (Houdini).</p></div>
->>>>>>> /home/kieranmsi/Desktop/krsvfx-portfolio-website-main/index.html
 <div class="credit"><span>Kieran Schofield</span> — <span class="credit-role">Freelance VFX Artist</span></div>
 <div class="prof-links"><a class="text-link" href="https://www.instagram.com/wearechief/reel/DZNGUyOsxz6/?hl=en-gb" rel="noreferrer" target="_blank">Instagram</a><a class="text-link" href="https://www.youtube.com/watch?v=qKBI3Aob0bA" rel="noreferrer" target="_blank">YouTube</a></div>
 </article>
@@ -3303,11 +3294,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
       const source = item.src || '';
       if (item.type === 'youtube' || /(?:youtube(?:-nocookie)?\.com|youtu\.be)/i.test(source)) return 'YouTube';
       if (item.type === 'instagram' || /instagram\.com/i.test(source)) return 'Instagram';
-<<<<<<< /tmp/krsvfx-merge.VPeqdX/current
-      if (/vimeo\.com/i.test(source)) return 'Vimeo';
-=======
       if (item.type === 'vimeo' || /vimeo\.com/i.test(source)) return 'Vimeo';
->>>>>>> /home/kieranmsi/Desktop/krsvfx-portfolio-website-main/index.html
       return item.type === 'video' ? 'Video' : '';
     }
     function renderMediaPicker() {
@@ -3324,11 +3311,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         if (platform) platformCounts.set(platform, (platformCounts.get(platform) || 0) + 1);
       });
       state.media.forEach((item, index) => {
-<<<<<<< /tmp/krsvfx-merge.VPeqdX/current
-        const type = item.type === 'youtube' || item.type === 'video' || item.type === 'instagram' ? 'VIDEO' : 'STILL';
-=======
         const type = ['youtube', 'video', 'instagram', 'vimeo'].includes(item.type) ? 'VIDEO' : 'STILL';
->>>>>>> /home/kieranmsi/Desktop/krsvfx-portfolio-website-main/index.html
         const platform = mediaPlatform(item);
         let labelText;
         if (platform) {
@@ -3399,10 +3382,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         }
       } else {
         if (record.youtube) items.push({ src: record.youtube, type: 'youtube' });
-<<<<<<< /tmp/krsvfx-merge.VPeqdX/current
-=======
         if (record.vimeo) items.push({ src: record.vimeo, type: 'vimeo', poster: record.image || '' });
->>>>>>> /home/kieranmsi/Desktop/krsvfx-portfolio-website-main/index.html
         if (record.instagram) items.push({ src: record.instagram, type: 'instagram', poster: record.image || '' });
         if (!items.length && record.image) items = [{ src: record.image, type: 'image', alt: record.imageAlt || `${record.title} project still` }];
       }
@@ -3582,13 +3562,8 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         anchor.target = link.target || '_blank';
         anchor.rel = 'noreferrer';
         if (iconType) {
-<<<<<<< /tmp/krsvfx-merge.VPeqdX/current
-          const hoverLabel = options.showSocialLinkTooltips && ['instagram', 'youtube'].includes(iconType)
-            ? `Watch on ${iconType === 'youtube' ? 'YouTube' : 'Instagram'}`
-=======
           const hoverLabel = options.showSocialLinkTooltips && ['instagram', 'youtube', 'vimeo'].includes(iconType)
             ? `Watch on ${iconType === 'youtube' ? 'YouTube' : iconType === 'vimeo' ? 'Vimeo' : 'Instagram'}`
->>>>>>> /home/kieranmsi/Desktop/krsvfx-portfolio-website-main/index.html
             : '';
           anchor.dataset.label = hoverLabel || link.label;
           anchor.setAttribute('aria-label', `${hoverLabel || link.label} (opens in a new tab)`);
@@ -3749,12 +3724,8 @@ document.querySelectorAll('.collection-block').forEach(collection => {
       role,
       contribution: row.dataset.contribution?.trim() || role,
       tools: clean(row.dataset.tools),
-<<<<<<< /tmp/krsvfx-merge.VPeqdX/current
-      image: `images/thumbs/${slug(title)}_v001.webp${row.dataset.thumbnailCacheKey ? `?v=${row.dataset.thumbnailCacheKey}` : ''}`,
-=======
       thumbnailTitle: row.dataset.thumbnailTitle || title,
       image: row.dataset.imageSrc || `images/thumbs/${slug(title)}_v001.webp${row.dataset.thumbnailCacheKey ? `?v=${row.dataset.thumbnailCacheKey}` : ''}`,
->>>>>>> /home/kieranmsi/Desktop/krsvfx-portfolio-website-main/index.html
       imageAlt: clean(row.dataset.imageAlt) || `${title} project still`,
       thumbnailFit: row.dataset.thumbnailFit || '',
       youtube: youtubeLink ? youtubeEmbed(youtubeLink.href) : '',
