@@ -1,3 +1,10 @@
+2026-11-09
+- Add a hero scroll cue and improve Professional Work browsing.
+- Add a project entry with embedded video, software credits, and an external platform link.
+- Refine project descriptions, thumbnail alignment, and tool icons.
+- Add KIRI Engine and Polycam to the 3D software list.
+- Clarify project credits and contributions; refine timeline descriptions.
+
 2026-11-08
 - Refine professional project details and descriptions for accuracy.
 - Add project navigation arrows beside project links.
