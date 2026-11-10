@@ -1550,7 +1550,7 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
 }
 #about { background: light-dark(#f2f4f7, #0b0d12); }
 #professional .section-head { justify-content: center; text-align: center; }
-.showcase-instagram-link {
+.showcase-external-link {
   position: relative;
   display: grid;
   place-items: center;
@@ -1559,15 +1559,16 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
   overflow: hidden;
   color: #f0f4fa;
 }
-.showcase-instagram-link > img {
+.showcase-external-link > img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform .25s ease;
 }
-.showcase-instagram-link:hover > img { transform: scale(1.025); }
-.showcase-instagram-cta {
+.showcase-external-link:hover > img { transform: scale(1.025); }
+.showcase-external-link:focus-visible { outline: 2px solid var(--site-primary); outline-offset: -2px; }
+.showcase-external-cta {
   position: absolute;
   inset: 0;
   display: grid;
@@ -1580,7 +1581,7 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
   letter-spacing: .12em;
   text-transform: uppercase;
 }
-.showcase-instagram-icon {
+.showcase-external-icon {
   width: 44px;
   height: 44px;
   fill: none;
@@ -1589,6 +1590,7 @@ html { scroll-padding-top: calc(var(--header-h, 80px) + 12px); }
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+.showcase-external-icon.social-icon-vimeo { fill: currentColor; stroke: none; }
 
 /* Category descriptions sit beside their headings as small italic supporting text. */
 .section-title-group,
@@ -1990,7 +1992,7 @@ html.document-preview-open body {
 <div class="credit"><span>Kieran Schofield</span> — <span class="credit-role">Freelance VFX Artist</span></div>
 <a class="text-link" href="https://www.instagram.com/wearechief/reel/DbqCmo9Mc1j/?hl=en-gb" rel="noreferrer" target="_blank">Instagram</a>
 </article>
-<article class="prof-row" data-contribution="Placed markers for camera tracking, captured LiDAR scans of the set, and created camera previsualisation in Maya to plan and visualise camera movement ahead of filming." data-image-alt="Vimeo thumbnail for London Eye – Lenses – Breathtaking." data-image-src="https://i.vimeocdn.com/video/2188969667-f89918f58379343b06ed8dec00ed555a5c4d738966e9e086e0e1d7f6aaab2488-d_295x166?region=us" data-prof-categories="commercial" data-thumbnail-title="London Eye" data-tools="Maya (camera previsualisation); Kiri Engine (LiDAR scanning); Polycam (LiDAR scanning)">
+<article class="prof-row" data-contribution="Placed markers for camera tracking, captured LiDAR scans of the set, and created camera previsualisation in Maya to plan and visualise camera movement ahead of filming." data-image-alt="Vimeo thumbnail for London Eye – Lenses – Breathtaking." data-image-src="https://i.vimeocdn.com/video/2188969667-f89918f58379343b06ed8dec00ed555a5c4d738966e9e086e0e1d7f6aaab2488-d_1280x720?region=us" data-prof-categories="commercial" data-thumbnail-title="London Eye" data-tools="Maya (camera previsualisation); Kiri Engine (LiDAR scanning); Polycam (LiDAR scanning)" data-vimeo-external="true">
 <div><h3>London Eye – Lenses – Breathtaking</h3><p>2026 · CHIEF Productions / The Longhouse Post</p><p class="prof-contribution">On-set VFX Assistant: placed markers for camera tracking; captured LiDAR scans of the set; created camera previsualisation in Maya and Arnold to plan and visualise camera movement ahead of filming.</p></div>
 <div class="credit"><span>Kieran Schofield</span> — <span class="credit-role">Freelance on set VFX Assistant</span></div>
 <a class="text-link" href="https://vimeo.com/1217318440?fl=pl&amp;fe=cm" rel="noreferrer" target="_blank">Vimeo</a>
@@ -3001,7 +3003,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         }
       } else {
         if (record.youtube) items.push({ src: record.youtube, type: 'youtube' });
-        if (record.vimeo) items.push({ src: record.vimeo, type: 'vimeo', poster: record.image || '' });
+        if (record.vimeo) items.push({ src: record.vimeo, type: 'vimeo', poster: record.image || '', externalHref: record.vimeoExternal });
         if (record.instagram) items.push({ src: record.instagram, type: 'instagram', poster: record.image || '' });
         if (!items.length && record.image) items = [{ src: record.image, type: 'image', alt: record.imageAlt || `${record.title} project still` }];
       }
@@ -3010,7 +3012,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
       state.mediaIndex = (index + items.length) % items.length;
       const item = items[state.mediaIndex];
       stage.replaceChildren();
-      if (item.type === 'youtube' || item.type === 'vimeo') {
+      if (item.type === 'youtube' || (item.type === 'vimeo' && !item.externalHref)) {
         const frame = node('iframe');
         frame.src = item.src;
         frame.title = `${mediaTitle} — ${item.type === 'vimeo' ? 'Vimeo' : 'YouTube'} video`;
@@ -3019,37 +3021,21 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         frame.setAttribute('allowfullscreen', '');
         frame.referrerPolicy = 'strict-origin-when-cross-origin';
         stage.append(frame);
-      } else if (item.type === 'instagram') {
-        const link = node('a', 'showcase-instagram-link');
-        link.href = item.src;
+      } else if (item.type === 'instagram' || item.type === 'vimeo') {
+        const platform = item.type === 'vimeo' ? 'Vimeo' : 'Instagram';
+        const link = node('a', 'showcase-external-link');
+        link.href = item.externalHref || item.src;
         link.target = '_blank';
-        link.rel = 'noreferrer';
-        link.setAttribute('aria-label', `Watch ${mediaTitle} on Instagram (opens in a new tab)`);
+        link.rel = 'noopener noreferrer';
+        link.setAttribute('aria-label', `Watch ${mediaTitle} on ${platform} (opens in a new tab)`);
         const poster = node('img');
         poster.alt = '';
         poster.decoding = 'async';
         if (item.poster) setImageSource(poster, item.poster);
-        const callout = node('span', 'showcase-instagram-cta');
-        const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        icon.setAttribute('aria-hidden', 'true');
-        icon.setAttribute('class', 'showcase-instagram-icon');
-        icon.setAttribute('viewBox', '0 0 24 24');
-        const outline = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        outline.setAttribute('x', '3.5');
-        outline.setAttribute('y', '3.5');
-        outline.setAttribute('width', '17');
-        outline.setAttribute('height', '17');
-        outline.setAttribute('rx', '5');
-        const lens = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        lens.setAttribute('cx', '12');
-        lens.setAttribute('cy', '12');
-        lens.setAttribute('r', '4');
-        const flash = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        flash.setAttribute('cx', '17.5');
-        flash.setAttribute('cy', '6.5');
-        flash.setAttribute('r', '.75');
-        icon.append(outline, lens, flash);
-        callout.append(icon, node('span', '', 'Watch on Instagram'));
+        const callout = node('span', 'showcase-external-cta');
+        const icon = socialIcon(item.type);
+        icon.classList.add('showcase-external-icon');
+        callout.append(icon, node('span', '', `Watch on ${platform}`));
         link.append(poster, callout);
         stage.append(link);
       } else if (item.type === 'video') {
@@ -3349,6 +3335,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
       thumbnailFit: row.dataset.thumbnailFit || '',
       youtube: youtubeLink ? youtubeEmbed(youtubeLink.href) : '',
       vimeo: vimeoLink ? vimeoEmbed(vimeoLink.href) : '',
+      vimeoExternal: row.dataset.vimeoExternal === 'true' && vimeoLink ? vimeoLink.href : '',
       instagram: instagramLink?.href || '',
       links: rowLinks.map(a => ({ label: clean(a.textContent), href: a.href, target: a.target }))
     };

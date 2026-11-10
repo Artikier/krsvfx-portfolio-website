@@ -1,3 +1,6 @@
+2026-11-10
+- Link the London Eye project thumbnail directly to Vimeo instead of embedding the player.
+
 2026-11-09
 - Add a hero scroll cue and improve Professional Work browsing.
 - Add a project entry with embedded video, software credits, and an external platform link.
