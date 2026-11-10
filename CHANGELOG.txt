@@ -1,6 +1,3 @@
-2026-11-10
-- Prevent the background showreel from competing with other Vimeo videos.
-
 2026-11-09
 - Add a hero scroll cue and improve Professional Work browsing.
 - Add a project entry with embedded video, software credits, and an external platform link.
