@@ -2373,7 +2373,10 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   let lightboxPlayer = null;
   let vimeoPlayerApiPromise = null;
   let backgroundRestarting = false;
+  let backgroundStarted = false;
+  let heroVisible = false;
   let lastVideoTime = null;
+  const canPlayBackground = () => heroVisible && !document.hidden && !lightboxOpen;
 
   const loadVimeoPlayerAPI = () => {
     if (window.Vimeo?.Player) return Promise.resolve(window.Vimeo.Player);
@@ -2393,22 +2396,28 @@ document.querySelectorAll('.collection-block').forEach(collection => {
   };
 
   const restartBackground = () => {
-    if (!backgroundPlayer || !backgroundReady || backgroundRestarting) return;
+    if (!backgroundPlayer || !backgroundReady || backgroundRestarting || !canPlayBackground()) return;
     backgroundRestarting = true;
     backgroundPlayer.setCurrentTime(startAt)
-      .then(() => backgroundPlayer.play())
-      .then(() => heroVideo.classList.add('is-playing'))
+      .then(() => {
+        backgroundStarted = true;
+        if (canPlayBackground()) return backgroundPlayer.play();
+      })
       .catch(error => console.error('Unable to restart the background showreel.', error))
       .finally(() => { backgroundRestarting = false; });
   };
   const resumeBackground = () => {
-    if (!backgroundPlayer || !backgroundReady) return;
+    if (!backgroundPlayer || !backgroundReady || !canPlayBackground()) return;
     backgroundPlayer.play()
-      .then(() => heroVideo.classList.add('is-playing'))
       .catch(error => console.error('Unable to resume the background showreel.', error));
   };
+  const pauseBackground = () => {
+    if (!backgroundPlayer || !backgroundReady) return;
+    backgroundPlayer.pause()
+      .catch(error => console.error('Unable to pause the background showreel.', error));
+  };
   const loadBackground = () => {
-    if (reduceMotion || lightboxOpen || backgroundRequested) return;
+    if (reduceMotion || !canPlayBackground() || backgroundRequested) return;
     backgroundRequested = true;
     iframe.src = iframe.dataset.src;
     loadVimeoPlayerAPI()
@@ -2423,23 +2432,26 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         });
         backgroundPlayer.on('pause', () => {
           lastVideoTime = null;
-          if (!lightboxOpen) resumeBackground();
+        });
+        backgroundPlayer.on('play', () => {
+          if (!canPlayBackground()) pauseBackground();
         });
         backgroundPlayer.on('ended', restartBackground);
         return backgroundPlayer.ready()
           .then(() => {
             backgroundReady = true;
-            restartBackground();
+            if (canPlayBackground()) restartBackground();
+            else pauseBackground();
           });
       })
       .catch(error => console.error('Unable to initialize the background showreel.', error));
   };
   const queueBackgroundLoad = () => {
-    if (reduceMotion || !poster.complete || backgroundLoadQueued || backgroundRequested) return;
+    if (reduceMotion || !canPlayBackground() || !poster.complete || backgroundLoadQueued || backgroundRequested) return;
     backgroundLoadQueued = true;
     const loadWhenIdle = () => {
       backgroundLoadQueued = false;
-      if (lightboxOpen) return;
+      if (!canPlayBackground()) return;
       loadBackground();
     };
     window.setTimeout(() => {
@@ -2466,6 +2478,7 @@ document.querySelectorAll('.collection-block').forEach(collection => {
 
   openButton.addEventListener('click', () => {
     lightboxOpen = true;
+    pauseBackground();
     dialogFrame.src = lightboxSource;
     dialog.showModal();
     loadVimeoPlayerAPI()
@@ -2501,7 +2514,8 @@ document.querySelectorAll('.collection-block').forEach(collection => {
         .then(() => player.unload())
         .catch(error => console.error('Unable to unload the showreel pop-out.', error));
     }
-    if (backgroundReady) resumeBackground();
+    if (backgroundReady && backgroundStarted) resumeBackground();
+    else if (backgroundReady) restartBackground();
     else queueBackgroundLoad();
   };
   const closeLightbox = () => {
@@ -2521,6 +2535,39 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     closeLightbox();
   });
   dialog.addEventListener('click', event => { if (event.target === dialog) closeLightbox(); });
+  const syncBackgroundVisibility = () => {
+    if (!canPlayBackground()) {
+      pauseBackground();
+    } else if (backgroundReady && backgroundStarted) {
+      resumeBackground();
+    } else if (backgroundReady) {
+      restartBackground();
+    } else {
+      queueBackgroundLoad();
+    }
+  };
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      const visible = entries[0].isIntersecting && entries[0].intersectionRatio >= 0.2;
+      if (visible === heroVisible) return;
+      heroVisible = visible;
+      syncBackgroundVisibility();
+    }, { threshold: 0.2 }).observe(heroVideo);
+  } else {
+    const updateHeroVisibility = () => {
+      const rect = heroVideo.getBoundingClientRect();
+      const visibleHeight = Math.max(0, Math.min(rect.bottom, innerHeight) - Math.max(rect.top, 0));
+      const visible = rect.width > 0 && rect.height > 0 && visibleHeight / rect.height >= 0.2;
+      if (visible === heroVisible) return;
+      heroVisible = visible;
+      syncBackgroundVisibility();
+    };
+    addEventListener('scroll', updateHeroVisibility, { passive: true });
+    addEventListener('resize', updateHeroVisibility, { passive: true });
+    addEventListener('hashchange', updateHeroVisibility);
+    updateHeroVisibility();
+  }
+  document.addEventListener('visibilitychange', syncBackgroundVisibility);
 })();
 </script>
 <script>
