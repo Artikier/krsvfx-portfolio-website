@@ -744,7 +744,7 @@ h2 { font-family:var(--site-font-heading); font-size:calc(clamp(32px,4vw,46px) *
   backdrop-filter: blur(14px);
 }
 html { scroll-padding-top: 86px; }
-#showreel, #professional, #work, #about, #contact, #university { scroll-margin-top: 86px; }
+#showreel, #professional, #professional-work, #work, #personal-projects, #about, #contact, #university { scroll-margin-top: 86px; }
 .about-page {
   padding-top: clamp(34px, 4vw, 54px);
   padding-bottom: 30px;
@@ -1983,7 +1983,7 @@ html.document-preview-open body {
 </dialog>
 <div class="rule"></div>
 <section class="professional section" id="professional">
-<div class="wrap">
+<div class="wrap" id="professional-work">
 <div class="section-head"><div class="section-title-group"><h2 id="professional-title"><svg aria-hidden="true" class="section-title-icon" focusable="false" viewBox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="7"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg>Professional Work</h2><p class="section-copy">Official release links for the projects featured below can be found alongside each piece.</p></div></div>
 <div id="professional-showcase-mount"></div>
 <div class="professional-list">
@@ -2012,7 +2012,7 @@ html.document-preview-open body {
 <div class="rule"></div>
 <section class="section" id="work">
 <div class="wrap">
-<div aria-labelledby="personal-title" class="collection-block personal-collection" id="personal"><div class="collection-heading"><h2 class="collection-title" id="personal-title"><svg aria-hidden="true" class="collection-heading-icon" focusable="false" viewBox="0 0 24 24"><path d="M3 6.5h7l2 2h9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m15.5 11 .8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8z"/></svg>Personal Projects</h2><p class="collection-copy">Projects created independently for research, experimentation and personal development.</p></div><div id="personal-showcase-mount"></div><div class="project-grid" id="project-grid">
+<div aria-labelledby="personal-title" class="collection-block personal-collection" id="personal"><div class="collection-heading" id="personal-projects"><h2 class="collection-title" id="personal-title"><svg aria-hidden="true" class="collection-heading-icon" focusable="false" viewBox="0 0 24 24"><path d="M3 6.5h7l2 2h9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m15.5 11 .8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8z"/></svg>Personal Projects</h2><p class="collection-copy">Projects created independently for research, experimentation and personal development.</p></div><div id="personal-showcase-mount"></div><div class="project-grid" id="project-grid">
 <article aria-controls="personal-showcase" aria-label="Open project: Silhouette Rotoscoping" class="project" data-date="November 2025" data-thumb="images/thumbs/borisfx-silhouette-rotoscoping-study_v001.webp" data-description="This is a breakdown of a personal study using BorisFX Silhouette. The main goal was to explore both AI-assisted and manual rotoscoping workflows.
 
 Overall, I’m happy with both outcomes for these shots. I found the workflow intuitive and similar to, but more streamlined than, my prior experience with rotoscoping techniques in Nuke across both manual and AI-assisted methods." data-role="All work shown." data-summary="A Silhouette study exploring manual and AI-assisted rotoscoping for CG integration." data-tools="BorisFX Silhouette (rotoscoping); Houdini (modelling); Substance Painter (texturing); Arnold (rendering); Nuke (3D/2D integration); Pexels (footage)." data-youtube="https://www.youtube-nocookie.com/embed/MnPaiLLBjjU?rel=0" id="pp-silhouette" role="button" tabindex="0">
@@ -2344,7 +2344,8 @@ document.querySelectorAll('.collection-block').forEach(collection => {
     document.body.classList.toggle('about-view', isAbout);
     if (isAbout) window.scrollTo(0, 0);
     else if (wasAbout) {
-      const target = links.find(l => l.a.hash === location.hash)?.el;
+      const target = links.find(l => l.a.hash === location.hash)?.el
+        || document.getElementById(location.hash.slice(1));
       requestAnimationFrame(() => {
         target?.scrollIntoView({ block: 'start' });
         spy();

@@ -1,4 +1,5 @@
 2026-11-13
+- Redirect legacy portfolio paths to their corresponding homepage sections.
 - Align the About introduction with the site description.
 - Improve the portfolio section heading hierarchy for accessibility.
 - Add an Apple touch icon for saved home-screen shortcuts.
