@@ -1,3 +1,11 @@
+2026-11-13
+- Align the About introduction with the site description.
+- Improve the portfolio section heading hierarchy for accessibility.
+- Add an Apple touch icon for saved home-screen shortcuts.
+- Add Little Black Book profile and professional project links.
+- Add scene-specific descriptions for portfolio gallery images and social previews.
+- Shorten the site description in search and social metadata.
+
 2026-11-10
 - Link the London Eye project thumbnail directly to Vimeo instead of embedding the player.
 
